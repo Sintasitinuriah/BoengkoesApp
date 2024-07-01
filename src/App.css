@@ -1,0 +1,189 @@
+.App {
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.navbar-logo img {
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin: 0 10px;
+}
+
+.navbar-menu li a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-menu li a:hover {
+  text-decoration: underline;
+}
+
+.navbar-menu li button {
+  background-color: #ffd700;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer; /* Ubah kursor menjadi pointer saat dihover */
+  border-radius: 5px; /* Agar tombol memiliki sudut yang sedikit melengkung */
+}
+
+.navbar-menu li button:hover {
+  background-color: #ffff00;
+}
+
+
+/* App.css */
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+}
+
+.text-content {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.text-content p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.text-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.text-content h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.text-content span {
+  font-weight: bold;
+}
+
+.button-yellow {
+  background-color: yellow;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.image-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-content img {
+  max-width: 60%;
+  height: auto;
+}
+
+.App-main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.App-main section {
+  margin-bottom: 40px;
+}
+
+.Hero {
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.Hero h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.Hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.Hero button {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.PopularStores {
+  text-align: center;
+}
+
+.PopularStores h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.stores {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.store {
+  width: 30%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.store img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.store h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.store p {
+  font-size: 16px;
+}
