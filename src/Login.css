@@ -1,66 +1,72 @@
-/* Login.css */
-
 .login-background {
-  background-image: url('./images/gambar.jpg'); 
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.5s ease-in-out; /* Tambahkan transisi untuk latar belakang */
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
 }
 
-.login-container {
-  background: rgba(255, 255, 255, 0.8); /* Warna latar belakang formulir dengan transparansi */
-  padding: 60px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Tambahkan transisi untuk formulir */
+.login-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
 }
 
-.login-container:hover {
-  transform: scale(1.05); /* Efek pembesaran saat dihover */
+.login-image {
+  flex: 1;
+}
+
+.login-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h1 {
+  color: #F4C21B;
+}
+
+.container p {
+  text-align: center;
 }
 
 .form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.form-group input {
+  margin-bottom: 16px;
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.form-control {
+  width: 100%;
+  padding: 120px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
+
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: white; /* Warna latar belakang putih saat hover */
+  color: black; /* Warna teks hitam saat hover */
 }
 
-.forgot-password,
-.forgot-password a,
-p a {
-  color: #007bff;
-  text-decoration: none;
+.forgot-password {
+  margin-top: 20px;
 }
 
-.forgot-password a:hover,
-p a:hover {
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.container a:hover {
   text-decoration: underline;
 }

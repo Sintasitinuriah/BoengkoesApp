@@ -17,6 +17,17 @@ function MainContent() {
         </div>
       </div>
 
+      <div className="doc">
+        <div className="urang">
+          <p>Halo sobat jajan!</p>
+          <h1>Temukan Produk Unik di Seluruh Indonesia</h1>
+          <h3><span>Boengkoes</span> siap bantu kamu buat cari produk unik dari setiap daerah Indonesia</h3>
+        </div>
+        <div className="atuh">
+          <img src={sampleImage} alt="Gambar" />
+        </div>
+      </div>
+
       <main className="App-main">
         <section className="Hero">
           <h2>Siap bantu kamu buat cari produk unik</h2>
