@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #333;
+  background-color: white;
   color: white;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .navbar-menu li a {
-  color: white;
+  color: rgb(9, 6, 6);
   text-decoration: none;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .navbar-menu li button {
-  background-color: #ffd700;
+  background-color: #F4C21B;
   color: black;
   padding: 5px 10px;
   border: none;
@@ -91,7 +91,7 @@
 }
 
 .button-yellow {
-  background-color: yellow;
+  background-color: #F4C21B;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -102,6 +102,7 @@
   flex: 1;
   display: flex;
   justify-content: center;
+
 }
 
 .image-content img {
@@ -119,32 +120,40 @@
   margin-bottom: 40px;
 }
 
+.mouse {
+  text-align: center; /* Meratakan teks ke tengah secara horizontal */
+  padding: 20px; /* Tambahkan padding jika diperlukan */
+}
+
 .Hero {
   text-align: center;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: white;
   border-radius: 10px;
 }
 
-.Hero h2 {
-  font-size: 28px;
+.karet {
+  display: flex;
+  justify-content: space-around; 
+  align-items: flex-start; /* Menyelaraskan elemen secara vertikal di bagian atas */
+  padding: 20px; /* Tambahkan padding jika diperlukan */
+}
+
+.kain {
+  flex: 0 1 30%; /* Setiap elemen mengambil 30% dari lebar kontainer dan dapat mengecil jika diperlukan */
+  text-align: center; /* Pusatkan teks dalam setiap elemen */
+  margin: 10px; /* Tambahkan margin jika diperlukan */
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+.kain img {
+  max-width: 100%; /* Pastikan gambar sesuai dengan lebar kontainer */
+  height: auto; /* Mempertahankan rasio aspek gambar */
   margin-bottom: 10px;
 }
 
-.Hero p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.Hero button {
-  background-color: #ff9800;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-}
 
 .PopularStores {
   text-align: center;
@@ -158,7 +167,8 @@
 .stores {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
+  align-items: flex-start; /* Menyelaraskan elemen secara vertikal di bagian atas */
+  padding: 20px;
 }
 
 .store {
@@ -168,6 +178,7 @@
   border-radius: 10px;
   margin-bottom: 20px;
   text-align: center;
+  flex: 0 1 30%; 
 }
 
 .store img {
@@ -187,23 +198,106 @@
 
 .doc {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Menyelaraskan konten secara vertikal di tengah */
+  justify-content: space-between; /* Memberikan ruang antara elemen */
   padding: 20px;
 }
 
 .atuh {
-  flex: 1;
-  margin-right: 20px; /* Jarak antara gambar dan teks */
+  flex: 0 0 auto; 
+  text-align: center; 
+  padding-right: 100px; 
 }
 
 .urang {
-  flex: 1;
+  flex: 1; 
+  text-align: right;
 }
 
 .atuh img {
-  max-width: 100%;
+  max-width: 350px; /* Memastikan gambar sesuai dengan kontainernya */
   height: auto;
-  border-radius: 10px; /* Opsional: Tambahkan radius pada sudut gambar */
 }
+
+.highlight {
+  color: rgb(235, 196, 24); /* Mengubah warna teks menjadi kuning */
+}
+
+.about {
+  display: flex;
+  align-items: center; /* Menyelaraskan elemen secara horizontal di tengah */
+  text-align: center; /* Mengatur teks menjadi rata tengah */
+  background-color: #27383B;
+  justify-content: space-between; /* Menyelaraskan elemen secara horizontal dengan jarak di antara mereka */
+  padding: 20px;
+}
+
+.container{
+  display: flex;
+  flex: 1;
+  flex-direction: column; /* Mengatur elemen dalam arah kolom */
+  align-items: flex-start; /* Menyelaraskan elemen secara horizontal di tengah */
+  text-align: right; /* Mengatur teks menjadi rata tengah */
+  color: white;
+  margin-right: 255px;
+}
+
+.container p {
+  align-items: flex-start;
+  display: flex;
+  text-align: right;
+}
+
+.container ul {
+  list-style-type: none; /* Menghilangkan bullet atau marker dari daftar */
+  padding: 0; 
+}
+.kabel {
+  display: flex;
+  flex: 1;
+  flex-direction: column; /* Mengatur elemen dalam arah kolom */
+  align-items: flex-start; /* Menyelaraskan elemen secara horizontal di tengah */
+  text-align: left; /* Mengatur teks menjadi rata tengah */
+  color: white;
+}
+
+.SGM {
+  margin-right: 20px; 
+  display: flex;
+  flex: 1;
+  flex-direction: column; /* Mengatur elemen dalam arah kolom */
+  align-items: flex-start; /* Menyelaraskan elemen secara horizontal di tengah */
+  text-align: left; /* Mengatur teks menjadi rata tengah */
+  color: white;
+}
+
+.kabel {
+  margin-left: 20px; /* Menambahkan margin kiri untuk jarak antara elemen */
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* Menyelaraskan logo dan teks secara vertikal */
+}
+
+.logo img {
+  max-width: 40px; /* Mengatur ukuran maksimum logo */
+  height: auto;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.logo h1 {
+  margin-left: 10px; 
+  color: white;
+}
+
+.footer {
+  
+  color: white;
+  background-color: #27383B;
+  
+}
+
+
 
