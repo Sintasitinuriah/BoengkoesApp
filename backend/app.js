@@ -49,6 +49,8 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser')
+const errorHandler = require('./middleware/error');
 
 // Import Routes
 const userRoutes = require('./routes/user');
@@ -58,6 +60,7 @@ const app = express();
 // MIDDLEWARE
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 // Connect to MongoDB using Mongoose
 const uri = process.env.MONGODB_URI;
@@ -72,6 +75,9 @@ mongoose.connect(uri, {
 
 // Use Routes
 app.use('/api', userRoutes);
+
+// Error Middleware
+app.use(errorHandler);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
