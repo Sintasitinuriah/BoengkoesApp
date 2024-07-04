@@ -148,6 +148,10 @@
   background-color: #f9f9f9;
 }
 
+.kain p {
+  text-align: justify;
+}
+
 .kain img {
   max-width: 100%; /* Pastikan gambar sesuai dengan lebar kontainer */
   height: auto; /* Mempertahankan rasio aspek gambar */
@@ -167,7 +171,7 @@
 .stores {
   display: flex;
   justify-content: space-around;
-  align-items: flex-start; /* Menyelaraskan elemen secara vertikal di bagian atas */
+  align-items: flex-start; 
   padding: 20px;
 }
 
@@ -220,7 +224,7 @@
 }
 
 .highlight {
-  color: rgb(235, 196, 24); /* Mengubah warna teks menjadi kuning */
+  color: rgb(235, 196, 24); 
 }
 
 .about {
@@ -292,12 +296,23 @@
   color: white;
 }
 
+/* Footer */
+
 .footer {
-  
-  color: white;
   background-color: #27383B;
-  
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
+
+.footer-text {
+  margin: 0;
+  font-size: 14px;
+}
+
 
 
 
