@@ -6,7 +6,6 @@ import search from "../images/search.png";
 import location from "../images/location.png";
 import monetization from "../images/monetization.png";
 import batik from "../images/batik.jpg";
-import logo from "../images/logo.jpg";
 
 function MainContent() {
   return (
@@ -134,35 +133,6 @@ function MainContent() {
             <img src={batik} alt="Gambar" />
           </div>
         </div>
-        <section class="about">
-          <div class="container">
-            <div class="logo">
-              <img src={logo} alt="Logo" />
-              <h1>Boengkoes</h1>
-            </div>
-            <h2>Lokasi</h2>
-            <p>Dicoding Space</p>
-            <p>
-              Jl. Batik Kumeli No.50, Sukaluyu, Kec. Cibeunying Kaler, Kota
-              Bandung, Jawa Barat 40123
-            </p>
-          </div>
-          <div class="kabel">
-            <h2>Perusahaan</h2>
-            <p>Tentang kami</p>
-            <p>Kebijakan privasi</p>
-            <p>produk</p>
-          </div>
-          <div class="SGM">
-            <h2>Pelayanan pengguna</h2>
-            <p>pusat bantuan</p>
-            <p>FAQ</p>
-            <p>Hubungi kami</p>
-          </div>
-        </section>
-        <footer className="footer">
-          <p className="footer-text">Copyright 2024 Boengkoes®️</p>
-        </footer>
       </main>
     </div>
   );

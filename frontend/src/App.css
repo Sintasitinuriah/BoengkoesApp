@@ -227,92 +227,79 @@
   color: rgb(235, 196, 24); 
 }
 
-.about {
-  display: flex;
-  align-items: center; /* Menyelaraskan elemen secara horizontal di tengah */
-  text-align: center; /* Mengatur teks menjadi rata tengah */
-  background-color: #27383B;
-  justify-content: space-between; /* Menyelaraskan elemen secara horizontal dengan jarak di antara mereka */
-  padding: 20px;
-}
-
-.container{
-  display: flex;
-  flex: 1;
-  flex-direction: column; /* Mengatur elemen dalam arah kolom */
-  align-items: flex-start; /* Menyelaraskan elemen secara horizontal di tengah */
-  text-align: right; /* Mengatur teks menjadi rata tengah */
-  color: white;
-  margin-right: 255px;
-}
-
-.container p {
-  align-items: flex-start;
-  display: flex;
-  text-align: right;
-}
-
-.container ul {
-  list-style-type: none; /* Menghilangkan bullet atau marker dari daftar */
-  padding: 0; 
-}
-.kabel {
-  display: flex;
-  flex: 1;
-  flex-direction: column; /* Mengatur elemen dalam arah kolom */
-  align-items: flex-start; /* Menyelaraskan elemen secara horizontal di tengah */
-  text-align: left; /* Mengatur teks menjadi rata tengah */
-  color: white;
-}
-
-.SGM {
-  margin-right: 20px; 
-  display: flex;
-  flex: 1;
-  flex-direction: column; /* Mengatur elemen dalam arah kolom */
-  align-items: flex-start; /* Menyelaraskan elemen secara horizontal di tengah */
-  text-align: left; /* Mengatur teks menjadi rata tengah */
-  color: white;
-}
-
-.kabel {
-  margin-left: 20px; /* Menambahkan margin kiri untuk jarak antara elemen */
-}
-
-.logo {
-  display: flex;
-  align-items: center; /* Menyelaraskan logo dan teks secara vertikal */
-}
-
-.logo img {
-  max-width: 40px; /* Mengatur ukuran maksimum logo */
-  height: auto;
-  margin-right: 10px;
-  border-radius: 50%;
-}
-
-.logo h1 {
-  margin-left: 10px; 
-  color: white;
-}
-
-/* Footer */
-
+/* src/Footer.css */
 .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #27383B;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
-  position: relative;
-  bottom: 0;
+  color: #ffffff;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
 }
 
-.footer-text {
-  margin: 0;
-  font-size: 14px;
+.footer-section {
+  padding: 10px;
 }
 
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
 
+.footer-logo img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%; /* Make the logo image circular */
+}
 
+.footer-location, .footer-section h3 {
+  margin: 0 0 10px 0;
+}
 
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-social a img {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  border-radius: 50%; /* Make the social icons circular */
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+}
+
+.footer-company-user {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex: 1;
+  gap: 20px; /* Add spacing between the sections */
+}
+
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
