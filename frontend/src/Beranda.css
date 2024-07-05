@@ -1,0 +1,170 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .location-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-center {
+    margin-left: 20px;
+  }
+  
+  .search-bar {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    margin: 0 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  .navbar-link {
+    background: none;
+    border: none;
+    margin: 0 10px;
+    font-size: 1em;
+    cursor: pointer;
+    color: #000;
+  }
+  
+  /* Berandapage */
+
+  .beranda {
+    padding: 20px;
+    font-family: 'Arial, sans-serif';
+    background-color: #f4f4f4;
+  }
+  
+  .logotesla {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .logotesla img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .beranda-page {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+    
+  }
+  
+  .header p {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0;
+    
+  }
+  
+  .toko-terdekat, .toko-lain {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .toko {
+    width: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .toko img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .toko h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .toko p {
+    color: #666;
+    margin: 0;
+  }
+  
+  .toko:hover {
+    transform: translateY(-5px);
+  }
+  
+  .cari-produk {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .cari-produk h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .cari-produk p {
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .lokasi {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .lokasi input {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    width: 300px;
+    max-width: 80%;
+  }
+  
+  
+  

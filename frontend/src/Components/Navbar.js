@@ -15,8 +15,8 @@ const Navbar = () => {
         <img src={logo} alt="Logo" />
       </div>
       <ul className="navbar-menu">
-        <li><a href="Beranda">Beranda</a></li>
-        <li><a href="popular">Toko Populer</a></li>
+        <li><a href="/Beranda">Beranda</a></li>
+        <li><a href="/popular">Toko Populer</a></li>
         <li><a href="/register">Daftar</a></li> 
         <li>
           <button className="button-yellow" onClick={handleLoginClick}>
