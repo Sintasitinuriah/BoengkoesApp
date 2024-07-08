@@ -1,0 +1,36 @@
+.container-navbar-searching {
+  display: flex;
+  position: sticky;
+  align-items: center;
+  gap: 8px;
+  background-color: #f6f8fd;
+
+  padding: 10px 24px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.container-searchbar {
+  display: flex;
+  height: 64px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  width: 100%;
+  background-color: #f6f8fd;
+  padding: 0px 24px;
+}
+
+.container-navbar-searching img {
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    border-radius 0.2s ease-in-out;
+}
+
+.container-searchbar img:hover {
+  background-color: #f4c21b;
+  border-radius: 50px;
+
+  transform: scale(1.1);
+}

@@ -1,3 +1,6 @@
+* {
+  font-family: Poppins;
+}
 
 .navbar {
   display: flex;
@@ -35,7 +38,7 @@
 }
 
 .navbar-menu li button {
-  background-color: #F4C21B;
+  background-color: #f4c21b;
   color: black;
   padding: 5px 10px;
   border: none;
@@ -47,14 +50,14 @@
   background-color: #ffff00;
 }
 
-
 /* App.css */
 
 .main-content {
+  background-color: #f6f8fd;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 0px;
 }
 
 .content-wrapper {
@@ -64,6 +67,7 @@
   width: 100%;
   max-width: 1200px;
   margin-bottom: 40px;
+  padding: 64px 24px;
 }
 
 .text-content {
@@ -72,18 +76,27 @@
 }
 
 .text-content p {
-  font-size: 18px;
+  font-size: 28px;
   margin-bottom: 10px;
+
+  font-weight: 600;
+  color: #6f7a7c;
 }
 
 .text-content h1 {
-  font-size: 36px;
+  font-size: 48px;
   margin-bottom: 10px;
+
+  font-weight: 700;
+  color: #4b595c;
 }
 
 .text-content h3 {
   font-size: 24px;
   margin-bottom: 20px;
+
+  color: #6f7a7c;
+  font-weight: 500;
 }
 
 .text-content span {
@@ -91,10 +104,13 @@
 }
 
 .button-yellow {
-  background-color: #F4C21B;
+  background-color: #f4c21b;
   border: none;
   padding: 10px 20px;
+
   font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -102,7 +118,6 @@
   flex: 1;
   display: flex;
   justify-content: center;
-
 }
 
 .image-content img {
@@ -125,97 +140,136 @@
   padding: 20px; /* Tambahkan padding jika diperlukan */
 }
 
+.mouse p {
+  font-size: 28px;
+  margin: 0px;
+  font-weight: 500;
+  color: #6f7a7c;
+}
+
+.mouse h1 {
+  font-size: 48px;
+  margin: 0px;
+  font-weight: 600;
+  color: #4b595c;
+}
+
 .Hero {
   text-align: center;
-  padding: 20px;
-  background-color: white;
+  /* padding: 20px; */
+  width: 100%;
+  max-width: 1200px;
   border-radius: 10px;
 }
 
 .karet {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
   align-items: flex-start; /* Menyelaraskan elemen secara vertikal di bagian atas */
   padding: 20px; /* Tambahkan padding jika diperlukan */
+  gap: 20px;
 }
 
 .kain {
+  box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.18);
   flex: 0 1 30%; /* Setiap elemen mengambil 30% dari lebar kontainer dan dapat mengecil jika diperlukan */
   text-align: center; /* Pusatkan teks dalam setiap elemen */
-  margin: 10px; /* Tambahkan margin jika diperlukan */
+  height: 320px;
   border-radius: 10px;
-  margin-bottom: 20px;
-  background-color: #f9f9f9;
+  background-color: #fdfdfd;
+  padding: 8px;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.kain h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #6f7a7c;
+  font-weight: 700;
 }
 
 .kain p {
-  text-align: justify;
+  text-align: center;
+  font-size: 18px;
+  color: #27383b;
+  font-weight: 500;
 }
 
 .kain img {
   max-width: 100%; /* Pastikan gambar sesuai dengan lebar kontainer */
   height: auto; /* Mempertahankan rasio aspek gambar */
-  margin-bottom: 10px;
 }
 
+.kain:hover {
+  transform: scale(1.05);
+}
 
 .PopularStores {
   text-align: center;
+  padding: 20px;
 }
 
 .PopularStores h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.stores {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start; 
-  padding: 20px;
-}
-
-.store {
-  width: 30%;
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
   margin-bottom: 20px;
-  text-align: center;
-  flex: 0 1 30%; 
-}
-
-.store img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.store h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.store p {
-  font-size: 16px;
+  color: #6f7a7c;
+  font-weight: 600;
 }
 
 .doc {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+  padding: 64px 24px;
+
   align-items: center; /* Menyelaraskan konten secara vertikal di tengah */
-  justify-content: space-between; /* Memberikan ruang antara elemen */
-  padding: 20px;
 }
 
 .atuh {
-  flex: 0 0 auto; 
-  text-align: center; 
-  padding-right: 100px; 
+  flex: 0 0 auto;
+  text-align: center;
+  padding-right: 100px;
 }
 
 .urang {
-  flex: 1; 
+  flex: 1;
   text-align: right;
+}
+
+.urang p {
+  font-size: 28px;
+  margin-bottom: 10px;
+
+  font-weight: 600;
+  color: #6f7a7c;
+}
+
+.urang h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+
+  font-weight: 700;
+  color: #4b595c;
+  max-width: 720px;
+}
+
+.urang h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+
+  color: #6f7a7c;
+  font-weight: 500;
+}
+
+.urang h3 .highlight {
+  font-weight: bold;
 }
 
 .atuh img {
@@ -224,7 +278,64 @@
 }
 
 .highlight {
-  color: rgb(235, 196, 24); 
+  color: #f4c21b;
+}
+
+.container-section-6 {
+  background-image: url(../src/images/pura.png);
+  background-size: cover;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  height: 727px;
+  padding: 48px 12px;
+  /* background-color: salmon; */
+  /* justify-content: flex-start; */
+  /* justify-content: space-between; */
+}
+
+/* .backgrouod-image-pura {
+  background-image: url(../src/images/);
+} */
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-left: 24px;
+}
+
+.container-title {
+  text-align: left;
+  max-width: 720px;
+}
+
+.container-title p {
+  font-size: 28px;
+  margin-bottom: 10px;
+
+  font-weight: 600;
+  /* color: #6f7a7c; */
+}
+
+.container-title h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+
+  font-weight: 700;
+  /* color: #4b595c; */
+}
+
+.container-gambar-batik {
+  text-align: center;
+  /* background-color: lime; */
+}
+
+.container-gambar-batik img {
+  width: 370px;
+  height: auto;
 }
 
 /* src/Footer.css */
@@ -232,7 +343,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #27383B;
+  background-color: #27383b;
   color: #ffffff;
   padding: 20px;
   font-family: Arial, sans-serif;
@@ -260,7 +371,8 @@
   border-radius: 50%; /* Make the logo image circular */
 }
 
-.footer-location, .footer-section h3 {
+.footer-location,
+.footer-section h3 {
   margin: 0 0 10px 0;
 }
 
@@ -283,6 +395,11 @@
   height: 30px;
   margin: 0 5px;
   border-radius: 50%; /* Make the social icons circular */
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-social a img:hover {
+  transform: scale(1.2);
 }
 
 .footer-social {
