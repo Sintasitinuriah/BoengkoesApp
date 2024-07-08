@@ -28,7 +28,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<HeaderToko />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/storedetail" element={<StoreDetail />} />
           <Route path="/navbarsearching" element={<NavbarSearching />} />
           <Route path="/search" element={<Searchbar />} />
