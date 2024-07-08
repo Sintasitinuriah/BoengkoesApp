@@ -18,8 +18,9 @@ import CardToko from "./Components/CardToko";
 import Navigasi from "./Components/Navigasi";
 import Searchbar from "./Components/Searchbar";
 import NavbarSearching from "./Components/NavbarSearching";
-import StoreDetail from "./pages/Storedetail";
 import HeaderToko from "./Components/HeaderToko";
+import StoreDetail from "./pages/Storedetail";
+import Category from "./Components/Category";
 
 function App() {
   const isAuthenticated = false;
@@ -28,8 +29,9 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<HeaderToko />} />
-          <Route path="/storedetail" element={<StoreDetail />} />
+          <Route path="/" element={<StoreDetail />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/headertoko" element={<HeaderToko />} />
           <Route path="/navbarsearching" element={<NavbarSearching />} />
           <Route path="/search" element={<Searchbar />} />
           <Route path="/navigasi" element={<Navigasi />} />

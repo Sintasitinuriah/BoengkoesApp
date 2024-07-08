@@ -1,0 +1,38 @@
+body {
+  background-color: #f6f8fd;
+}
+
+.section-2 {
+  display: flex;
+  background-color: #f6f8fd;
+
+  padding: 32px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-category {
+  display: flex;
+  gap: 24px;
+}
+
+.container-category a {
+  font-size: 18px;
+  font-weight: 500;
+
+  text-decoration: none;
+  color: #063f23;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.container-category a:hover {
+  text-decoration: underline; /* Munculkan underline saat hover */
+  font-weight: 700; /* Bercetak tebal */
+}
+
+.container-category a:focus,
+.container-category a:active {
+  font-weight: 700; /* Bercetak tebal */
+  text-decoration: underline; /* Munculkan underline */
+}

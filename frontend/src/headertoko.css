@@ -1,0 +1,151 @@
+.section-1 {
+  display: flex;
+
+  padding: 48px 64px;
+}
+
+.container-header {
+  display: flex;
+  justify-content: center;
+  background-color: #fdfdfd;
+  gap: 36px;
+  align-items: center;
+
+  border-radius: 16px;
+  width: 100%;
+  padding: 24px 64px;
+
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+}
+
+.kiri {
+  display: flex;
+  width: 100%;
+
+  gap: 36px;
+  align-items: center;
+
+  padding: 24px;
+}
+
+.container-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.container-title p {
+  font-size: 24px;
+  font-weight: 500;
+  color: #505050;
+
+  margin: 0px;
+}
+
+.container-title h2 {
+  font-size: 44px;
+  color: #505050;
+
+  margin: 0px;
+}
+
+/** title-produk*/
+.container-title-produk {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.container-title-produk h3,
+p {
+  margin: 0px;
+  text-align: center;
+}
+
+.container-title-produk h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #505050;
+}
+
+.container-title-produk p {
+  font-size: 20px;
+  font-weight: 500;
+  color: #505050;
+}
+/** end of title-produk  */
+
+/** title-rating  */
+.container-title-rating {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.container-title-rating h3,
+p {
+  margin: 0px;
+  text-align: center;
+}
+
+.container-title-rating h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #505050;
+}
+
+.star {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.container-title-rating .star p {
+  font-size: 20px;
+  font-weight: 500;
+  color: #505050;
+}
+
+.container-title-rating .star img {
+  width: 24px;
+  height: 24px;
+}
+/** end of title-rating */
+
+/** social */
+.container-social {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.container-social h3 {
+  white-space: nowrap;
+  font-size: 24px;
+  font-weight: 600;
+  color: #505050;
+
+  margin: 0px;
+  text-align: center;
+}
+
+.container-logo-sosmed {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.container-logo-sosmed img {
+  width: 32px;
+  height: 32px;
+
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.container-logo-sosmed img:hover {
+  transform: scale(1.2);
+}
+
+/** end of social */

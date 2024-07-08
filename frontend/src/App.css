@@ -347,6 +347,8 @@
   color: #ffffff;
   padding: 20px;
   font-family: Arial, sans-serif;
+
+  margin-top: 180px;
 }
 
 .footer-content {
@@ -374,6 +376,10 @@
 .footer-location,
 .footer-section h3 {
   margin: 0 0 10px 0;
+}
+
+.footer-location p {
+  text-align: left;
 }
 
 .footer-section ul {

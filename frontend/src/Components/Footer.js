@@ -17,7 +17,7 @@ const Footer = () => {
             <h3>Lokasi</h3>
             <p>Blcoding Space</p>
             <p>Jl. Batik Kumeli No.50, Sukaluyu,</p>
-            <p>Kec. Cibeunying Kaler, Kota Bandung</p>
+            <p>Kec. Cibeunying Kaler, Kota Bandung,</p>
             <p>Jawa Barat 40123</p>
           </div>
         </div>

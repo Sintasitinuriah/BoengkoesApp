@@ -2,7 +2,7 @@ import React from "react";
 import Store from "../Components/Store";
 import NavbarBeranda from "../Components/NavbarBeranda";
 import Footer from "../Components/Footer";
-import "../Store.css"
+import "../Store.css";
 
 const Storepage = () => {
   return (
