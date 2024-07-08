@@ -29,14 +29,9 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-<<<<<<< HEAD
           <Route path="/" element={<StoreDetail />} />
           <Route path="/category" element={<Category />} />
           <Route path="/headertoko" element={<HeaderToko />} />
-=======
-          <Route path="/" element={<HomePage />} />
-          <Route path="/storedetail" element={<StoreDetail />} />
->>>>>>> d9a703093012ab514bffbc4d1b94f0b27d31989c
           <Route path="/navbarsearching" element={<NavbarSearching />} />
           <Route path="/search" element={<Searchbar />} />
           <Route path="/navigasi" element={<Navigasi />} />
