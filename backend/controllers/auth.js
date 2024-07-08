@@ -83,9 +83,19 @@ exports.logout = (req, res, next)=>{
   res.status(200).json({
     success: true,
     message: "Keluar"
-  })
+  });
 }
 
+//User Profile
+ exports.userProfile = async (req, res, next)=>{
+  const user = await User.findById(req.user.id);
+  res.status(200).json({
+    success: true,
+    data: user
+  });
+ }
+
+//Single User by id
 exports.singleUser = async (req, res, next) => {
   try {
     // Ensure the connection is ready
