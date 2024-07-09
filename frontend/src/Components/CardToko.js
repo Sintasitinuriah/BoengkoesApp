@@ -5,7 +5,7 @@ import star from "../images/star.png";
 
 const CardToko = () => {
   return (
-    <div className="container-card">
+    <div className="container-card-toko">
       <div className="card-toko">
         <div className="container-gambar">
           <img src={lamondePalembang} alt="Card-1" />

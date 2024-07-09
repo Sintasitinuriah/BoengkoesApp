@@ -45,7 +45,7 @@ function App() {
           <Route path="/buttonchat" element={<ButtonChat />} />
           <Route path="/buttonbeli" element={<Buttonbeli />} />
           <Route path="/buttonkeranjang" element={<ButtonKeranjang />} />
-          <Route path="/" element={<Productdetail />} />
+          <Route path="/productdetail" element={<Productdetail />} />
           <Route path="/quantity" element={<Quantity />} />
           <Route path="/variant" element={<Variant />} />
           <Route path="/storedetail" element={<StoreDetail />} />
@@ -55,7 +55,7 @@ function App() {
           <Route path="/navbarsearching" element={<NavbarSearching />} />
           <Route path="/search" element={<Searchbar />} />
           <Route path="/navigasi" element={<Navigasi />} />
-          <Route path="/homepage" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/cardtoko" element={<CardToko />} />
           <Route path="/buttonsmall" element={<Buttonsmall />} />
           <Route path="/beranda" element={<Beranda />} />

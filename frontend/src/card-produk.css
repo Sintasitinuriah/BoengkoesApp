@@ -1,10 +1,10 @@
-.container-card {
+.container-card-produk {
   display: flex;
   flex-direction: row;
   /* grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); */
   gap: 16px;
   justify-items: center;
-  padding: 16px 16px 180px 16px;
+  padding: 16px 16px 16px 16px;
 }
 
 .card-produk {

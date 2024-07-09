@@ -4,7 +4,7 @@ import Chocomaltine from "../images/lamonde-chocomaltine.png";
 
 const CardProduk = () => {
   return (
-    <div className="container-card">
+    <div className="container-card-produk">
       <div className="card-produk">
         <div className="container-gambar">
           <img src={Chocomaltine} alt="Card-1" />

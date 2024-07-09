@@ -35,14 +35,14 @@ function MainContent() {
           <p>Halo sobat jajan !</p>
           <h1>Temukan Produk Unik di Seluruh Indonesia</h1>
           <h3>
-            <span class="highlight">Boengkoes</span> Boengkoes siap mencari
-            produk unik dari seluruh wilayah di Indonesia, Lengkap !
+            <span class="highlight">Boengkoes</span> siap mencari produk unik
+            dari seluruh wilayah di Indonesia, Lengkap !
           </h3>
           {/* <h3>dari setiap daerah Indonesia</h3> */}
         </div>
       </div>
 
-      <main className="App-main">
+      <main className="App">
         <section className="Hero">
           <div className="mouse">
             <p>Cari Oleh-Oleh?</p>
@@ -84,7 +84,7 @@ function MainContent() {
 
         <section className="PopularStores">
           <h2>Toko Paling Populer</h2>
-          <div className="container-card">
+          <div className="container-toko-populer">
             {/* card 1 */}
             <CardToko></CardToko>
             <CardToko></CardToko>
@@ -95,7 +95,7 @@ function MainContent() {
         <div className="container-section-6">
           {/* <div className="background-image-pura"> */}
           <div className="content">
-            <div className="container-title">
+            <div className="container-title-batik">
               <p>Buruan Belanja!</p>
               <h1>Cinderamata Lengkap Dan Pastinya Unik !</h1>
             </div>

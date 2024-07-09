@@ -1,9 +1,9 @@
-.container-card {
+.container-card-toko {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
-  justify-items: center;
-  padding: 16px 16px 84px 16px;
+  justify-content: center;
+  padding: 16px 16px 0px 16px;
 }
 
 .card-toko {
