@@ -1,0 +1,47 @@
+.quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+.quantity-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+
+  background-color: #f4c21b;
+  border: none;
+  color: #505050;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: background-color 0.3s ease;
+}
+
+.quantity-button:hover {
+  background-color: #dacda2;
+}
+
+.quantity-display {
+  width: 36px;
+  height: 36px;
+
+  background-color: #fdfdfd;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 2px 3px;
+  margin: 0;
+  pointer-events: none; /* Supaya input tidak bisa di edit */
+}
+
+.quantity-display:focus {
+  outline: none;
+}

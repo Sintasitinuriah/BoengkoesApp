@@ -1,0 +1,49 @@
+.container-rincian {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: flex-start;
+
+  padding: 16px 16px 36px 16px;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+
+  box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.08);
+}
+
+.container-jenis {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+
+  gap: 36px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.container-jenis a {
+  color: #4b595c;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out; /* Menambahkan transisi halus */
+}
+
+.container-jenis a:hover {
+  color: #4b595c; /* Warna hover untuk semua link */
+  text-decoration: underline; /* Munculkan underline saat hover */
+}
+
+.container-jenis a.active {
+  font-weight: 600; /* Menjadi semibold saat aktif */
+  text-decoration: underline; /* Munculkan underline saat aktif */
+  color: #4b595c; /* Tambahkan warna untuk yang aktif jika diperlukan */
+  transition: all 0.3s ease-in-out; /* Menambahkan transisi halus */
+}
+
+p {
+  text-align: left;
+  font: 18px;
+  font-weight: 400;
+
+  color: #777;
+}

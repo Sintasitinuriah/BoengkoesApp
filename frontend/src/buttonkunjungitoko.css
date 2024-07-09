@@ -1,0 +1,27 @@
+.button-kunjungi-toko {
+  /* background-color: #f4c21b; */
+  border: 4px solid #f4c21b;
+  background-color: #fdfdfd;
+  color: #505050;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+
+  max-width: 156px;
+
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Durasi transisi dan properti yang dipantau */
+}
+
+.button-kunjungi-toko:hover {
+  background-color: #f4c21b;
+  color: #f4f4f4;
+}
+
+.button-kunjungi-toko:active {
+  color: #f4f4f4; /* Warna teks saat tombol ditekan */
+  border: 4px solid #505050;
+  background-color: #505050; /* Warna latar belakang saat tombol ditekan */
+}

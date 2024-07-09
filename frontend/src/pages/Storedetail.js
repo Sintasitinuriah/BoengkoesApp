@@ -2,7 +2,7 @@ import React from "react";
 import NavbarSearching from "../Components/NavbarSearching";
 import HeaderToko from "../Components/HeaderToko";
 import Category from "../Components/Category";
-import CardToko from "../Components/CardToko";
+import CardProduk from "../Components/CardProduk";
 import Footer from "../Components/Footer";
 import "../storedetail.css";
 
@@ -12,21 +12,21 @@ const StoreDetail = () => {
       <NavbarSearching></NavbarSearching>
       <HeaderToko></HeaderToko>
       <Category></Category>
-      <CardToko></CardToko>
+      <CardProduk></CardProduk>
 
       <div className="section-4">
         <div className="container-populer">
           <h1>Produk Populer</h1>
         </div>
       </div>
-      <CardToko></CardToko>
+      <CardProduk></CardProduk>
 
       <div className="section-6">
         <div className="container-terbaru">
           <h1>Produk Terbaru</h1>
         </div>
       </div>
-      <CardToko></CardToko>
+      <CardProduk></CardProduk>
 
       <Footer></Footer>
     </div>

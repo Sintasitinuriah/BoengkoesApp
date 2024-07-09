@@ -21,6 +21,16 @@ import NavbarSearching from "./Components/NavbarSearching";
 import HeaderToko from "./Components/HeaderToko";
 import StoreDetail from "./pages/Storedetail";
 import Category from "./Components/Category";
+import CardProduk from "./Components/CardProduk";
+import Variant from "./Components/variant";
+import Quantity from "./Components/quantity";
+import Productdetail from "./pages/Productdetail";
+import ButtonKeranjang from "./Components/Buttonkeranjang";
+import Buttonbeli from "./Components/Buttonbeli";
+import HeaderTokoChat from "./Components/HeaderTokoChat";
+import ButtonChat from "./Components/Buttonchat";
+import ButtonKunjungiToko from "./Components/Buttonkunjungitoko";
+import Deskripsi from "./Components/Deskripsi";
 
 function App() {
   const isAuthenticated = false;
@@ -29,7 +39,17 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<StoreDetail />} />
+          <Route path="/deskripsi" element={<Deskripsi />} />
+          <Route path="/headertokochat" element={<HeaderTokoChat />} />
+          <Route path="/buttonkunjungitoko" element={<ButtonKunjungiToko />} />
+          <Route path="/buttonchat" element={<ButtonChat />} />
+          <Route path="/buttonbeli" element={<Buttonbeli />} />
+          <Route path="/buttonkeranjang" element={<ButtonKeranjang />} />
+          <Route path="/" element={<Productdetail />} />
+          <Route path="/quantity" element={<Quantity />} />
+          <Route path="/variant" element={<Variant />} />
+          <Route path="/storedetail" element={<StoreDetail />} />
+          <Route path="/cardproduk" element={<CardProduk />} />
           <Route path="/category" element={<Category />} />
           <Route path="/headertoko" element={<HeaderToko />} />
           <Route path="/navbarsearching" element={<NavbarSearching />} />

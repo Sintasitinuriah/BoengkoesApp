@@ -1,0 +1,46 @@
+/* Styling dasar untuk tombol */
+/* Container untuk varian */
+.variant-container {
+  display: flex;
+  gap: 16px; /* Spasi antar tombol */
+  justify-content: center; /* Pusatkan kontainer varian */
+}
+
+.variant-button {
+  display: flex;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #505050;
+  background-color: #fdfdfd;
+  min-width: 140px;
+
+  gap: 16px;
+  border: 3px solid #f4c21b;
+  border-radius: 8px;
+  align-items: center;
+  height: 36px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Durasi transisi dan properti yang dipantau */
+
+  justify-content: center;
+}
+
+.variant-button:hover {
+  background-color: #f4c21b;
+  color: #f4f4f4;
+}
+
+/* Styling untuk tombol saat aktif */
+.variant-button.active {
+  background-color: #505050;
+  color: #f4f4f4;
+  border: 3px solid #505050;
+}
+
+/* Styling saat tombol ditekan */
+.variant-button:active {
+  background-color: #303030;
+  color: #f4f4f4;
+  border: 3px solid #303030;
+}

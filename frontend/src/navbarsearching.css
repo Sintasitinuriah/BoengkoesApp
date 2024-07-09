@@ -1,6 +1,7 @@
 .container-navbar-searching {
   display: flex;
-  position: sticky;
+  /* position: fixed; */
+  width: 100%;
   align-items: center;
   gap: 8px;
   background-color: #f6f8fd;
