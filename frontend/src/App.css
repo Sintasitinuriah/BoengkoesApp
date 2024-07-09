@@ -10,17 +10,16 @@
   gap: 0px;
 }
 
-.navbar {
+nav.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: white;
-  color: white;
+  /* background-color: #f6f8fd; */
+  background-color: #f6f8fd;
 }
 
 .navbar-logo img {
-  height: 40px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -37,7 +36,8 @@
 }
 
 .navbar-menu li a {
-  color: rgb(9, 6, 6);
+  color: #505050;
+  font-weight: 600;
   text-decoration: none;
 }
 

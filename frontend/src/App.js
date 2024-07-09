@@ -31,6 +31,7 @@ import HeaderTokoChat from "./Components/HeaderTokoChat";
 import ButtonChat from "./Components/Buttonchat";
 import ButtonKunjungiToko from "./Components/Buttonkunjungitoko";
 import Deskripsi from "./Components/Deskripsi";
+import Navbar from "./Components/Navbar";
 
 function App() {
   const isAuthenticated = false;
@@ -48,14 +49,15 @@ function App() {
           <Route path="/productdetail" element={<Productdetail />} />
           <Route path="/quantity" element={<Quantity />} />
           <Route path="/variant" element={<Variant />} />
-          <Route path="/storedetail" element={<StoreDetail />} />
+          <Route path="/" element={<StoreDetail />} />
           <Route path="/cardproduk" element={<CardProduk />} />
           <Route path="/category" element={<Category />} />
           <Route path="/headertoko" element={<HeaderToko />} />
           <Route path="/navbarsearching" element={<NavbarSearching />} />
+          <Route path="/navbar" element={<Navbar />} />
           <Route path="/search" element={<Searchbar />} />
           <Route path="/navigasi" element={<Navigasi />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/homepage" element={<HomePage />} />
           <Route path="/cardtoko" element={<CardToko />} />
           <Route path="/buttonsmall" element={<Buttonsmall />} />
           <Route path="/beranda" element={<Beranda />} />

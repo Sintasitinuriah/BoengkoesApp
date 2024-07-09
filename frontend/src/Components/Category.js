@@ -22,7 +22,7 @@ const Category = () => {
   };
 
   return (
-    <div className="section-2">
+    <div className="section-2-category">
       <div className="container-category">
         {menuItems.map((item, index) => (
           <a

@@ -1,10 +1,10 @@
-.section-1 {
+.section-1-header-toko {
   display: flex;
-
+  width: 100%;
   padding: 120px 64px;
 }
 
-.container-header {
+.container-header-toko {
   display: flex;
   justify-content: center;
   background-color: #fdfdfd;
@@ -18,7 +18,7 @@
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
 }
 
-.kiri {
+.container-kiri {
   display: flex;
   width: 100%;
 
@@ -28,47 +28,48 @@
   padding: 24px;
 }
 
-.container-title {
+.container-keterangan-toko {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.container-title p {
-  font-size: 24px;
-  font-weight: 500;
-  color: #505050;
-
-  margin: 0px;
-}
-
-.container-title h2 {
+.sebutan-nama-toko h2 {
   font-size: 44px;
   color: #505050;
 
   margin: 0px;
 }
 
+.container-keterangan-toko p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #505050;
+
+  margin: 0px;
+}
+
 /** title-produk*/
-.container-title-produk {
+.container-jumlah-produk {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 8px;
 }
 
-.container-title-produk h3,
+.container-jumlah-produk h3,
 p {
   margin: 0px;
   text-align: center;
 }
 
-.container-title-produk h3 {
+.container-jumlah-produk h3 {
   font-size: 24px;
   font-weight: 600;
   color: #505050;
 }
 
-.container-title-produk p {
+.container-jumlah-produk p {
   font-size: 20px;
   font-weight: 500;
   color: #505050;
@@ -76,25 +77,25 @@ p {
 /** end of title-produk  */
 
 /** title-rating  */
-.container-title-rating {
+.container-jumlah-rating {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.container-title-rating h3,
+.container-jumlah-rating h3,
 p {
   margin: 0px;
   text-align: center;
 }
 
-.container-title-rating h3 {
+.container-jumlah-rating h3 {
   font-size: 24px;
   font-weight: 600;
   color: #505050;
 }
 
-.star {
+.ikon-bintang {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -102,26 +103,26 @@ p {
   gap: 8px;
 }
 
-.container-title-rating .star p {
+.container-jumlah-rating .ikon-bintang p {
   font-size: 20px;
   font-weight: 500;
   color: #505050;
 }
 
-.container-title-rating .star img {
+.container-jumlah-rating .ikon-bintang img {
   width: 24px;
   height: 24px;
 }
 /** end of title-rating */
 
 /** social */
-.container-social {
+.container-sosmed {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.container-social h3 {
+.container-sosmed h3 {
   white-space: nowrap;
   font-size: 24px;
   font-weight: 600;
