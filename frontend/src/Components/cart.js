@@ -1,110 +1,56 @@
 import React, { useState } from 'react';
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: 'New Lomaryde Chocomolins',
-      price: 85000,
-      quantity: 1,
-      image: 'https://lamonde.com/wp-content/uploads/2023/06/New-Lomaryde-Chocomolins-Lamonde.jpg',
-    },
-    {
-      id: 2,
-      name: 'Varion Chocomatting',
-      price: 25000,
-      quantity: 2,
-      image: 'https://lamonde.com/wp-content/uploads/2023/06/Varion-Chocomatting-Lamonde.jpg',
-    },
-    {
-      id: 3,
-      name: 'New Lomande Chocomoltine',
-      price: 85000,
-      quantity: 1,
-      image: 'https://lamonde.com/wp-content/uploads/2023/06/New-Lomande-Chocomoltine-Lamonde.jpg',
-    },
-    {
-      id: 4,
-      name: 'Varaan Choc',
-      price: 20000,
-      quantity: 3,
-      image: 'https://lamonde.com/wp-content/uploads/2023/06/Varaan-Choc-Lamonde.jpg',
-    },
+  const [items, setItems] = useState([
+    { id: 1, name: 'New Lamanda Chocoalmondine', variant: 'Chocoalmondine', price: 85000, quantity: 2, from: 'Lamanda Palembang' },
+    { id: 2, name: 'New Lamanda Chocoalmondine', variant: 'Chocoalmondine', price: 85000, quantity: 2, from: 'Cikini Deli' },
   ]);
 
-  const handleQuantityChange = (id, quantity) => {
-    setCartItems(
-      cartItems.map((item) => {
-        if (item.id === id) {
-          return { ...item, quantity };
-        } else {
-          return item;
-        }
-      })
-    );
+  const handleQuantityChange = (id, change) => {
+    setItems(items.map(item => item.id === id ? { ...item, quantity: item.quantity + change } : item));
   };
 
-  const handleRemoveItem = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
+  const handleRemove = (id) => {
+    setItems(items.filter(item => item.id !== id));
   };
 
-  const calculateTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
+  const totalItem = items.reduce((acc, item) => acc + item.quantity, 0);
+  const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const shippingCost = 33000;
+  const grandTotal = totalPrice + shippingCost;
 
   return (
-    <div className="cart-page">
-      <h1>Keranjang</h1>
-
-      <div className="cart-items">
-        {cartItems.length === 0 ? (
-          <p>Keranjang Anda kosong.</p>
-        ) : (
-          <table>
-            <thead>
-              <tr>
-                <th>Nama Produk</th>
-                <th>Harga</th>
-                <th>Jumlah</th>
-                <th>Total</th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartItems.map((item) => (
-                <tr key={item.id}>
-                  <td>
-                    <img src={item.image} alt={item.name} width="50px" />
-                    {item.name}
-                  </td>
-                  <td>Rp{item.price.toLocaleString('id-ID')}</td>
-                  <td>
-                    <input
-                      type="number"
-                      min="1"
-                      max="10"
-                      value={item.quantity}
-                      onChange={(event) =>
-                        handleQuantityChange(item.id, parseInt(event.target.value))
-                      }
-                    />
-                  </td>
-                  <td>Rp{(item.price * item.quantity).toLocaleString('id-ID')}</td>
-                  <td>
-                    <button onClick={() => handleRemoveItem(item.id)}>Hapus</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+    <div className="app">
+      <div className="cart">
+        <h2>Keranjang</h2>
+        <div className="cart-items">
+          {items.map(item => (
+            <div key={item.id} className="cart-item">
+              <input type="checkbox" />
+              <img src="path-to-image" alt={item.name} />
+              <div className="item-details">
+                <p>{item.from}</p>
+                <p>{item.name}</p>
+                <p>Varian: {item.variant}</p>
+                <p>Rp {item.price.toLocaleString()}</p>
+              </div>
+              <div className="item-actions">
+                <button onClick={() => handleQuantityChange(item.id, -1)} disabled={item.quantity === 1}>-</button>
+                <span>{item.quantity}</span>
+                <button onClick={() => handleQuantityChange(item.id, 1)}>+</button>
+                <button onClick={() => handleRemove(item.id)}>🗑️</button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <div className="cart-summary">
+      <div className="summary">
         <h2>Ringkasan Belanja</h2>
-        <p>Pilih Semua</p>
-        <p>Total Belanja: Rp{calculateTotalPrice().toLocaleString('id-ID')}</p>
-        <button>Checkout</button>
+        <p>Item: {totalItem}</p>
+        <p>Total Item: Rp {totalPrice.toLocaleString()}</p>
+        <p>Ongkos Kirim: Rp {shippingCost.toLocaleString()}</p>
+        <p>Total Belanja: Rp {grandTotal.toLocaleString()}</p>
+        <button>Lanjut Pembayaran</button>
       </div>
     </div>
   );

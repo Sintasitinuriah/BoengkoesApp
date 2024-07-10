@@ -32,6 +32,8 @@ import ButtonChat from "./Components/Buttonchat";
 import ButtonKunjungiToko from "./Components/Buttonkunjungitoko";
 import Deskripsi from "./Components/Deskripsi";
 import Navbar from "./Components/Navbar";
+import HelpCenter from "./Components/HelpCenter";
+import FAQ from "./Components/Faq";
 
 function App() {
   const isAuthenticated = false;
@@ -58,6 +60,8 @@ function App() {
           <Route path="/search" element={<Searchbar />} />
           <Route path="/navigasi" element={<Navigasi />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/helpcenter" element={<HelpCenter />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/cardtoko" element={<CardToko />} />
           <Route path="/buttonsmall" element={<Buttonsmall />} />
           <Route path="/beranda" element={<Beranda />} />

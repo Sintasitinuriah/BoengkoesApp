@@ -32,7 +32,7 @@ const Footer = () => {
                 <a href="#">Kebijakan Privasi</a>
               </li>
               <li>
-                <a href="#">Produk</a>
+                <a href="/CardProduk">Produk</a>
               </li>
             </ul>
           </div>
@@ -40,10 +40,10 @@ const Footer = () => {
             <h3>Pelayanan Pengguna</h3>
             <ul>
               <li>
-                <a href="#">Pusat Bantuan</a>
+                <a href="/HelpCenter">Pusat Bantuan</a>
               </li>
               <li>
-                <a href="#">FAQ</a>
+                <a href="/Faq">FAQ</a>
               </li>
               <li>
                 <a href="#">Hubungi Kami</a>

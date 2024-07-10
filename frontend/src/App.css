@@ -10,55 +10,76 @@
   gap: 0px;
 }
 
-nav.navbar {
+/* Navbar Styles */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  /* background-color: #f6f8fd; */
-  background-color: #f6f8fd;
+  background-color: #333;
+  padding: 1rem 2rem;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Make sure navbar is above other elements */
 }
 
 .navbar-logo img {
-  border-radius: 50%;
-  object-fit: cover;
+  height: 50px;
+  width: auto;
 }
 
 .navbar-menu {
   list-style: none;
   display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
 }
 
 .navbar-menu li {
-  margin: 0 10px;
+  margin-left: 2rem;
 }
 
-.navbar-menu li a {
-  color: #505050;
-  font-weight: 600;
+.navbar-menu a {
   text-decoration: none;
+  color: rgb(19, 10, 10);
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
-.navbar-menu li a:hover {
-  text-decoration: underline;
+.navbar-menu a:hover {
+  color: #ffd700; /* Yellow color */
 }
 
-.navbar-menu li button {
-  background-color: #f4c21b;
-  color: black;
-  padding: 5px 10px;
+.button-yellow {
+  background-color: #ffd700; /* Yellow color */
+  color: #333;
   border: none;
-  cursor: pointer; /* Ubah kursor menjadi pointer saat dihover */
-  border-radius: 5px; /* Agar tombol memiliki sudut yang sedikit melengkung */
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.navbar-menu li button:hover {
-  background-color: #ffff00;
+.button-yellow:hover {
+  background-color: #ffcc00; /* Darker yellow color */
+  transform: scale(1.05);
 }
 
-/* App.css */
+.button-yellow:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5);
+}
+
+/* Additional styles to make content below the navbar */
+.content {
+  padding-top: 80px; /* Add top padding to avoid overlap with fixed navbar */
+}
+
+
+/* maincontent */
 
 .main-content {
   background-color: #f6f8fd;
