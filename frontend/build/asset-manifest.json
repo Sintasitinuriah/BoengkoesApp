@@ -1,14 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.f53cb323.css",
-    "main.js": "/static/js/main.059cb0f0.js",
-    "static/media/logo.jpeg": "/static/media/logo.68e55f62e05baf4a9c1c.jpeg",
+    "main.css": "/static/css/main.49b8f2af.css",
+    "main.js": "/static/js/main.37523604.js",
+    "static/media/lamonde-palembang.png": "/static/media/lamonde-palembang.4fd2940d1cf4e517862a.png",
+    "static/media/frame.jpg": "/static/media/frame.8a58dd150508a8f1f1fc.jpg",
+    "static/media/logo.jpg": "/static/media/logo.4746a9f10bb9cd7a07d6.jpg",
+    "static/media/batik.png": "/static/media/batik.6304e8848b4210353bdf.png",
+    "static/media/logotesla.jpg": "/static/media/logotesla.f857739db7c955f50048.jpg",
+    "static/media/bakso.png": "/static/media/bakso.610623852c6f10db257c.png",
+    "static/media/rendang.png": "/static/media/rendang.f44af45231376e0580d5.png",
+    "static/media/pp-lamonde.png": "/static/media/pp-lamonde.dc6f784fe8e20f6a47d7.png",
+    "static/media/pura.png": "/static/media/pura.2b787d8897ea161d50d3.png",
+    "static/media/monetization.png": "/static/media/monetization.c6d2647a6cdb56ee6fd2.png",
     "index.html": "/index.html",
-    "main.f53cb323.css.map": "/static/css/main.f53cb323.css.map",
-    "main.059cb0f0.js.map": "/static/js/main.059cb0f0.js.map"
+    "main.49b8f2af.css.map": "/static/css/main.49b8f2af.css.map",
+    "main.37523604.js.map": "/static/js/main.37523604.js.map"
   },
   "entrypoints": [
-    "static/css/main.f53cb323.css",
-    "static/js/main.059cb0f0.js"
+    "static/css/main.49b8f2af.css",
+    "static/js/main.37523604.js"
   ]
 }

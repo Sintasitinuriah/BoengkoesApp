@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';  // Import Axios
+import axios from 'axios';  
+import { useNavigate } from 'react-router-dom';
 import '../Login.css'; 
 import sampleImage from '../images/frame.jpg'; 
 
@@ -10,6 +11,8 @@ const Login = () => {
   const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
+  const navigate = useNavigate();
+  
   const validateInputs = () => {
     let valid = true;
     if (!username) {
@@ -46,6 +49,7 @@ const Login = () => {
         // Login successful
         console.log('Login successful:', response.data);
         // Redirect to dashboard or another page
+        navigate('/beranda')
       } else {
         // Login failed
         setErrorMessage(response.data.message || 'Login failed');

@@ -49,7 +49,7 @@ function App() {
           <Route path="/productdetail" element={<Productdetail />} />
           <Route path="/quantity" element={<Quantity />} />
           <Route path="/variant" element={<Variant />} />
-          <Route path="/" element={<StoreDetail />} />
+          <Route path="/storeDetail" element={<StoreDetail />} />
           <Route path="/cardproduk" element={<CardProduk />} />
           <Route path="/category" element={<Category />} />
           <Route path="/headertoko" element={<HeaderToko />} />
@@ -57,7 +57,7 @@ function App() {
           <Route path="/navbar" element={<Navbar />} />
           <Route path="/search" element={<Searchbar />} />
           <Route path="/navigasi" element={<Navigasi />} />
-          <Route path="/homepage" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/cardtoko" element={<CardToko />} />
           <Route path="/buttonsmall" element={<Buttonsmall />} />
           <Route path="/beranda" element={<Beranda />} />
