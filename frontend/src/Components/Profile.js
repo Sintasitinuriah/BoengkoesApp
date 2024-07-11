@@ -1,10 +1,10 @@
-import React from 'react';
-import '../Profile.css'; 
-import Logo from '../images/logo.jpg'
+import React from "react";
+import "../Profile.css";
+import Logo from "../images/logo.jpg";
 
 const Profile = () => {
   return (
-    <div className="profile-page">
+    <div className="contoh-profil">
       <div className="profile-header">
         <img src={Logo} alt="Profile" className="profile-image" />
         <h1>Nama Pengguna</h1>

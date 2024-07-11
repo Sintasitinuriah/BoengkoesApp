@@ -9,6 +9,7 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <Navbar />
+
       <MainContent />
       <Footer />
     </div>

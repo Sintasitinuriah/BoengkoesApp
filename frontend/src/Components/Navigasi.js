@@ -8,7 +8,7 @@ const Navigasi = () => {
         <a href="/">Home</a>
       </div>
       <div className="navigasi-item">
-        <a href="/">Tentang Kami</a>
+        <a href="/">Layanan</a>
       </div>
     </div>
   );
