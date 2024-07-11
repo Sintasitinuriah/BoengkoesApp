@@ -50,16 +50,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../radiobutton.css";
-import Productdetail from "../pages/Productdetail";
 
 const RadioButton = () => {
   const navigate = useNavigate();
 
   const handleChange = (event) => {
     if (event.target.value === "pembeli") {
-      navigate("/productdetail");
+      navigate("/profilepage");
     } else if (event.target.value === "penjual") {
-      navigate("/productdetail");
+      navigate("/profilepageseller");
     }
   };
 

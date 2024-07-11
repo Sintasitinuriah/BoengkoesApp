@@ -38,6 +38,11 @@ import ButtonSimpan from "./Components/button-simpan";
 import ProfilePage from "./pages/ProfilePage";
 import RadioButton from "./Components/RadioButton";
 import FormNamaLengkap from "./Components/FormNamaLengkap";
+import NavbarSeller from "./Components/NavbarSeller";
+import NavigasiSeller from "./Components/NavigasiSeller";
+import ProfilePageSeller from "./pages/ProfilePageSeller";
+import FormNamaSeller from "./Components/formnamaseller";
+import HomeSeller from "./pages/HomeSeller";
 
 function App() {
   const isAuthenticated = false;
@@ -46,9 +51,14 @@ function App() {
     <Router>
       {/* <div className="App"> */}
       <Routes>
+        <Route path="/" element={<HomeSeller />} />
+        <Route path="/formnamaseller" element={<FormNamaSeller />} />
+        <Route path="/profilepageseller" element={<ProfilePageSeller />} />
+        <Route path="/navigasiseller" element={<NavigasiSeller />} />
+        <Route path="/navbarseller" element={<NavbarSeller />} />
         <Route path="/formnamalengkap" element={<FormNamaLengkap />} />
         <Route path="/radiobutton" element={<RadioButton />} />
-        <Route path="/" element={<ProfilePage />} />
+        <Route path="/profilepage" element={<ProfilePage />} />
         <Route path="/buttonsimpan" element={<ButtonSimpan />} />
         <Route path="/deskripsi" element={<Deskripsi />} />
         <Route path="/headertokochat" element={<HeaderTokoChat />} />

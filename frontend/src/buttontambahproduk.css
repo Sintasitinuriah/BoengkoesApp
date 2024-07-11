@@ -1,0 +1,9 @@
+.container-button-tambah-produk {
+  display: flex;
+  flex-direction: row;
+  border-radius: 6px;
+  width: fit-content;
+  background-color: #f4c21b;
+
+  align-items: center;
+}
