@@ -1,0 +1,28 @@
+.container-profil-tanggal-lahir {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  /* align-items: center;
+      justify-content: center; */
+  border-radius: 6px;
+  gap: 4px;
+}
+
+.hint-tanggal-lahir p {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #505050;
+}
+
+.textfield-tanggal-lahir input {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #9d9d9d;
+  background-color: #fdfdfd;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+
+  color: #505050;
+}

@@ -1,0 +1,37 @@
+.container-navbar-seller {
+  display: flex;
+  /* position: fixed; */
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  background-color: #f6f8fd;
+
+  padding: 10px 24px;
+}
+
+.logo-seller img {
+  height: 40px;
+}
+
+.container-searchbar-seller {
+  display: flex;
+  height: 64px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  width: 100%;
+  background-color: #f6f8fd;
+  padding: 0px 24px;
+}
+
+.container-navbar-seller img {
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out,
+    border-radius 0.2s ease-in-out;
+}
+
+.container-searchbar-seller img:hover {
+  background-color: #f4c21b;
+  border-radius: 50px;
+
+  transform: scale(1.1);
+}

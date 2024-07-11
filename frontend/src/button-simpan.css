@@ -1,0 +1,25 @@
+.button-simpan {
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: #f4c21b;
+  color: #505050;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  width: fit-content;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #505050;
+  color: #fdfdfd;
+}

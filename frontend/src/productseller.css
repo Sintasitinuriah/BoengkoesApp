@@ -1,0 +1,171 @@
+.container-produk-seller {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px 24px;
+  gap: 16px;
+  border-radius: 6px;
+  background-color: #fdfdfd;
+  width: 100%;
+  box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.container-produk-seller:hover {
+  transform: scale(1.02);
+}
+
+.container-produk-seller img {
+  width: 120px;
+  height: 120px;
+  border-radius: 6px;
+}
+
+.container-produk-seller h3 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #505050;
+}
+
+.container-harga-produk-penjual {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 6px;
+  gap: 4px;
+}
+
+.label-harga-produk {
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+}
+
+.textfield-harga-produk input {
+  display: flex;
+  border: 1px solid #9d9d9d;
+  background-color: #fdfdfd;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+  color: #505050;
+}
+
+.container-stok-produk-penjual {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 6px;
+  gap: 4px;
+}
+
+.label-stok-produk {
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+}
+
+.textfield-stok-produk input {
+  display: flex;
+  border: 1px solid #9d9d9d;
+  background-color: #fdfdfd;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+  color: #505050;
+}
+
+.container-terjual {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 6px;
+  gap: 4px;
+}
+
+.label-terjual {
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+}
+
+.textfield-terjual input {
+  display: flex;
+  border: 1px solid #9d9d9d;
+  background-color: #fdfdfd;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+  color: #505050;
+}
+
+.wrapper-deskripsi {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 6px;
+  gap: 4px;
+}
+
+.label-deskripsi {
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+}
+
+textarea {
+  display: flex;
+  border: 1px solid #9d9d9d;
+  background-color: #fdfdfd;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+  color: #505050;
+}
+
+.container-kategori-produk {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 6px;
+  gap: 4px;
+}
+
+.label-kategori-produk {
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+}
+
+.select-kategori select {
+  display: flex;
+  border: 1px solid #9d9d9d;
+  background-color: #fdfdfd;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+  color: #505050;
+  font-size: 14px;
+}
+
+.select-kategori select option {
+  color: #505050;
+  font-size: 14px;
+}
+
+.seller-hapus-produk a {
+  display: flex;
+  width: 100%;
+  padding: 10px 0px;
+  color: #e4322e;
+  font-weight: 600;
+  text-decoration: none;
+}

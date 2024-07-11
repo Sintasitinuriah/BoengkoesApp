@@ -1,0 +1,28 @@
+.container-profil-nama {
+  display: flex;
+  width: 100%;
+  /* align-items: center;
+    justify-content: center; */
+  border-radius: 6px;
+  gap: 4px;
+}
+
+.hint-nama-lengkap {
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+}
+
+.textfield-nama-lengkap input {
+  display: flex;
+  flex-direction: row;
+
+  border: 1px solid #9d9d9d;
+  background-color: #fdfdfd;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+
+  color: #505050;
+}

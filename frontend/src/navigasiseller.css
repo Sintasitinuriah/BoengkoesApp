@@ -1,0 +1,23 @@
+.container-navigasi-seller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.navigasi-item-seller {
+  display: flex;
+  width: fit-content;
+  padding: 4px 16px;
+}
+
+.navigasi-item-seller a {
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #4b595c;
+}
+
+.navigasi-item-seller a:hover {
+  text-decoration: underline;
+}

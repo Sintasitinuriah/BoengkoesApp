@@ -34,48 +34,66 @@ import Deskripsi from "./Components/Deskripsi";
 import Navbar from "./Components/Navbar";
 import HelpCenter from "./Components/HelpCenter";
 import FAQ from "./Components/Faq";
+import ButtonSimpan from "./Components/button-simpan";
+import ProfilePage from "./pages/ProfilePage";
+import RadioButton from "./Components/RadioButton";
+import FormNamaLengkap from "./Components/FormNamaLengkap";
+import NavbarSeller from "./Components/NavbarSeller";
+import NavigasiSeller from "./Components/NavigasiSeller";
+import ProfilePageSeller from "./pages/ProfilePageSeller";
+import FormNamaSeller from "./Components/formnamaseller";
+import HomeSeller from "./pages/HomeSeller";
 
 function App() {
   const isAuthenticated = false;
 
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/deskripsi" element={<Deskripsi />} />
-          <Route path="/headertokochat" element={<HeaderTokoChat />} />
-          <Route path="/buttonkunjungitoko" element={<ButtonKunjungiToko />} />
-          <Route path="/buttonchat" element={<ButtonChat />} />
-          <Route path="/buttonbeli" element={<Buttonbeli />} />
-          <Route path="/buttonkeranjang" element={<ButtonKeranjang />} />
-          <Route path="/productdetail" element={<Productdetail />} />
-          <Route path="/quantity" element={<Quantity />} />
-          <Route path="/variant" element={<Variant />} />
-          <Route path="/storeDetail" element={<StoreDetail />} />
-          <Route path="/cardproduk" element={<CardProduk />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="/headertoko" element={<HeaderToko />} />
-          <Route path="/navbarsearching" element={<NavbarSearching />} />
-          <Route path="/navbar" element={<Navbar />} />
-          <Route path="/search" element={<Searchbar />} />
-          <Route path="/navigasi" element={<Navigasi />} />
-          <Route path="/" element={<HomePage />} />
-          <Route path="/helpcenter" element={<HelpCenter />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/cardtoko" element={<CardToko />} />
-          <Route path="/buttonsmall" element={<Buttonsmall />} />
-          <Route path="/beranda" element={<Beranda />} />
-          <Route path="/cart" element={<Cartpage />} />
-          <Route path="/store" element={<Storepage />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route
-            path="*"
-            element={<Navigate to={isAuthenticated ? "/" : "/login"} />}
-          />
-        </Routes>
-      </div>
+      {/* <div className="App"> */}
+      <Routes>
+        <Route path="/" element={<HomeSeller />} />
+        <Route path="/formnamaseller" element={<FormNamaSeller />} />
+        <Route path="/profilepageseller" element={<ProfilePageSeller />} />
+        <Route path="/navigasiseller" element={<NavigasiSeller />} />
+        <Route path="/navbarseller" element={<NavbarSeller />} />
+        <Route path="/formnamalengkap" element={<FormNamaLengkap />} />
+        <Route path="/radiobutton" element={<RadioButton />} />
+        <Route path="/profilepage" element={<ProfilePage />} />
+        <Route path="/buttonsimpan" element={<ButtonSimpan />} />
+        <Route path="/deskripsi" element={<Deskripsi />} />
+        <Route path="/headertokochat" element={<HeaderTokoChat />} />
+        <Route path="/buttonkunjungitoko" element={<ButtonKunjungiToko />} />
+        <Route path="/buttonchat" element={<ButtonChat />} />
+        <Route path="/buttonbeli" element={<Buttonbeli />} />
+        <Route path="/buttonkeranjang" element={<ButtonKeranjang />} />
+        <Route path="/productdetail" element={<Productdetail />} />
+        <Route path="/quantity" element={<Quantity />} />
+        <Route path="/variant" element={<Variant />} />
+        <Route path="/storeDetail" element={<StoreDetail />} />
+        <Route path="/cardproduk" element={<CardProduk />} />
+        <Route path="/category" element={<Category />} />
+        <Route path="/headertoko" element={<HeaderToko />} />
+        <Route path="/navbarsearching" element={<NavbarSearching />} />
+        <Route path="/navbar" element={<Navbar />} />
+        <Route path="/search" element={<Searchbar />} />
+        <Route path="/navigasi" element={<Navigasi />} />
+        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/helpcenter" element={<HelpCenter />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/cardtoko" element={<CardToko />} />
+        <Route path="/buttonsmall" element={<Buttonsmall />} />
+        <Route path="/beranda" element={<Beranda />} />
+        <Route path="/cart" element={<Cartpage />} />
+        <Route path="/store" element={<Storepage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="*"
+          element={<Navigate to={isAuthenticated ? "/" : "/login"} />}
+        />
+      </Routes>
+      {/* </div> */}
     </Router>
   );
 }
