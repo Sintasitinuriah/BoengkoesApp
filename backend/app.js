@@ -1,49 +1,3 @@
-// const express = require('express');
-// const app = express();
-// require('dotenv').config();
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-// const bodyParser = require('body-parser');
-// const morgan = require('morgan');
-
-// //import Routes
-// const userRoutes = require('./routes/user');
-
-
-// async function run() {
-//   let client;
-//   try {
-//     const uri = process.env.MONGODB_URI;
-//     client = new MongoClient(uri, {
-//       serverApi: {
-//         version: ServerApiVersion.v1,
-//         strict: true,
-//         deprecationErrors: true,
-//       }
-//     });
-
-//     await client.connect();
-//     await client.db("admin").command({ ping: 1 });
-//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
-//   } finally {
-//     if (client) {
-//       await client.close();
-//     }
-//   }
-// }
-
-// run().catch(console.dir);
-
-// // MIDDLEWARE
-// app.use(morgan('dev'));
-// app.use(bodyParser.json());
-
-// app.use('/api', userRoutes);
-
-// const port = process.env.PORT || 3000;
-
-// app.listen(port, () => {
-//   console.log(`Server is running on port http://localhost:${port}`);
-// });
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -60,6 +14,7 @@ const categoryRoutes = require('./routes/category');
 const storeRoutes = require('./routes/store');
 const cartRoutes = require('./routes/cart');
 const orderRoutes = require('./routes/order');
+// const ongkirRoutes = require('./routes/checkongkir');
 
 const app = express();
 
@@ -83,6 +38,7 @@ mongoose.connect(uri, {
 })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB', err));
+
 // Use Routes
 app.use('/api', userRoutes);
 app.use('/api', productRoutes);
@@ -90,6 +46,7 @@ app.use('/api', categoryRoutes);
 app.use('/api', storeRoutes);
 app.use('/api', cartRoutes);
 app.use('/api', orderRoutes);
+// app.use('/api', ongkirRoutes); // Ensure this line is here
 
 // Error Middleware
 app.use(errorHandler);

@@ -107,7 +107,6 @@ body, html, #root {
   margin-bottom: 20px;
 }
 
-.shipping-cost input[type="text"],
 .shipping-cost input[type="number"] {
   width: calc(100% - 20px);
   padding: 10px;
@@ -135,9 +134,62 @@ body, html, #root {
 .shipping-cost button {
   width: 100%;
   padding: 10px;
-  background-color: #28a745;
-  color: white;
+  background-color: #f4c21b;
+  color: rgb(10, 9, 9);
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.shipping-cost {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.shipping-cost h2 {
+  margin-bottom: 10px;
+}
+
+.shipping-cost select,
+.shipping-cost input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.shipping-cost label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.shipping-cost .form-group {
+  margin-bottom: 15px;
+}
+
+.shipping-cost .form-group label,
+.shipping-cost .form-group select,
+.shipping-cost .form-group input {
+  display: block;
+  width: 100%;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.summary {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.summary h2 {
+  margin-bottom: 10px;
+}
+
+.summary p {
+  margin: 5px 0;
 }
