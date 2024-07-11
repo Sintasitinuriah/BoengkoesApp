@@ -1,6 +1,6 @@
 import React from "react";
 import Cart from "../Components/cart";
-import NavbarBeranda from "../Components/NavbarBeranda";
+import Navbarcart from "../Components/Navbarcart";
 import Footer from "../Components/Footer";
 import "../cart.css";
 
@@ -8,7 +8,7 @@ import "../cart.css";
 const Cartpage = () => {
   return (
     <div className="cart">
-      <NavbarBeranda/>
+      <Navbarcart/>
       <Cart/>
       <Footer/>
     </div>

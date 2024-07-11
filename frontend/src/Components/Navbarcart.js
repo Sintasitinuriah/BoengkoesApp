@@ -24,9 +24,6 @@ const NavbarBeranda = () => {
         </button>
       </div>
       <div className="navbar-right">
-        <button className="icon-button" onClick={() => navigate("/cart")}>
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </button>
         <button className="icon-button" onClick={() => navigate("/profile")}>
           <FontAwesomeIcon icon={faUser} />
         </button>

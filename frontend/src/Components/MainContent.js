@@ -33,7 +33,7 @@ function MainContent() {
         </div>
         <div class="urang">
           <p>Halo sobat jajan !</p>
-          <h1>Temukan Produk Unik di Seluruh Indonesia</h1>
+          <h1>Jelajahi produk lokal dari sabang sampai merauke</h1>
           <h3>
             <span class="highlight">Boengkoes</span> siap mencari produk unik
             dari seluruh wilayah di Indonesia, Lengkap !
