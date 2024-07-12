@@ -51,7 +51,7 @@ function App() {
     <Router>
       {/* <div className="App"> */}
       <Routes>
-        <Route path="/" element={<HomeSeller />} />
+        <Route path="/HomeSeller" element={<HomeSeller />} />
         <Route path="/formnamaseller" element={<FormNamaSeller />} />
         <Route path="/profilepageseller" element={<ProfilePageSeller />} />
         <Route path="/navigasiseller" element={<NavigasiSeller />} />
@@ -77,7 +77,7 @@ function App() {
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/search" element={<Searchbar />} />
         <Route path="/navigasi" element={<Navigasi />} />
-        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/helpcenter" element={<HelpCenter />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/cardtoko" element={<CardToko />} />
