@@ -68,7 +68,7 @@ const NavbarBeranda = () => {
         <button className="icon-button" onClick={() => navigate("/cart")}>
           <FontAwesomeIcon icon={faShoppingCart} />
         </button>
-        <button className="icon-button" onClick={() => navigate("/profile")}>
+        <button className="icon-button" onClick={() => navigate("/ProfilePage")}>
           <FontAwesomeIcon icon={faUser} />
         </button>
         <div className="navbar-center">
