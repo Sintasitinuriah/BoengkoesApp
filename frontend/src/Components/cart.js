@@ -33,7 +33,7 @@ const Cart = () => {
   const [originCities, setOriginCities] = useState([]);
   const [destinationCities, setDestinationCities] = useState([]);
 
-  const couriers = ["jne", "pos", "tiki"]; // RajaOngkir supports these couriers
+  const couriers = ["jne", "pos", "tiki"];
 
   useEffect(() => {
     const fetchProvinces = async () => {
