@@ -1,0 +1,26 @@
+.button-tambah {
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-tambah button {
+  background-color: #f4c21b;
+  border: none;
+  color: #fdfdfd;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  width: 160px;
+  height: 47px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #505050;
+  color: #fdfdfd;
+}

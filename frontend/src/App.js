@@ -43,6 +43,14 @@ import NavigasiSeller from "./Components/NavigasiSeller";
 import ProfilePageSeller from "./pages/ProfilePageSeller";
 import FormNamaSeller from "./Components/formnamaseller";
 import HomeSeller from "./pages/HomeSeller";
+import AddProduct from "./Components/AddProduct";
+import FormNamaProduk from "./Components/FormNamaProduk";
+import FormHargaProduk from "./Components/FormHargaProduk";
+import FormStokProduk from "./Components/FormStokProduk";
+import FormKategoriProduk from "./Components/FormKategoriProduk";
+import FormDeskripsiProduk from "./Components/FormDeskripsiProduk";
+import ButtonKembali from "./Components/ButtonKembali";
+import ButtonTambah from "./Components/ButtonTambah";
 
 function App() {
   const isAuthenticated = false;
@@ -51,6 +59,14 @@ function App() {
     <Router>
       {/* <div className="App"> */}
       <Routes>
+        <Route path="/buttontambah" element={<ButtonTambah />} />
+        <Route path="/buttonkembali" element={<ButtonKembali />} />
+        <Route path="/formdeskripsiproduk" element={<FormDeskripsiProduk />} />
+        <Route path="/formkategoriproduk" element={<FormKategoriProduk />} />
+        <Route path="/formstokproduk" element={<FormStokProduk />} />
+        <Route path="/formhargaproduk" element={<FormHargaProduk />} />
+        <Route path="/formnamaproduk" element={<FormNamaProduk />} />
+        <Route path="/" element={<AddProduct />} />
         <Route path="/HomeSeller" element={<HomeSeller />} />
         <Route path="/formnamaseller" element={<FormNamaSeller />} />
         <Route path="/profilepageseller" element={<ProfilePageSeller />} />
@@ -77,7 +93,7 @@ function App() {
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/search" element={<Searchbar />} />
         <Route path="/navigasi" element={<Navigasi />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/homepage" element={<HomePage />} />
         <Route path="/helpcenter" element={<HelpCenter />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/cardtoko" element={<CardToko />} />

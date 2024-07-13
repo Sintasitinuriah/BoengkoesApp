@@ -13,10 +13,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-.container-produk-seller:hover {
-  transform: scale(1.02);
-}
-
 .container-produk-seller img {
   width: 120px;
   height: 120px;

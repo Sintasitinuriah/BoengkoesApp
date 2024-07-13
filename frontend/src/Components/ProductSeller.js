@@ -1,7 +1,6 @@
 import React from "react";
 import "../productseller.css";
 import TasMoi from "../images/tas-moi.png";
-import ButtonSimpan from "./button-simpan";
 
 const ProductSeller = () => {
   return (

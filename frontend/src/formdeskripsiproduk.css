@@ -1,0 +1,35 @@
+.container-form-deskripsi-produk {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  /* align-items: center;
+          justify-content: center; */
+  border-radius: 6px;
+  gap: 4px;
+}
+
+.hint-form-deskripsi-produk {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #505050;
+}
+
+.textarea-form-deskripsi-produk {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.textarea-form-deskripsi-produk textarea {
+  width: 100%;
+  height: fit-content; /* Sesuaikan tinggi sesuai kebutuhan */
+  padding: 10px 16px;
+  font-size: 16px;
+  border: 1px solid #9d9d9d;
+  border-radius: 6px;
+  background-color: #fdfdfd;
+  color: #505050;
+  resize: vertical; /* Memungkinkan pengguna untuk mengubah ukuran vertikal */
+  box-sizing: border-box;
+}
