@@ -20,13 +20,6 @@ const Deskripsi = () => {
         >
           Deskripsi
         </a>
-        <a
-          href="/"
-          className={activeMenu === "Ulasan" ? "active" : ""}
-          onClick={(e) => handleClick(e, "Ulasan")}
-        >
-          Ulasan
-        </a>
       </div>
 
       <p>

@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color: #f6f8fd;
   margin: 0;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .container h1 {
-  color: #F4C21B;
+  color: #f4c21b;
 }
 
 .container p {
@@ -52,7 +52,6 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
 
 .btn-primary:hover {
   background-color: white; /* Warna latar belakang putih saat hover */
