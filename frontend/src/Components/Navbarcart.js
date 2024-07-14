@@ -65,7 +65,7 @@ const NavbarBeranda = () => {
         </button>
       </div>
       <div className="navbar-right">
-        <button className="icon-button" onClick={() => navigate("/profile")}>
+        <button className="icon-button" onClick={() => navigate("/profilepage")}>
           <FontAwesomeIcon icon={faUser} />
         </button>
         <div className="navbar-center">

@@ -43,6 +43,7 @@ import NavigasiSeller from "./Components/NavigasiSeller";
 import ProfilePageSeller from "./pages/ProfilePageSeller";
 import FormNamaSeller from "./Components/formnamaseller";
 import HomeSeller from "./pages/HomeSeller";
+import Shipping from "./pages/Shipping";
 
 function App() {
   const isAuthenticated = false;
@@ -52,6 +53,7 @@ function App() {
       {/* <div className="App"> */}
       <Routes>
         <Route path="/HomeSeller" element={<HomeSeller />} />
+        <Route path="/ShippingPage" element={<Shipping />} />
         <Route path="/formnamaseller" element={<FormNamaSeller />} />
         <Route path="/profilepageseller" element={<ProfilePageSeller />} />
         <Route path="/navigasiseller" element={<NavigasiSeller />} />
