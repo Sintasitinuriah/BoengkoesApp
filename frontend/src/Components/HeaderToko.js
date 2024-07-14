@@ -7,6 +7,17 @@ import Whatsapp from "../images/whatsapp-colored.png";
 import "../headertoko.css";
 
 const HeaderToko = () => {
+  const handleInstagramClick = () => {
+    window.open("https://www.instagram.com/palembanglamonde/?hl=en", "_blank");
+  };
+
+  const handleWhatsappClick = () => {
+    window.open(
+      "https://api.whatsapp.com/send?phone=6282133395550&text=%20Mau%20Order%20Lamonde%20Dong%20Min",
+      "_blank"
+    );
+  };
+
   return (
     <div className="section-1-header-toko">
       <div className="container-header-toko">
@@ -45,8 +56,12 @@ const HeaderToko = () => {
           <h3>Sosial Media</h3>
           <div className="container-logo-sosmed">
             <img src={Facebook} alt="Facebook" />
-            <img src={Instagram} alt="Instagram" />
-            <img src={Whatsapp} alt="Whatsapp" />
+            <img
+              src={Instagram}
+              alt="Instagram"
+              onClick={handleInstagramClick}
+            />
+            <img src={Whatsapp} alt="Whatsapp" onClick={handleWhatsappClick} />
           </div>
         </div>
         {/* end of social */}

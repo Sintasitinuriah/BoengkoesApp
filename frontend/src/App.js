@@ -85,7 +85,7 @@ function App() {
         <Route path="/productdetail" element={<Productdetail />} />
         <Route path="/quantity" element={<Quantity />} />
         <Route path="/variant" element={<Variant />} />
-        <Route path="/storeDetail" element={<StoreDetail />} />
+        <Route path="/storedetail" element={<StoreDetail />} />
         <Route path="/cardproduk" element={<CardProduk />} />
         <Route path="/category" element={<Category />} />
         <Route path="/headertoko" element={<HeaderToko />} />

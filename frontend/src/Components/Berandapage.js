@@ -1,9 +1,10 @@
 import React from "react";
 import Logotesla from "../images/logotesla.jpg";
-import Lamonde from "../images/pp-lamonde.png";
-import Candy from "../images/pp-candy.jpeg";
-import Souvenir from "../images/souvenir.jpeg";
-import Harum from "../images/harum.jpeg";
+// import Lamonde from "../images/pp-lamonde.png";
+// import Candy from "../images/pp-candy.jpeg";
+// import Souvenir from "../images/souvenir.jpeg";
+// import Harum from "../images/harum.jpeg";
+import CardToko from "./CardToko";
 
 const Berandapage = () => {
   return (
@@ -17,7 +18,10 @@ const Berandapage = () => {
         </div>
 
         <div className="toko-terdekat">
-          <div className="card-toko">
+          <CardToko></CardToko>
+          <CardToko></CardToko>
+          <CardToko></CardToko>
+          {/* <div className="card-toko">
             <div className="image-container">
               <img src={Lamonde} alt="Toko Palembang Lamonde" />
             </div>
@@ -47,7 +51,7 @@ const Berandapage = () => {
             </div>
             <h2>Palembang Harum</h2>
             <p>Dok.Ben</p>
-          </div>
+          </div> */}
         </div>
 
         <div className="cari-produk-lokasi">
@@ -64,16 +68,19 @@ const Berandapage = () => {
         </div>
 
         <div className="toko-lain">
-          <div className="toko-lainnya">
+          <CardToko></CardToko>
+          <CardToko></CardToko>
+          <CardToko></CardToko>
+          {/* <div className="toko-lainnya">
             <img
               src="https://tokoterdekat.com/wp-content/uploads/2023/03/Toko-Terdekat-Bali.png"
               alt="Toko Krisna Oleh Oleh Khas Bali"
             />
             <h2>Krisna Toko Oleh Oleh Khas Bali</h2>
             <p>(Souvenir)</p>
-          </div>
+          </div> */}
 
-          <div className="toko-lainnya">
+          {/* <div className="toko-lainnya">
             <img
               src="https://tokoterdekat.com/wp-content/uploads/2023/03/Toko-Terdekat-Bali-2.png"
               alt="Toko Krisna Oleh Oleh Khas Bali"
@@ -89,7 +96,7 @@ const Berandapage = () => {
             />
             <h2>Jepun Bali Oleh Oleh Bali</h2>
             <p>(Souvenir)</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

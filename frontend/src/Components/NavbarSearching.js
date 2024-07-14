@@ -5,8 +5,19 @@ import Bag from "../images/shopping-bag.png";
 import Profile from "../images/profile.png";
 import Searchbar from "./Searchbar";
 import Navigasi from "./Navigasi";
+import { useNavigate } from "react-router-dom";
 
 const NavbarSearching = () => {
+  const navigate = useNavigate();
+
+  const handleCartClick = () => {
+    navigate("/cart");
+  };
+
+  const handleProfileClick = () => {
+    navigate("/profilepage");
+  };
+
   return (
     <div className="container-navbar-searching">
       <div className="logo">
@@ -14,8 +25,8 @@ const NavbarSearching = () => {
       </div>
 
       <div className="container-searchbar">
-        <img src={Bag} alt="bag" />
-        <img src={Profile} alt="profile" />
+        <img src={Bag} alt="bag" onClick={handleCartClick} />
+        <img src={Profile} alt="profile" onClick={handleProfileClick} />
         <Searchbar></Searchbar>
         <Navigasi></Navigasi>
       </div>

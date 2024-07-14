@@ -97,6 +97,8 @@
 
 .toko-terdekat {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -160,7 +162,7 @@
 
 .toko-lain {
   display: flex;
-  justify-content: space-around; /* Mengatur jarak antar card */
+  justify-content: center; /* Mengatur jarak antar card */
   align-items: flex-start; /* Mengatur posisi vertikal card */
   gap: 20px; /* Menambahkan jarak antar card */
   padding: 20px; /* Memberikan padding pada container */
