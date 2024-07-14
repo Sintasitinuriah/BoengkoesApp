@@ -57,7 +57,6 @@
   color: #000;
 }
 
-/* Berandapage */
 
 .beranda {
   padding: 20px;
@@ -83,6 +82,33 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.background-image {
+  background-image: url("./images/kayu.jpg"); /* Path to your image */
+  background-size: contain; /* Adjust as necessary (contain, cover, or specific dimensions) */
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 10px; /* Adjust padding as needed */
+  color: white; /* Text color to make it readable on the background */
+  font-size: 1.5em; /* Adjust text size as needed */
+  text-align: center;
+  width: 300px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  display: inline-block; /* Makes the element fit the content size */
+}
+
+.border-background {
+  background-image: url("./images/BorderBackground.jpg"); /* Path to your image */
+  background-size: contain; /* Adjust as necessary */
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px; /* Adjust padding as needed */
+  display: flex; /* Added flexbox display */
+  justify-content: space-around; /* Added to distribute space evenly */
+  align-items: center; /* Added to align items vertically */
+  flex-wrap: wrap; /* Added to wrap items if needed */
+  gap: 10px; /* Reduced gap between items */
+}
+
 .header-kayu {
   text-align: center;
   margin-bottom: 20px;
@@ -101,31 +127,6 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-}
-
-.card-toko {
-  flex: 1 1 200px; /* Atur ukuran minimum card */
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-  background-color: #f9f9f9;
-}
-
-.image-container {
-  width: 100%;
-  padding-top: 75%; /* Rasio 4:3 */
-  position: relative;
-}
-
-.image-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Memastikan gambar menutupi container */
-  object-position: center;
 }
 
 .cari-produk-lokasi {
@@ -158,41 +159,4 @@
   border-radius: 20px;
   width: 300px;
   max-width: 80%;
-}
-
-.toko-lain {
-  display: flex;
-  justify-content: center; /* Mengatur jarak antar card */
-  align-items: flex-start; /* Mengatur posisi vertikal card */
-  gap: 20px; /* Menambahkan jarak antar card */
-  padding: 20px; /* Memberikan padding pada container */
-  background-color: #f9f9f9; /* Warna background container */
-}
-
-.toko-lainnya {
-  background-color: #ffffff; /* Warna background card */
-  border: 1px solid #ddd; /* Border card */
-  border-radius: 10px; /* Membuat border melengkung */
-  overflow: hidden; /* Menyembunyikan elemen yang meluap */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Memberikan bayangan */
-  flex: 1; /* Membuat card fleksibel */
-  max-width: 300px; /* Lebar maksimum card */
-  text-align: center; /* Mengatur teks di tengah */
-}
-
-.toko-lainnya img {
-  width: 100%; /* Lebar gambar mengikuti lebar card */
-  height: auto; /* Tinggi gambar otomatis */
-  border-bottom: 1px solid #ddd; /* Border bawah gambar */
-}
-
-.toko-lainnya h2 {
-  font-size: 1.2em; /* Ukuran font judul */
-  margin: 10px 0; /* Margin atas dan bawah judul */
-}
-
-.toko-lainnya p {
-  font-size: 1em; /* Ukuran font paragraf */
-  color: #555; /* Warna teks paragraf */
-  margin-bottom: 20px; /* Margin bawah paragraf */
 }
