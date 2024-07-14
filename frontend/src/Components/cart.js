@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/ShippingPage');
+  };
   const [items, setItems] = useState([
     {
       id: 1,
@@ -84,6 +90,7 @@ const Cart = () => {
   const handleCourierChange = (courier) => {
     setSelectedCourier(courier);
   };
+
 
   const handleCheckOngkir = async () => {
     try {
@@ -257,7 +264,7 @@ const Cart = () => {
         <p>Total Item: Rp {totalPrice.toLocaleString()}</p>
         <p>Ongkos Kirim: Rp {shippingCost.toLocaleString()}</p>
         <p>Total Belanja: Rp {grandTotal.toLocaleString()}</p>
-        <button>Lanjut Pembayaran</button>
+        <button onClick={handleButtonClick}>Lanjut Pembayaran</button>
       </div>
     </div>
   );

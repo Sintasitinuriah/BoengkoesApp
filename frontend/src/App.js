@@ -43,6 +43,7 @@ import NavigasiSeller from "./Components/NavigasiSeller";
 import ProfilePageSeller from "./pages/ProfilePageSeller";
 import FormNamaSeller from "./Components/formnamaseller";
 import HomeSeller from "./pages/HomeSeller";
+import Shipping from "./pages/Shipping";
 import AddProduct from "./Components/AddProduct";
 import FormNamaProduk from "./Components/FormNamaProduk";
 import FormHargaProduk from "./Components/FormHargaProduk";
@@ -68,6 +69,7 @@ function App() {
         <Route path="/formnamaproduk" element={<FormNamaProduk />} />
         <Route path="/" element={<AddProduct />} />
         <Route path="/HomeSeller" element={<HomeSeller />} />
+        <Route path="/ShippingPage" element={<Shipping />} />
         <Route path="/formnamaseller" element={<FormNamaSeller />} />
         <Route path="/profilepageseller" element={<ProfilePageSeller />} />
         <Route path="/navigasiseller" element={<NavigasiSeller />} />
