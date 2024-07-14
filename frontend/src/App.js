@@ -10,7 +10,6 @@ import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/Homepage";
 import Beranda from "./pages/Beranda";
 import Cartpage from "./pages/Cartpage";
-import Profile from "./Components/Profile";
 import "./App.css";
 import Storepage from "./pages/Storepage";
 import Buttonsmall from "./Components/button-small";
@@ -68,7 +67,7 @@ function App() {
         <Route path="/formstokproduk" element={<FormStokProduk />} />
         <Route path="/formhargaproduk" element={<FormHargaProduk />} />
         <Route path="/formnamaproduk" element={<FormNamaProduk />} />
-        <Route path="/" element={<AddProduct />} />
+        <Route path="/AddProduct" element={<AddProduct />} />
         <Route path="/homeseller" element={<HomeSeller />} />
         <Route path="/ShippingPage" element={<Shipping />} />
         <Route path="/formnamaseller" element={<FormNamaSeller />} />
@@ -96,7 +95,7 @@ function App() {
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/search" element={<Searchbar />} />
         <Route path="/navigasi" element={<Navigasi />} />
-        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/helpcenter" element={<HelpCenter />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/cardtoko" element={<CardToko />} />
@@ -104,7 +103,6 @@ function App() {
         <Route path="/beranda" element={<Beranda />} />
         <Route path="/cart" element={<Cartpage />} />
         <Route path="/store" element={<Storepage />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route
