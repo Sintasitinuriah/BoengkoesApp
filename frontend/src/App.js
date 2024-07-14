@@ -43,9 +43,7 @@ import NavigasiSeller from "./Components/NavigasiSeller";
 import ProfilePageSeller from "./pages/ProfilePageSeller";
 import FormNamaSeller from "./Components/formnamaseller";
 import HomeSeller from "./pages/HomeSeller";
-<<<<<<< HEAD
 import Shipping from "./pages/Shipping";
-=======
 import AddProduct from "./Components/AddProduct";
 import FormNamaProduk from "./Components/FormNamaProduk";
 import FormHargaProduk from "./Components/FormHargaProduk";
@@ -54,7 +52,6 @@ import FormKategoriProduk from "./Components/FormKategoriProduk";
 import FormDeskripsiProduk from "./Components/FormDeskripsiProduk";
 import ButtonKembali from "./Components/ButtonKembali";
 import ButtonTambah from "./Components/ButtonTambah";
->>>>>>> 602ddb28e56ee61166afb622015e027a82ccd77e
 
 function App() {
   const isAuthenticated = false;
