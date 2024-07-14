@@ -21,14 +21,16 @@ import AlertifyConfirm from '../Components/alert/CustomAlert';
 
 const ProfilePage = () => {
   const navigate = useNavigate();
-  const handleLogout = () => {
+  const handleLogout = (event) => {
+    event.preventDefault(); // Mencegah perilaku default <a> tag
+
     alertify.confirm(
       'Konfirmasi Logout',
       'Apakah Anda yakin ingin keluar?',
       () => {
         localStorage.removeItem('authToken');
         toastr.success('Logout berhasil');
-        navigate('/login'); 
+        navigate('/Homepage'); // Redirect ke halaman login
       },
       () => {
         toastr.info('Logout dibatalkan');
