@@ -35,7 +35,6 @@
 
 .container-jenis a.active {
   font-weight: 600; /* Menjadi semibold saat aktif */
-  text-decoration: underline; /* Munculkan underline saat aktif */
   color: #4b595c; /* Tambahkan warna untuk yang aktif jika diperlukan */
   transition: all 0.3s ease-in-out; /* Menambahkan transisi halus */
 }

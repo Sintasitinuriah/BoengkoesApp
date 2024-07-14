@@ -1,0 +1,30 @@
+.container-form-kategori-produk {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 6px;
+  gap: 4px;
+}
+
+.label-form-kategori-produk {
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+}
+
+.select-form-kategori select {
+  display: flex;
+  border: 1px solid #9d9d9d;
+  background-color: #fdfdfd;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+  color: #505050;
+  font-size: 14px;
+}
+
+.select-form-kategori select option {
+  color: #505050;
+  font-size: 14px;
+}

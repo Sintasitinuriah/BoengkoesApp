@@ -4,21 +4,25 @@
   box-sizing: border-box;
 }
 
-body, html, #root {
+body,
+html,
+#root {
   height: 100%;
 }
 
 .app {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   height: 100%;
   padding: 20px;
-  background-color: #f0f0f0; /* Optional: to give some contrast to the background */
+  gap: 24px;
+  background-color: #f6f8fd; /* Optional: to give some contrast to the background */
 }
 
-.cart, .summary {
-  background-color: white;
+.cart,
+.summary {
+  background-color: #fdfdfd;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -26,14 +30,15 @@ body, html, #root {
 
 .cart {
   flex: 3;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .summary {
   flex: 1;
 }
 
-.cart h2, .summary h2 {
+.cart h2,
+.summary h2 {
   margin-bottom: 20px;
 }
 

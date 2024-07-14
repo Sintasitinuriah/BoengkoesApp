@@ -1,0 +1,25 @@
+.button-kembali {
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-kembali button {
+  background-color: #f6f8fd;
+  border: 3px solid #f4c21b;
+  color: #f4c21b;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  width: 160px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #505050;
+  color: #fdfdfd;
+}
