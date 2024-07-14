@@ -1,23 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.49b8f2af.css",
-    "main.js": "/static/js/main.37523604.js",
+    "main.css": "/static/css/main.d2cccd8a.css",
+    "main.js": "/static/js/main.232a2114.js",
+    "static/media/tas-moi.png": "/static/media/tas-moi.27418c35f58db9851332.png",
     "static/media/lamonde-palembang.png": "/static/media/lamonde-palembang.4fd2940d1cf4e517862a.png",
     "static/media/frame.jpg": "/static/media/frame.8a58dd150508a8f1f1fc.jpg",
     "static/media/logo.jpg": "/static/media/logo.4746a9f10bb9cd7a07d6.jpg",
     "static/media/batik.png": "/static/media/batik.6304e8848b4210353bdf.png",
     "static/media/logotesla.jpg": "/static/media/logotesla.f857739db7c955f50048.jpg",
     "static/media/bakso.png": "/static/media/bakso.610623852c6f10db257c.png",
+    "static/media/BorderBackground.jpg": "/static/media/BorderBackground.900fbee427a8be565fc7.jpg",
+    "static/media/product-lamonde-chocomaltine.png": "/static/media/product-lamonde-chocomaltine.289c537432eaad04ca81.png",
     "static/media/rendang.png": "/static/media/rendang.f44af45231376e0580d5.png",
+    "static/media/lamonde-chocomaltine.png": "/static/media/lamonde-chocomaltine.35955dde783b4ff82e90.png",
     "static/media/pp-lamonde.png": "/static/media/pp-lamonde.dc6f784fe8e20f6a47d7.png",
+    "static/media/kayu.jpg": "/static/media/kayu.819c5f329542515d2cc1.jpg",
+    "static/media/krinsa.png": "/static/media/krinsa.ba320f003f43e3392aa1.png",
+    "static/media/foto-profil.png": "/static/media/foto-profil.f21d249e197a26261f30.png",
     "static/media/pura.png": "/static/media/pura.2b787d8897ea161d50d3.png",
     "static/media/monetization.png": "/static/media/monetization.c6d2647a6cdb56ee6fd2.png",
     "index.html": "/index.html",
-    "main.49b8f2af.css.map": "/static/css/main.49b8f2af.css.map",
-    "main.37523604.js.map": "/static/js/main.37523604.js.map"
+    "main.d2cccd8a.css.map": "/static/css/main.d2cccd8a.css.map",
+    "main.232a2114.js.map": "/static/js/main.232a2114.js.map"
   },
   "entrypoints": [
-    "static/css/main.49b8f2af.css",
-    "static/js/main.37523604.js"
+    "static/css/main.d2cccd8a.css",
+    "static/js/main.232a2114.js"
   ]
 }
