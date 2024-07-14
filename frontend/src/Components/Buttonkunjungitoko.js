@@ -1,8 +1,19 @@
 import React from "react";
 import "../buttonkunjungitoko.css";
+import { useNavigate } from "react-router-dom";
 
 const ButtonKunjungiToko = () => {
-  return <button className="button-kunjungi-toko">Kunjungi Toko</button>;
+  const navigate = useNavigate();
+
+  const handleKunjungiTokoClick = () => {
+    navigate("/storedetail");
+  };
+
+  return (
+    <button className="button-kunjungi-toko" onClick={handleKunjungiTokoClick}>
+      Kunjungi Toko
+    </button>
+  );
 };
 
 export default ButtonKunjungiToko;

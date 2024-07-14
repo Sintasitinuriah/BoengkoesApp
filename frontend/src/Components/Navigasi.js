@@ -12,7 +12,7 @@ const Navigasi = () => {
   return (
     <div className="container-navigasi">
       <div className="navigasi-item">
-        <a href="/beranda" onClick={handleHomeClick()}>
+        <a href="/beranda" onClick={handleHomeClick}>
           Home
         </a>
       </div>

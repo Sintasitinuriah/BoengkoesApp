@@ -6,7 +6,7 @@ const Variant = () => {
   const [activeVariant, setActiveVariant] = React.useState(null);
 
   //   array varian untuk demonstrasi
-  const variants = ["Chocomaltine", "Varian 2", "Varian 3"];
+  const variants = ["Chocomaltine"];
 
   return (
     <div className="variant-container">

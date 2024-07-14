@@ -1,11 +1,18 @@
 import React from "react";
 import "../card-produk.css";
 import Chocomaltine from "../images/lamonde-chocomaltine.png";
+import { useNavigate } from "react-router-dom";
 
 const CardProduk = () => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate("/productdetail");
+  };
+
   return (
     <div className="container-card-produk">
-      <div className="card-produk">
+      <div className="card-produk" onClick={handleCardClick}>
         <div className="container-gambar-produk">
           <img src={Chocomaltine} alt="Card-1" />
         </div>

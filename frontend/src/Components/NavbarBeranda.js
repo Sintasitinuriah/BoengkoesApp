@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../images/logo.jpg"; 
+import logo from "../images/logo.jpg";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -53,7 +53,7 @@ const NavbarBeranda = () => {
   };
 
   const handleServicesClick = () => {
-    navigate("/services"); 
+    navigate("/services");
   };
 
   return (
@@ -68,7 +68,10 @@ const NavbarBeranda = () => {
         <button className="icon-button" onClick={() => navigate("/cart")}>
           <FontAwesomeIcon icon={faShoppingCart} />
         </button>
-        <button className="icon-button" onClick={() => navigate("/ProfilePage")}>
+        <button
+          className="icon-button"
+          onClick={() => navigate("/ProfilePage")}
+        >
           <FontAwesomeIcon icon={faUser} />
         </button>
         <div className="navbar-center">
