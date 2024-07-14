@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Import Axios
-import { useNavigate } from 'react-router-dom'; 
+import axios from 'axios';  
+import { useNavigate } from 'react-router-dom';
+import 'toastr/build/toastr.min.css';
+import toastr from 'toastr';
 import '../Register.css'; 
 import sampleImage from '../images/frame.jpg'; 
 
@@ -14,7 +16,7 @@ const Register = () => {
   const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const validateInputs = () => {
     let valid = true;
@@ -33,8 +35,13 @@ const Register = () => {
       setUsernameError('');
     }
 
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
     if (!password) {
       setPasswordError('Password tidak boleh kosong');
+      valid = false;
+    } else if (!passwordRegex.test(password)) {
+      setPasswordError('Password minimal 8 karakter, huruf, angka, dan karakter spesial');
       valid = false;
     } else {
       setPasswordError('');
@@ -47,36 +54,39 @@ const Register = () => {
     event.preventDefault();
 
     if (!validateInputs()) {
+      toastr.error('Harap periksa input Anda');
       return;
     }
 
     try {
       const response = await axios.post('https://boengkosapps-039320043b7f.herokuapp.com/api/signup', {
         name: nama,
-        email: username, // Assuming username is email
+        email: username,
         password: password
       });
 
-      if (response.data.success) {
-        setSuccess('Pendaftaran berhasil! Silakan login.');
-        setError('');
-
-        // Redirect to login page after successful registration
+      if (response.status === 200) {
+        toastr.success('Pendaftaran berhasil! Silakan login.');
+        console.log('Registration successful:', response.data);
         navigate('/login');
       } else {
-        setError(response.data.message);
+        toastr.error(response.data.message || 'Pendaftaran gagal');
+        setError(response.data.message || 'Pendaftaran gagal');
         setSuccess('');
       }
     } catch (error) {
-      setError('Terjadi kesalahan saat mendaftar. Silakan coba lagi.');
+      if (error.response) {
+        toastr.error(error.response.data.message || 'Pendaftaran gagal');
+        setError(error.response.data.message || 'Pendaftaran gagal');
+      } else if (error.request) {
+        toastr.error('Tidak ada respons dari server');
+        setError('Tidak ada respons dari server');
+      } else {
+        toastr.error('Terjadi kesalahan saat mendaftar');
+        setError('Terjadi kesalahan saat mendaftar');
+      }
       setSuccess('');
-      console.error('Error during registration:', error);
     }
-
-    // Reset form fields
-    setNama('');
-    setUsername('');
-    setPassword('');
   };
 
   return (

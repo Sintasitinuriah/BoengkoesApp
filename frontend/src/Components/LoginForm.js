@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';  
 import { useNavigate } from 'react-router-dom';
+import 'toastr/build/toastr.min.css';
+import toastr from 'toastr';
 import '../Login.css'; 
 import sampleImage from '../images/frame.jpg'; 
 
@@ -12,9 +14,11 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState('');
 
   const navigate = useNavigate();
-  
+
   const validateInputs = () => {
     let valid = true;
+
+    // Validasi username
     if (!username) {
       setUsernameError('Username tidak boleh kosong');
       valid = false;
@@ -22,8 +26,14 @@ const Login = () => {
       setUsernameError('');
     }
 
+    // Validasi password
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
     if (!password) {
       setPasswordError('Password tidak boleh kosong');
+      valid = false;
+    } else if (!passwordRegex.test(password)) {
+      setPasswordError('Password minimal 8 karakter, huruf, angka, dan karakter spesial');
       valid = false;
     } else {
       setPasswordError('');
@@ -36,6 +46,7 @@ const Login = () => {
     event.preventDefault();
 
     if (!validateInputs()) {
+      toastr.error('Harap periksa input Anda');
       return;
     }
 
@@ -46,25 +57,27 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        // Login successful
+        toastr.success('Login berhasil');
         console.log('Login successful:', response.data);
-        // Redirect to dashboard or another page
-        navigate('/beranda')
+
+        // Simpan token di localStorage
+        localStorage.setItem('authToken', response.data.token);
+
+        navigate('/beranda');
       } else {
-        // Login failed
-        setErrorMessage(response.data.message || 'Login failed');
+        toastr.error(response.data.message || 'Login gagal');
+        setErrorMessage(response.data.message || 'Login gagal');
       }
     } catch (error) {
       if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        setErrorMessage(error.response.data.message || 'Login failed');
+        toastr.error(error.response.data.message || 'Login gagal');
+        setErrorMessage(error.response.data.message || 'Login gagal');
       } else if (error.request) {
-        // The request was made but no response was received
-        setErrorMessage('No response received from server');
+        toastr.error('Tidak ada respons dari server');
+        setErrorMessage('Tidak ada respons dari server');
       } else {
-        // Something happened in setting up the request that triggered an Error
-        setErrorMessage('An error occurred while logging in');
+        toastr.error('Terjadi kesalahan saat login');
+        setErrorMessage('Terjadi kesalahan saat login');
       }
     }
   };

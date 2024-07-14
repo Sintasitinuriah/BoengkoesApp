@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
+import toastr from 'toastr';
 import "../profilepage.css";
 import NavbarSearching from "../Components/NavbarSearching";
 import ButtonSimpan from "../Components/button-simpan";
@@ -10,8 +12,29 @@ import Alamat from "../Components/Alamat";
 import FormNomorHp from "../Components/FormNomorHp";
 import FormEmailProfil from "../Components/FormEmailProfil";
 import Footer from "../Components/Footer";
+import 'alertifyjs/build/css/alertify.css';
+import alertify from 'alertifyjs';
+
+import CustomConfirm from '../Components/alert/CustomConfirm';
+import AlertifyConfirm from '../Components/alert/CustomAlert';
+
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    alertify.confirm(
+      'Konfirmasi Logout',
+      'Apakah Anda yakin ingin keluar?',
+      () => {
+        localStorage.removeItem('authToken');
+        toastr.success('Logout berhasil');
+        navigate('/login'); 
+      },
+      () => {
+        toastr.info('Logout dibatalkan');
+      }
+    );
+  };
   return (
     <div className="profile-page">
       <NavbarSearching></NavbarSearching>
@@ -51,7 +74,7 @@ const ProfilePage = () => {
             <h2 className="label-hp-email">Info Pemilik Akun</h2>
             <FormNomorHp></FormNomorHp>
             <FormEmailProfil></FormEmailProfil>
-            <a href="/" className="keluar-akun">
+            <a href="/Homepage" className="keluar-akun" onClick={handleLogout}>
               Keluar Akun
             </a>
           </div>

@@ -69,3 +69,9 @@
 .container a:hover {
   text-decoration: underline;
 }
+
+.error-message {
+  color: red;
+  font-size: 11px; /* Sesuaikan ukuran teks di sini */
+  margin-top: 5px;
+}
