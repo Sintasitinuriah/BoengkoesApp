@@ -35,3 +35,14 @@
 
   transform: scale(1.1);
 }
+
+.location-button {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 5px;
+  white-space: nowrap;
+}

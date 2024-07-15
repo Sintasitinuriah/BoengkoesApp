@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d2cccd8a.css",
-    "main.js": "/static/js/main.232a2114.js",
+    "main.css": "/static/css/main.3a3c6f24.css",
+    "main.js": "/static/js/main.4e98d09d.js",
     "static/media/tas-moi.png": "/static/media/tas-moi.27418c35f58db9851332.png",
     "static/media/lamonde-palembang.png": "/static/media/lamonde-palembang.4fd2940d1cf4e517862a.png",
     "static/media/frame.jpg": "/static/media/frame.8a58dd150508a8f1f1fc.jpg",
@@ -20,11 +20,11 @@
     "static/media/pura.png": "/static/media/pura.2b787d8897ea161d50d3.png",
     "static/media/monetization.png": "/static/media/monetization.c6d2647a6cdb56ee6fd2.png",
     "index.html": "/index.html",
-    "main.d2cccd8a.css.map": "/static/css/main.d2cccd8a.css.map",
-    "main.232a2114.js.map": "/static/js/main.232a2114.js.map"
+    "main.3a3c6f24.css.map": "/static/css/main.3a3c6f24.css.map",
+    "main.4e98d09d.js.map": "/static/js/main.4e98d09d.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2cccd8a.css",
-    "static/js/main.232a2114.js"
+    "static/css/main.3a3c6f24.css",
+    "static/js/main.4e98d09d.js"
   ]
 }

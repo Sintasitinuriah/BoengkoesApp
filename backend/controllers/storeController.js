@@ -5,14 +5,15 @@ const ErrorResponse = require('../utils/errorResponse');
 // Create a new store
 exports.createStore = asyncHandler(async (req, res, next) => {
   try {
-    const { name, phoneNumber, owner, district, city, province } = req.body;
+    const { name, phoneNumber, owner, district, city, province,address } = req.body;
     const store = await Store.create({
       name,
       phoneNumber,
       owner,
       district,
       city,
-      province
+      province,
+      address
     });
     res.status(201).json({ success: true, data: store });
   } catch (error) {

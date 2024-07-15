@@ -194,3 +194,39 @@
   font-weight: 600;
   text-decoration: none;
 }
+.form-group{
+  margin-bottom: 0px;
+}
+.form-group label {
+  display: block;
+  color: #505050;
+}
+.form-group select{
+  display: flex;
+  margin-bottom: 5px;
+  border: 1px solid #9d9d9d;
+  background-color: #fdfdfd;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+  color: #505050;
+
+}
+.form-group select.input-field {
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-group select.input-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}

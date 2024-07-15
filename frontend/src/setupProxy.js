@@ -5,4 +5,18 @@ module.exports = function(app) {
     target: 'https://api.rajaongkir.com/starter',
     changeOrigin: true,
   }));
+  
+  app.use(
+    '/api/wilayah',
+    createProxyMiddleware({
+      target: 'https://alamat.thecloudalert.com/api/',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api/wilayah': '', // Menghapus path base
+      },
+      logLevel: 'debug',
+      onProxyReq: (proxyReq, req, res) => {
+        console.log('Proxying request to Wilayah:', proxyReq.path);
+      },
+    }));
 };

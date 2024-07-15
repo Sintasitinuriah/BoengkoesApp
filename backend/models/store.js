@@ -38,6 +38,20 @@ const storeSchema = new mongoose.Schema({
     required: [true, 'Silahkan tambahkan provinsi'],
     trim: true,
   },
+  addres:{
+    type: String,
+    required: [true, 'Silahkan tambahkan alamat toko'],
+    trim: true,
+    maxlength: 255,
+  },
+  facebook:{
+    type: String,
+    trim: true,
+  },
+  instagram:{
+    type: String,
+    trim: true,
+  },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Store', storeSchema);
