@@ -2,6 +2,7 @@
 
 import React from 'react';
 import RegisterForm from '../Components/RegisterForm';
+import '../Register.css'; 
 
 const RegisterPage = () => {
   return (

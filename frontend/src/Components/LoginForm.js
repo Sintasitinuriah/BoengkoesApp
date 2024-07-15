@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import 'toastr/build/toastr.min.css';
 import toastr from 'toastr';
-import '../Login.css'; 
 import sampleImage from '../images/frame.jpg'; 
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -95,7 +95,7 @@ const Login = () => {
           {errorMessage && <p className="error-message">{errorMessage}</p>}
 
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
+            <div className="form-group-login">
               <input
                 type="text"
                 className="form-control"
@@ -107,7 +107,7 @@ const Login = () => {
               {usernameError && <p className="error-message">{usernameError}</p>}
             </div>
 
-            <div className="form-group">
+            <div className="form-group-login">
               <input
                 type="password"
                 className="form-control"

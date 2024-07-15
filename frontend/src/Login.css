@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f6f8fd;
+  background-color: #f0f0f0;
   margin: 0;
 }
 
@@ -34,28 +34,43 @@
 }
 
 .container h1 {
-  color: #f4c21b;
+  color: #F4C21B;
+  margin-bottom: 20px;
 }
 
 .container p {
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.form-group {
-  margin-bottom: 16px;
+.form-group-login {
+  margin-bottom: 20px;
   width: 100%;
 }
 
 .form-control {
   width: 100%;
-  padding: 120px;
+  padding: 12px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
+.btn-primary {
+  width: 100%; /* Tombol mengambil lebar penuh dari parentnya */
+  padding: 12px; /* Padding yang seragam */
+  font-size: 16px;
+  background-color: #F4C21B;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 .btn-primary:hover {
-  background-color: white; /* Warna latar belakang putih saat hover */
-  color: black; /* Warna teks hitam saat hover */
+  background-color: rgb(65, 124, 227);
+  color: black;
 }
 
 .forgot-password {
@@ -68,10 +83,4 @@
 
 .container a:hover {
   text-decoration: underline;
-}
-
-.error-message {
-  color: red;
-  font-size: 11px; /* Sesuaikan ukuran teks di sini */
-  margin-top: 5px;
 }
