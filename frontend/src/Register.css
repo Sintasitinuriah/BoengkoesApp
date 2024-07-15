@@ -21,17 +21,18 @@ body {
   height: 100%;
 }
 
-.login-image {
+.register-image {
   flex: 1;
+  padding: 20px; /* Tambahkan padding untuk memberi ruang di sekitar gambar */
 }
 
-.login-image img {
+.register-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.container {
+.container-register {
   flex: 1;
   padding: 40px;
   display: flex;
@@ -40,28 +41,32 @@ body {
   align-items: center;
 }
 
-.container h1,
-.container p {
+.container-register h1{
+  color: #F4C21B;
+  margin-bottom: 20px;
+}
+.container-register p {
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.form-group {
+.form-group-register {
   margin-bottom: 20px;
   width: 100%;
 }
 
-.form-control {
+.form-control-register {
   width: 100%;
-  padding: 10px;
+  padding: 12px; /* Ubah padding agar seragam dengan form lainnya */
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.btn-primary {
+.btn-primary-register {
   background-color: #F4C21B;
-  border: 1px solid;
   color: white;
-  padding: 10px;
+  padding: 12px; /* Ubah padding agar seragam */
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -69,14 +74,19 @@ body {
   margin-bottom: 16px;
   cursor: pointer;
   border-radius: 4px;
-  width: 113%;
+  width: 100%; /* Tombol mengambil lebar penuh dari parentnya */
+  border: none; /* Hapus border yang tidak dibutuhkan */
 }
 
-.container a {
-  color: #007bff;
+.btn-primary-register:hover {
+  background-color: #4075e0; /* Ubah warna latar belakang saat hover */
+}
+
+.container-register a {
+  color: #336ccd;
   text-decoration: none;
 }
 
-.container a:hover {
+.container-register a:hover {
   text-decoration: underline;
 }

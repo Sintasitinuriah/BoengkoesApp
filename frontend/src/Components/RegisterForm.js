@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import 'toastr/build/toastr.min.css';
 import toastr from 'toastr';
-import '../Register.css'; 
 import sampleImage from '../images/frame.jpg'; 
 
 const Register = () => {
@@ -92,10 +91,10 @@ const Register = () => {
   return (
     <div className="register-background">
       <div className="register-container">
-        <div className="login-image">
+        <div className="register-image">
           <img src={sampleImage} alt="Sample" />
         </div>
-        <div className="container">
+        <div className="container-register">
           <h1>Daftar Akun</h1>
           <p>Silahkan buat akun kamu</p>
 
@@ -103,10 +102,10 @@ const Register = () => {
           {success && <p className="success-message">{success}</p>}
 
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
+            <div className="form-group-register">
               <input
                 type="text"
-                className="form-control"
+                className="form-control-register"
                 id="nama"
                 value={nama}
                 onChange={(event) => setNama(event.target.value)}
@@ -115,7 +114,7 @@ const Register = () => {
               {namaError && <p className="error-message">{namaError}</p>}
             </div>
 
-            <div className="form-group">
+            <div className="form-group-register">
               <input
                 type="text"
                 className="form-control"
@@ -127,10 +126,10 @@ const Register = () => {
               {usernameError && <p className="error-message">{usernameError}</p>}
             </div>
 
-            <div className="form-group">
+            <div className="form-group-register">
               <input
                 type="password"
-                className="form-control"
+                className="form-control-register"
                 id="password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
@@ -139,7 +138,7 @@ const Register = () => {
               {passwordError && <p className="error-message">{passwordError}</p>}
             </div>
 
-            <button type="submit" className="btn btn-primary">Daftar</button>
+            <button type="submit" className="btn btn-primary-register">Daftar</button>
           </form>
 
           <p>Sudah punya akun? <a href="/login">Masuk</a></p>

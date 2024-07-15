@@ -51,6 +51,8 @@ import FormKategoriProduk from "./Components/FormKategoriProduk";
 import FormDeskripsiProduk from "./Components/FormDeskripsiProduk";
 import ButtonKembali from "./Components/ButtonKembali";
 import ButtonTambah from "./Components/ButtonTambah";
+import AboutUs from "./Components/AboutUs";
+import PrivacyPolicy from "./Components/PrivacyPolicy";
 
 function App() {
   const isAuthenticated = false;
@@ -60,6 +62,8 @@ function App() {
       {/* <div className="App"> */}
       <Routes>
         <Route path="/addproduct" element={<AddProduct />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
+        <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/buttontambah" element={<ButtonTambah />} />
         <Route path="/buttonkembali" element={<ButtonKembali />} />
         <Route path="/formdeskripsiproduk" element={<FormDeskripsiProduk />} />

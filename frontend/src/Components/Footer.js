@@ -26,10 +26,10 @@ const Footer = () => {
             <h3>Perusahaan</h3>
             <ul>
               <li>
-                <a href="#">Tentang Kami</a>
+                <a href="/AboutUs">Tentang Kami</a>
               </li>
               <li>
-                <a href="#">Kebijakan Privasi</a>
+                <a href="/PrivacyPolicy">Kebijakan Privasi</a>
               </li>
               <li>
                 <a href="/CardProduk">Produk</a>
@@ -46,18 +46,30 @@ const Footer = () => {
                 <a href="/Faq">FAQ</a>
               </li>
               <li>
-                <a href="#">Hubungi Kami</a>
+                <a>Hubungi Kami</a>
               </li>
             </ul>
             <div className="footer-social">
-              <a href="#">
-                <img src={Instagram} alt="Social Icon" />
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={Instagram} alt="Instagram" />
               </a>
-              <a href="#">
-                <img src={Facebook} alt="Social Icon" />
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={Facebook} alt="Facebook" />
               </a>
-              <a href="#">
-                <img src={Gmail} alt="Social Icon" />
+              <a
+                href="mailto:support@example.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={Gmail} alt="Gmail" />
               </a>
             </div>
           </div>

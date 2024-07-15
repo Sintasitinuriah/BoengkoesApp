@@ -1,0 +1,71 @@
+.about-us-container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .about-us-container p{
+    text-align: center;
+  }
+  
+  .about-us-header {
+    margin-bottom: 40px;
+  }
+  
+  .about-us-header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .about-us-header p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  .about-us-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  
+  .about-us-section {
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-us-section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .about-us-section p {
+    font-size: 1.1em;
+    color: #555;
+  }
+  
+  .about-us-footer {
+    margin-top: 40px;
+  }
+  
+  .about-us-footer h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .social-icons a {
+    color: #333;
+    font-size: 2em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #007bff;
+  }
+  

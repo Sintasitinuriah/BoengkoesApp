@@ -1,6 +1,6 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
-import toastr from 'toastr';
+import { useNavigate } from "react-router-dom";
+import toastr from "toastr";
 import "../profilepage.css";
 import NavbarSearching from "../Components/NavbarSearching";
 import ButtonSimpan from "../Components/button-simpan";
@@ -12,12 +12,11 @@ import Alamat from "../Components/Alamat";
 import FormNomorHp from "../Components/FormNomorHp";
 import FormEmailProfil from "../Components/FormEmailProfil";
 import Footer from "../Components/Footer";
-import 'alertifyjs/build/css/alertify.css';
-import alertify from 'alertifyjs';
+import "alertifyjs/build/css/alertify.css";
+import alertify from "alertifyjs";
 
-import CustomConfirm from '../Components/alert/CustomConfirm';
-import AlertifyConfirm from '../Components/alert/CustomAlert';
-
+// import CustomConfirm from "../Components/alert/CustomConfirm";
+// import AlertifyConfirm from "../Components/alert/CustomAlert";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -25,15 +24,15 @@ const ProfilePage = () => {
     event.preventDefault(); // Mencegah perilaku default <a> tag
 
     alertify.confirm(
-      'Konfirmasi Logout',
-      'Apakah Anda yakin ingin keluar?',
+      "Konfirmasi Logout",
+      "Apakah Anda yakin ingin keluar?",
       () => {
-        localStorage.removeItem('authToken');
-        toastr.success('Logout berhasil');
-        navigate('/Homepage'); // Redirect ke halaman login
+        localStorage.removeItem("authToken");
+        toastr.success("Logout berhasil");
+        navigate("/Homepage"); // Redirect ke halaman login
       },
       () => {
-        toastr.info('Logout dibatalkan');
+        toastr.info("Logout dibatalkan");
       }
     );
   };
@@ -81,7 +80,7 @@ const ProfilePage = () => {
             </a>
           </div>
 
-          <ButtonSimpan></ButtonSimpan>
+          <ButtonSimpan text={"Simpan"}></ButtonSimpan>
         </div>
       </div>
 

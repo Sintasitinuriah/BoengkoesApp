@@ -2,6 +2,7 @@
 
 import React from 'react';
 import LoginForm from '../Components/LoginForm';
+import '../Login.css'; 
 
 const LoginPage = () => {
   return (
