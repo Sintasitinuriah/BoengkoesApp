@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+import toastr from 'toastr';
 import "../profilepageseller.css";
+import 'alertifyjs/build/css/alertify.css';
+import alertify from 'alertifyjs';
 import NavbarSeller from "../Components/NavbarSeller";
 import ButtonSimpan from "../Components/button-simpan";
 import RadioButton from "../Components/RadioButton";
@@ -19,7 +23,7 @@ const ProfilePageSeller = () => {
     email: "",
     province: "",
     district: "",
-    city: "",
+    city: ""
   });
   const [provinces, setProvinces] = useState([]);
   const [cities, setCities] = useState([]);
@@ -27,7 +31,23 @@ const ProfilePageSeller = () => {
   const [selectedProvince, setSelectedProvince] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState("");
+  const navigate = useNavigate();
+  const handleLogout = (event) => {
+    event.preventDefault(); // Mencegah perilaku default <a> tag
 
+    alertify.confirm(
+      'Konfirmasi Logout',
+      'Apakah Anda yakin ingin keluar?',
+      () => {
+        localStorage.removeItem('authToken');
+        toastr.success('Logout berhasil');
+        navigate('/Homepage'); // Redirect ke halaman login
+      },
+      () => {
+        toastr.info('Logout dibatalkan');
+      }
+    );
+  };
   useEffect(() => {
     fetchProvinces();
   }, []);
@@ -46,10 +66,8 @@ const ProfilePageSeller = () => {
 
   const fetchProvinces = async () => {
     try {
-      const response = await axios.get(
-        "https://alamat.thecloudalert.com/api/provinsi/get/"
-      );
-      console.log("Provinces data:", response.data);
+      const response = await axios.get('https://alamat.thecloudalert.com/api/provinsi/get/');
+      console.log('Provinces data:', response.data);
 
       if (response.data && Array.isArray(response.data.result)) {
         setProvinces(response.data.result);
@@ -63,10 +81,8 @@ const ProfilePageSeller = () => {
 
   const fetchCities = async (provinceId) => {
     try {
-      const response = await axios.get(
-        `https://alamat.thecloudalert.com/api/kabkota/get/${provinceId}`
-      );
-      console.log("Cities data:", response.data);
+      const response = await axios.get(`https://alamat.thecloudalert.com/api/kabkota/get/kabkota/get/?d_provinsi_id=${provinceId}`);
+      console.log('Cities data:', response.data);
 
       if (response.data && Array.isArray(response.data.result)) {
         setCities(response.data.result);
@@ -80,10 +96,8 @@ const ProfilePageSeller = () => {
 
   const fetchDistricts = async (cityId) => {
     try {
-      const response = await axios.get(
-        `https://alamat.thecloudalert.com/api/kecamatan/get/${cityId}`
-      );
-      console.log("Districts data:", response.data);
+      const response = await axios.get(`https://alamat.thecloudalert.com/api/kecamatan/get/?d_kabkota_id=${cityId}`);
+      console.log('Districts data:', response.data);
 
       if (response.data && Array.isArray(response.data.result)) {
         setDistricts(response.data.result);
@@ -98,11 +112,10 @@ const ProfilePageSeller = () => {
   const handleSave = async () => {
     console.log("Button simpan diklik");
     try {
-      const token = localStorage.getItem("token");
-      const userId = localStorage.getItem("userId");
+      const token = localStorage.getItem('token');
+      const userId = localStorage.getItem('userId');
 
-      const response = await axios.post(
-        "https://boengkosapps-039320043b7f.herokuapp.com/api/store",
+      const response = await axios.post('https://boengkosapps-039320043b7f.herokuapp.com/api/store',
         {
           id: userId,
           nama: sellerInfo.nama,
@@ -115,9 +128,9 @@ const ProfilePageSeller = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
         }
       );
       console.log("Store saved successfully:", response.data);
@@ -153,10 +166,7 @@ const ProfilePageSeller = () => {
 
           <div className="container-nama-alamat-seller">
             <h2 className="label-pemilik-akun">Info Penjual</h2>
-            <FormNamaSeller
-              sellerInfo={sellerInfo}
-              setSellerInfo={setSellerInfo}
-            />
+            <FormNamaSeller sellerInfo={sellerInfo} setSellerInfo={setSellerInfo} />
             <Alamat sellerInfo={sellerInfo} setSellerInfo={setSellerInfo} />
 
             <div className="form-group">
@@ -208,24 +218,19 @@ const ProfilePageSeller = () => {
             </div>
 
             <h2 className="label-media-sosial">Media Sosial</h2>
-            <MediaSosialSeller
-              sellerInfo={sellerInfo}
-              setSellerInfo={setSellerInfo}
-            />
+            <MediaSosialSeller sellerInfo={sellerInfo} setSellerInfo={setSellerInfo} />
           </div>
 
           <div className="container-email-seller">
             <h2 className="label-email">Alamat Email Penjual</h2>
-            <FormEmailProfil
-              sellerInfo={sellerInfo}
-              setSellerInfo={setSellerInfo}
-            />
-            <a href="/" className="keluar-akun-penjual">
+            <FormEmailProfil sellerInfo={sellerInfo} setSellerInfo={setSellerInfo} />
+            <a href="/Homepage" className="keluar-akun" onClick={handleLogout}>
               Keluar Akun
             </a>
           </div>
 
-          <ButtonSimpan text={"Simpan"} onClick={handleSave} />
+          <ButtonSimpan onClick={handleSave}></ButtonSimpan>
+          {error && <p className="error">{error}</p>}
         </div>
       </div>
 

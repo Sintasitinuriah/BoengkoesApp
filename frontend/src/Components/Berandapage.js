@@ -1,8 +1,39 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 import Logotesla from "../images/logotesla.jpg";
 import CardToko from "./CardToko";
 
 const Berandapage = () => {
+  const [profile, setProfile] = useState(""); 
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token'); // Pastikan ini menggunakan nama yang benar dari localStorage
+    if (!token) {
+      setError("Token not found");
+      return;
+    }
+
+    axios.get('https://boengkosapps-039320043b7f.herokuapp.com/api/getprofile', {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      console.log(response.data); 
+      setProfile(response.data);
+    })
+    .catch(error => {
+      console.error("Error: ", error);
+      if (error.response && error.response.status === 401) {
+        setError('Unauthorized');
+      } else {
+        setError(error.message);
+      }
+    });
+  }, []);
+
   return (
     <div className="beranda">
       <div className="logotesla">
