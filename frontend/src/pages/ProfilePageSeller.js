@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+import toastr from 'toastr';
 import "../profilepageseller.css";
+import 'alertifyjs/build/css/alertify.css';
+import alertify from 'alertifyjs';
 import NavbarSeller from "../Components/NavbarSeller";
 import ButtonSimpan from "../Components/button-simpan";
 import RadioButton from "../Components/RadioButton";
@@ -27,7 +31,23 @@ const ProfilePageSeller = () => {
   const [selectedProvince, setSelectedProvince] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState("");
+  const navigate = useNavigate();
+  const handleLogout = (event) => {
+    event.preventDefault(); // Mencegah perilaku default <a> tag
 
+    alertify.confirm(
+      'Konfirmasi Logout',
+      'Apakah Anda yakin ingin keluar?',
+      () => {
+        localStorage.removeItem('authToken');
+        toastr.success('Logout berhasil');
+        navigate('/Homepage'); // Redirect ke halaman login
+      },
+      () => {
+        toastr.info('Logout dibatalkan');
+      }
+    );
+  };
   useEffect(() => {
     fetchProvinces();
   }, []);
@@ -61,7 +81,7 @@ const ProfilePageSeller = () => {
 
   const fetchCities = async (provinceId) => {
     try {
-      const response = await axios.get(`https://alamat.thecloudalert.com/api/kabkota/get/${provinceId}`);
+      const response = await axios.get(`https://alamat.thecloudalert.com/api/kabkota/get/kabkota/get/?d_provinsi_id=${provinceId}`);
       console.log('Cities data:', response.data);
 
       if (response.data && Array.isArray(response.data.result)) {
@@ -76,7 +96,7 @@ const ProfilePageSeller = () => {
 
   const fetchDistricts = async (cityId) => {
     try {
-      const response = await axios.get(`https://alamat.thecloudalert.com/api/kecamatan/get/${cityId}`);
+      const response = await axios.get(`https://alamat.thecloudalert.com/api/kecamatan/get/?d_kabkota_id=${cityId}`);
       console.log('Districts data:', response.data);
 
       if (response.data && Array.isArray(response.data.result)) {
@@ -203,12 +223,12 @@ const ProfilePageSeller = () => {
           <div className="container-email-seller">
             <h2 className="label-email">Alamat Email Penjual</h2>
             <FormEmailProfil sellerInfo={sellerInfo} setSellerInfo={setSellerInfo} />
-            <a href="/" className="keluar-akun-penjual">
+            <a href="/Homepage" className="keluar-akun" onClick={handleLogout}>
               Keluar Akun
             </a>
           </div>
 
-          <ButtonSimpan onClick={handleSave} />
+          <ButtonSimpan onClick={handleSave}></ButtonSimpan>
         </div>
       </div>
 
