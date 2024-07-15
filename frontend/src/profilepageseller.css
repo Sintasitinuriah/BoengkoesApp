@@ -194,14 +194,15 @@
   font-weight: 600;
   text-decoration: none;
 }
-.form-group{
+.form-group {
   margin-bottom: 0px;
+  width: 100%;
 }
 .form-group label {
   display: block;
   color: #505050;
 }
-.form-group select{
+.form-group select {
   display: flex;
   margin-bottom: 5px;
   border: 1px solid #9d9d9d;
@@ -210,7 +211,6 @@
   border-radius: 6px;
   width: 100%;
   color: #505050;
-
 }
 .form-group select.input-field {
   width: 100%;

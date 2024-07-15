@@ -1,10 +1,12 @@
 import React from "react";
 import "../button-simpan.css";
 
-const ButtonSimpan = ({ text }) => {
+const ButtonSimpan = ({ text, onClick }) => {
   return (
     <div className="button-simpan">
-      <button type="submit">{text}</button>
+      <button type="button" onClick={onClick}>
+        {text}
+      </button>
     </div>
   );
 };
