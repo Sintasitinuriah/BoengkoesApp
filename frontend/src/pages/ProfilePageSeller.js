@@ -110,6 +110,7 @@ const ProfilePageSeller = () => {
   };
 
   const handleSave = async () => {
+    console.log("Button simpan diklik");
     try {
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
