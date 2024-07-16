@@ -246,7 +246,10 @@ const ProfilePageSeller = () => {
           </div>
 
           <ButtonSimpan onClick={handleSave}></ButtonSimpan>
+<<<<<<< HEAD
           {<p className="error"></p>}
+=======
+>>>>>>> 6758b3eac88309d1b7f4c5e6acb62d216321b2c7
         </div>
       </div>
 
