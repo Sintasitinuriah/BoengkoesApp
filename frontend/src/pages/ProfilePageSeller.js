@@ -229,7 +229,6 @@ const ProfilePageSeller = () => {
           </div>
 
           <ButtonSimpan onClick={handleSave}></ButtonSimpan>
-          {error && <p className="error">{error}</p>}
         </div>
       </div>
 
