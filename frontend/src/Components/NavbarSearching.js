@@ -55,6 +55,16 @@ const NavbarSearching = () => {
     }
   };
 
+  const handleProfileClick = () => {
+    const userId = localStorage.getItem('userId');  // Mengambil userId dari localStorage
+    if (userId) {
+      navigate(`/profilepage/${userId}`);
+    } else {
+      // Penanganan jika userId tidak ditemukan
+      console.error('User ID not found');
+    }
+  };
+
   const handleLocationClick = () => {
     // Handle location selection here, for now just log the location
     console.log("Location clicked");
@@ -64,9 +74,9 @@ const NavbarSearching = () => {
     navigate("/cart");
   };
 
-  const handleProfileClick = () => {
-    navigate("/profilepage");
-  };
+  // const handleProfileClick = (userId) => {
+  //   navigate(`/profilepage/${userId}`);
+  // };
 
   return (
     <div className="container-navbar-searching">

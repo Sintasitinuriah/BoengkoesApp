@@ -1,5 +1,6 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
 import toastr from "toastr";
 import "../profilepage.css";
 import NavbarSearching from "../Components/NavbarSearching";
@@ -20,6 +21,10 @@ import alertify from "alertifyjs";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
+  const { userId } = useParams();
+  const [profileData, setProfileData] = useState(null);
+  const [error, setError] = useState(null);
+
   const handleLogout = (event) => {
     event.preventDefault(); // Mencegah perilaku default <a> tag
 
@@ -36,12 +41,51 @@ const ProfilePage = () => {
       }
     );
   };
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const token = localStorage.getItem('token');
+      console.log("Token retrieved:", token); // Debug: Print token
+
+      if (!token) {
+        setError("Token not found");
+        return;
+      }
+
+      try {
+        const response = await axios.get(`https://boengkosapps-039320043b7f.herokuapp.com/api/user/${userId}`, {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          withCredentials: true
+        });
+        console.log("User data:", response.data); // Debug: Print user data
+        setProfileData(response.data);
+        console.log(profileData.data.name)
+      } catch (error) {
+        console.error("Error:", error);
+        if (error.response) {
+          if (error.response.status === 401) {
+            setError('Unauthorized: Invalid token or session expired');
+          } else {
+            setError(`Error: ${error.response.status} - ${error.response.data.message || error.message}`);
+          }
+        } else if (error.request) {
+          setError('Error: No response received from server');
+        } else {
+          setError(`Error: ${error.message}`);
+        }
+      }
+    };
+
+    fetchProfile(); // Call the async function
+  }, [userId]);
+
   return (
     <div className="profile-page">
-      <NavbarSearching></NavbarSearching>
+      <NavbarSearching />
       <div className="container-besar-profil">
         <div className="note-pusat-dan-role">
-          {/* pusat akun */}
           <div className="container-pusat-akun">
             <h3 className="label-pusat-akun">Pusat Akun</h3>
             <p className="catatan-pusat-akun">
@@ -49,42 +93,43 @@ const ProfilePage = () => {
               karena itu, teliti kembali setiap perubahan yang Anda lakukan
             </p>
           </div>
-
-          {/* role */}
           <div className="container-role">
             <h3 className="label-role">Role</h3>
-            <RadioButton></RadioButton>
+            <RadioButton />
           </div>
         </div>
-
-        {/* Profil */}
         <div className="container-kanan-profil">
           <h2 className="label-profil">Profil</h2>
           <div className="container-foto-profil">
             <img className="foto-profil" src={FotoProfil} alt="Foto Profil" />
           </div>
-
           <div className="container-nama-alamat">
             <h2 className="label-pemilik-akun">Info Pemilik Akun</h2>
-            <FormNamaLengkap></FormNamaLengkap>
-            <FormTanggalLahir></FormTanggalLahir>
-            <Alamat></Alamat>
+            {profileData && (
+              <>
+                <FormNamaLengkap name={profileData.data.name} />
+                <FormTanggalLahir dateOfBirth={profileData.dateOfBirth} />
+                <Alamat address={profileData.address} />
+              </>
+            )}
           </div>
-
           <div className="container-hp-email">
             <h2 className="label-hp-email">Info Pemilik Akun</h2>
-            <FormNomorHp></FormNomorHp>
-            <FormEmailProfil></FormEmailProfil>
+            {profileData && (
+              <>
+                <FormNomorHp phoneNumber={profileData.phoneNumber} />
+                <FormEmailProfil email={profileData.data.email} />
+              </>
+            )}
             <a href="/Homepage" className="keluar-akun" onClick={handleLogout}>
               Keluar Akun
             </a>
           </div>
-
-          <ButtonSimpan text={"Simpan"}></ButtonSimpan>
+          <ButtonSimpan text={"Simpan"} />
         </div>
       </div>
-
-      <Footer></Footer>
+      <Footer />
+      {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
 };

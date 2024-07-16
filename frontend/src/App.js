@@ -80,7 +80,7 @@ function App() {
         <Route path="/navbarseller" element={<NavbarSeller />} />
         <Route path="/formnamalengkap" element={<FormNamaLengkap />} />
         <Route path="/radiobutton" element={<RadioButton />} />
-        <Route path="/profilepage" element={<ProfilePage />} />
+        <Route path="/profilepage/:userId" element={<ProfilePage />} />
         <Route path="/buttonsimpan" element={<ButtonSimpan />} />
         <Route path="/deskripsi" element={<Deskripsi />} />
         <Route path="/headertokochat" element={<HeaderTokoChat />} />

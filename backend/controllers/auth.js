@@ -74,8 +74,18 @@ const generateToken = async (user, statusCode, res) => {
   res
     .status(statusCode)
     .cookie('token', token, options)
-    .json({ success: true, token });
+    .json({
+      success: true,
+      token,
+      data: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        // Tambahkan informasi pengguna lain yang relevan
+      }
+    });
 };
+
 
 // log out user
 exports.logout = (req, res, next)=>{
