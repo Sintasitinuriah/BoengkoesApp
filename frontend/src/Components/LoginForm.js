@@ -7,78 +7,98 @@ import sampleImage from '../images/frame.jpg';
 
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [usernameError, setUsernameError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [errorMessage, setErrorMessage] = useState('');
+  // const [usernameError, setUsernameError] = useState('');
+  // const [passwordError, setPasswordError] = useState('');
 
   const navigate = useNavigate();
 
-  const validateInputs = () => {
-    let valid = true;
+  // const validateInputs = () => {
+  //   let valid = true;
 
-    // Validasi username
-    if (!username) {
-      setUsernameError('Username tidak boleh kosong');
-      valid = false;
-    } else {
-      setUsernameError('');
-    }
+  //   // Validasi username
+  //   if (!username) {
+  //     setUsernameError('Username tidak boleh kosong');
+  //     valid = false;
+  //   } else {
+  //     setUsernameError('');
+  //   }
 
-    // Validasi password
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  //   // Validasi password
+  //   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-    if (!password) {
-      setPasswordError('Password tidak boleh kosong');
-      valid = false;
-    } else if (!passwordRegex.test(password)) {
-      setPasswordError('Password minimal 8 karakter, huruf, angka, dan karakter spesial');
-      valid = false;
-    } else {
-      setPasswordError('');
-    }
+  //   if (!password) {
+  //     setPasswordError('Password tidak boleh kosong');
+  //     valid = false;
+  //   } else if (!passwordRegex.test(password)) {
+  //     setPasswordError('Password minimal 8 karakter, huruf, angka, dan karakter spesial');
+  //     valid = false;
+  //   } else {
+  //     setPasswordError('');
+  //   }
 
-    return valid;
+  //   return valid;
+  // };
+
+  const [values, setValues] = useState({
+    email: '',
+    password: '',
+  });
+
+  const { name, username, password} = values;
+  const handleChange = name => (e) => {
+    setValues({...values, [name]: e.target.value });
   };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!validateInputs()) {
-      toastr.error('Harap periksa input Anda');
-      return;
-    }
+    // if (!validateInputs()) {
+    //   toastr.error('Harap periksa input Anda');
+    //   return;
+    // }
 
     try {
-      const response = await axios.post('https://boengkosapps-039320043b7f.herokuapp.com/api/signin', {
+      const {data} = await axios.post('https://boengkosapps-039320043b7f.herokuapp.com/api/signin', {
         email: username,
         password: password
       });
 
-      if (response.status === 200) {
+      console.log(data)
+
+      if (data.success === true) {
+        setValues({ email: '', password: ''})
         toastr.success('Login berhasil');
-        console.log('Login successful:', response.data);
-
-        // Simpan token di localStorage
-        localStorage.setItem('authToken', response.data.token);
-
         navigate('/beranda');
-      } else {
-        toastr.error(response.data.message || 'Login gagal');
-        setErrorMessage(response.data.message || 'Login gagal');
+        // history.push('/beranda');
+        // console.log('Login successful:', response.data);
       }
+
+      //   // Simpan token di localStorage
+      //   const token = response.data.token;
+      //   localStorage.setItem('token', token);
+      //   console.log("Token disimpan:", localStorage.getItem('token'));
+
+      //   navigate('/beranda');
+      // } else {
+      //   toastr.error(response.data.message || 'Login gagal');
+      //   setErrorMessage(response.data.message || 'Login gagal');
+      // }
     } catch (error) {
-      if (error.response) {
-        toastr.error(error.response.data.message || 'Login gagal');
-        setErrorMessage(error.response.data.message || 'Login gagal');
-      } else if (error.request) {
-        toastr.error('Tidak ada respons dari server');
-        setErrorMessage('Tidak ada respons dari server');
-      } else {
-        toastr.error('Terjadi kesalahan saat login');
-        setErrorMessage('Terjadi kesalahan saat login');
-      }
+      console.log(error);
+      toastr.error(error);
+
+      // if (error.response) {
+      //   toastr.error(error.response.data.message || 'Login gagal');
+      //   setErrorMessage(error.response.data.message || 'Login gagal');
+      // } else if (error.request) {
+      //   toastr.error('Tidak ada respons dari server');
+      //   setErrorMessage('Tidak ada respons dari server');
+      // } else {
+      //   toastr.error('Terjadi kesalahan saat login');
+      //   setErrorMessage('Terjadi kesalahan saat login');
+      // }
     }
   };
 
@@ -92,7 +112,7 @@ const Login = () => {
           <h1>Masuk Akun</h1>
           <p>Silahkan masuk ke akun kamu</p>
 
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          {/* {errorMessage && <p className="error-message">{errorMessage}</p>} */}
 
           <form onSubmit={handleSubmit}>
             <div className="form-group-login">
@@ -101,10 +121,10 @@ const Login = () => {
                 className="form-control"
                 id="username"
                 value={username}
-                onChange={(event) => setUsername(event.target.value)}
+                onChange={handleChange('username')}
                 placeholder="Username"
               />
-              {usernameError && <p className="error-message">{usernameError}</p>}
+              {/* {usernameError && <p className="error-message">{usernameError}</p>} */}
             </div>
 
             <div className="form-group-login">
@@ -113,13 +133,13 @@ const Login = () => {
                 className="form-control"
                 id="password"
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={handleChange('password')}
                 placeholder="Password"
               />
-              {passwordError && <p className="error-message">{passwordError}</p>}
+              {/* {passwordError && <p className="error-message">{passwordError}</p>} */}
             </div>
 
-            <button type="submit" className="btn btn-primary">
+            <button onClick={handleSubmit} type="submit" className="btn btn-primary">
               Masuk
             </button>
           </form>

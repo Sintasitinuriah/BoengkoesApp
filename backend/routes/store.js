@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { isAuthentication } = require('../middleware/auth');
+
 const {
   createStore,
   getStores,
@@ -11,13 +11,13 @@ const {
 
 router
   .route('/store/')
-  .post(isAuthentication, createStore)
-  .get(isAuthentication, getStores);
+  .post(createStore)
+  .get(getStores);
 
 router
   .route('/store/:id')
-  .get(isAuthentication, getStore)
-  .put(isAuthentication, updateStore)
-  .delete(isAuthentication, deleteStore);
+  .get(getStore)
+  .put(updateStore)
+  .delete(deleteStore);
 
 module.exports = router;

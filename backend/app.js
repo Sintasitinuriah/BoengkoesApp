@@ -23,6 +23,13 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
+const corsOptions = {
+  origin: 'http://localhost:3000', // Ganti dengan asal klien Anda
+  credentials: true, // Mengizinkan pengiriman cookies
+};
+
+app.use(cors(corsOptions));
+
 // Check if environment variables are loaded correctly
 console.log("MONGODB_URI:", process.env.MONGODB_URI);
 console.log("PORT:", process.env.PORT);

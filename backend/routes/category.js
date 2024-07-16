@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { isAuthentication } = require('../middleware/auth');
+
 const {
   createCategory,
   getCategories,
@@ -11,13 +11,13 @@ const {
 
 router
   .route('/category')
-  .post(isAuthentication, createCategory)
-  .get(isAuthentication, getCategories);
+  .post(createCategory)
+  .get(getCategories);
 
 router
   .route('/category/:id')
-  .get(isAuthentication, getCategory)
-  .put(isAuthentication, updateCategory)
-  .delete(isAuthentication, deleteCategory);
+  .get(getCategory)
+  .put(updateCategory)
+  .delete(deleteCategory);
 
 module.exports = router;

@@ -8,32 +8,47 @@ const Berandapage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem('token'); // Pastikan ini menggunakan nama yang benar dari localStorage
-    if (!token) {
-      setError("Token not found");
-      return;
-    }
+    const fetchProfile = async () => {
+      const token = localStorage.getItem('token');
+      console.log("Token retrieved:", token); // Debug: Print token
 
-    axios.get('https://boengkosapps-039320043b7f.herokuapp.com/api/getprofile', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
+      if (!token) {
+        setError("Token not found");
+        return;
       }
-    })
-    .then(response => {
-      console.log(response.data); 
-      setProfile(response.data);
-    })
-    .catch(error => {
-      console.error("Error: ", error);
-      if (error.response && error.response.status === 401) {
-        setError('Unauthorized');
-      } else {
-        setError(error.message);
+
+      try {
+        const response = await axios.get('https://boengkosapps-039320043b7f.herokuapp.com/api/getprofile', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          withCredentials: true
+        });
+
+        console.log("Profile data:", response.data); // Debug: Print profile data
+        setProfile(response.data);
+      } catch (error) {
+        console.error("Error:", error);
+        if (error.response) {
+          // Server responded with a status other than 2xx
+          if (error.response.status === 401) {
+            setError('Unauthorized: Invalid token or session expired');
+          } else {
+            setError(`Error: ${error.response.status} - ${error.response.data.message || error.message}`);
+          }
+        } else if (error.request) {
+          // No response received from the server
+          setError('Error: No response received from server');
+        } else {
+          // Error occurred in setting up the request
+          setError(`Error: ${error.message}`);
+        }
       }
-    });
+    };
+
+    fetchProfile();
   }, []);
-
   return (
     <div className="beranda">
       <div className="logotesla">
@@ -82,7 +97,7 @@ const Berandapage = () => {
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default Berandapage;
