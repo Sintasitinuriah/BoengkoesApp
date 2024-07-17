@@ -62,6 +62,7 @@ const ProfilePage = () => {
         console.log("User data:", response.data); // Debug: Print user data
         setProfileData(response.data);
         console.log(profileData.data.name)
+        console.log(profileData.data.rule)
       } catch (error) {
         console.error("Error:", error);
         if (error.response) {
@@ -81,6 +82,10 @@ const ProfilePage = () => {
     fetchProfile(); // Call the async function
   }, [userId]);
 
+  const handleRoleChange = (event) => {
+    setProfileData({ ...profileData, role: parseInt(event.target.value) });
+  };
+
   return (
     <div className="profile-page">
       <NavbarSearching />
@@ -95,7 +100,9 @@ const ProfilePage = () => {
           </div>
           <div className="container-role">
             <h3 className="label-role">Role</h3>
-            <RadioButton />
+            {profileData && (
+              <RadioButton role={profileData.data.rule} handleChange={handleRoleChange} />
+            )}
           </div>
         </div>
         <div className="container-kanan-profil">

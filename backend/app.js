@@ -14,6 +14,7 @@ const categoryRoutes = require('./routes/category');
 const storeRoutes = require('./routes/store');
 const cartRoutes = require('./routes/cart');
 const orderRoutes = require('./routes/order');
+const userRoutes = require('./routes/user');
 
 const app = express();
 
@@ -52,6 +53,7 @@ app.use('/api', categoryRoutes);
 app.use('/api', storeRoutes);
 app.use('/api', cartRoutes);
 app.use('/api', orderRoutes);
+app.use('/api', userRoutes);
 
 // Error Middleware
 app.use(errorHandler);

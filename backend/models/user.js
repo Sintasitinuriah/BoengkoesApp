@@ -31,7 +31,23 @@ const UserSchema =  new mongoose.Schema({
     rule: {
         type: Number,
         default: 0,
-    }
+    },
+    birthDate:{
+        type: Date,
+        default: null,
+    },
+    phoneNumber:{
+        type: String,
+        default: null,
+    },
+    address:{
+        type: String,
+        default: null,
+    },
+    image: {
+        type: String,
+        default: 'https://th.bing.com/th/id/R.66767182832efccf14baa1ad847cfeb1?rik=e32qcq5puaXs4w&riu=http%3a%2f%2fwww.oddscreenprinting.com.au%2fwp-content%2fuploads%2fperson-dummy-200x200.jpg&ehk=Li93ll5f3UiBCaR7brSRqsuzTUzAjcPlqDXLr4Y1X4w%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1',
+      }
 },{timestamps: true})
 
 
