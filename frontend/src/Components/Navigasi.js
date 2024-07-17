@@ -17,7 +17,7 @@ const Navigasi = () => {
         </a>
       </div>
       <div className="navigasi-item">
-        <a href="/">Layanan</a>
+        <a href="/services">Layanan</a>
       </div>
     </div>
   );

@@ -6,8 +6,22 @@ import Profile from "../images/profile.png";
 import Searchbar from "./Searchbar";
 import Navigasi from "./Navigasi";
 import NavigasiSeller from "./NavigasiSeller";
+import { useNavigate } from "react-router-dom";
 
 const NavbarSeller = () => {
+  const navigate = useNavigate();
+  const handleProfileClick = () => {
+    const userId = localStorage.getItem("userId"); // Mengambil userId dari localStorage
+    if (userId) {
+      navigate(`/profilepage/${userId}`);
+    } else {
+      // Penanganan jika userId tidak ditemukan
+      console.error("User ID not found");
+    }
+  };
+  const handleCartClick = () => {
+    navigate("/cart");
+  };
   return (
     <div className="container-navbar-seller">
       <div className="logo-seller">
@@ -15,8 +29,8 @@ const NavbarSeller = () => {
       </div>
 
       <div className="container-searchbar-seller">
-        <img src={Bag} alt="bag" />
-        <img src={Profile} alt="profile-seller" />
+        <img src={Bag} alt="bag" onClick={handleCartClick} />
+        <img src={Profile} alt="profile" onClick={handleProfileClick} />
         <Searchbar></Searchbar>
         <NavigasiSeller></NavigasiSeller>
       </div>
