@@ -5,9 +5,8 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
-const errorHandler = require('./middleware/error');
 
-// Import Routes
+// Import routes
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/product');
 const categoryRoutes = require('./routes/category');
@@ -15,39 +14,32 @@ const storeRoutes = require('./routes/store');
 const cartRoutes = require('./routes/cart');
 const orderRoutes = require('./routes/order');
 const usersRoutes = require('./routes/user');
+const errorHandler = require('./middleware/error');
+
 
 const app = express();
 
-// MIDDLEWARE
+app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
-// Use Routes
+// Routes
+app.use('/api/v1/categories', categoryRoutes);
 app.use('/api', authRoutes);
-app.use('/api/products', productRoutes);
-app.use('/api/v1/', categoryRoutes);
-app.use('/api/v1/', storeRoutes);
+app.use('/api', productRoutes);
+app.use('/api', categoryRoutes);
+app.use('/api/v1/stores', storeRoutes);
 app.use('/api', cartRoutes);
 app.use('/api', orderRoutes);
 app.use('/api', usersRoutes);
 
-// Error Middleware
+// Error Handler Middleware
 app.use(errorHandler);
 
-const corsOptions = {
-  origin: 'http://localhost:3000', // Ganti dengan asal klien Anda
-  credentials: true, // Mengizinkan pengiriman cookies
-};
+const PORT = process.env.PORT || 5000;
 
-app.use(cors(corsOptions));
-
-// Check if environment variables are loaded correctly
-console.log("MONGODB_URI:", process.env.MONGODB_URI);
-console.log("PORT:", process.env.PORT);
-
-const PORT = process.env.PORT || 3000;
 const startServer = async () => {
   try {
     await mongoose.connect('mongodb+srv://admin:admin@clustercapstone.qjdv66o.mongodb.net/boengkoes_app_Db?retryWrites=true&w=majority', {

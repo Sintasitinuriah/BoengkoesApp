@@ -69,4 +69,4 @@ UserSchema.methods.jwtGenerateToken = function(){
     return jwt.sign({id: this.id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRE});
 }
 
-module.exports = mongoose.model('Auth', UserSchema);
+module.exports = mongoose.model('User', UserSchema);

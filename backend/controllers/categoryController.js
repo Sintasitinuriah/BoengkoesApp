@@ -1,9 +1,8 @@
 const Category = require('../models/category');
-const asyncHandler = require('../middleware/asyncHandler');
 const ErrorResponse = require('../utils/errorResponse');
 
 // Create a new category
-exports.createCategory = asyncHandler(async (req, res, next) => {
+exports.createCategory = async (req, res, next) => {
   try {
     const { name } = req.body;
     const category = await Category.create({ name });
@@ -11,20 +10,25 @@ exports.createCategory = asyncHandler(async (req, res, next) => {
   } catch (error) {
     next(new ErrorResponse('Gagal membuat kategori', 500));
   }
-});
+};
 
 // Get all categories
-exports.getCategories = asyncHandler(async (req, res, next) => {
+exports.getCategories = async (req, res, next) => {
   try {
-    const categories = await Category.find();
+    console.log('Fetching all categories...');
+    const categories = await Category.find().lean();
+    console.log('Raw categories data:', JSON.stringify(categories, null, 2));
     res.status(200).json({ success: true, data: categories });
   } catch (error) {
+    console.error('Error fetching categories:', error.message);
+    console.error('Error stack:', error.stack);
     next(new ErrorResponse('Gagal mengambil kategori', 500));
   }
-});
+};
+
 
 // Get a single category by ID
-exports.getCategory = asyncHandler(async (req, res, next) => {
+exports.getCategory = async (req, res, next) => {
   try {
     const category = await Category.findById(req.params.id);
     if (!category) {
@@ -34,10 +38,10 @@ exports.getCategory = asyncHandler(async (req, res, next) => {
   } catch (error) {
     next(new ErrorResponse('Gagal mengambil kategori', 500));
   }
-});
+};
 
 // Update a category by ID
-exports.updateCategory = asyncHandler(async (req, res, next) => {
+exports.updateCategory = async (req, res, next) => {
   try {
     let category = await Category.findById(req.params.id);
     if (!category) {
@@ -51,10 +55,10 @@ exports.updateCategory = asyncHandler(async (req, res, next) => {
   } catch (error) {
     next(new ErrorResponse('Gagal memperbarui kategori', 500));
   }
-});
+};
 
 // Delete a category by ID
-exports.deleteCategory = asyncHandler(async (req, res, next) => {
+exports.deleteCategory = async (req, res, next) => {
   try {
     const category = await Category.findById(req.params.id);
     if (!category) {
@@ -65,4 +69,4 @@ exports.deleteCategory = asyncHandler(async (req, res, next) => {
   } catch (error) {
     next(new ErrorResponse('Gagal menghapus kategori', 500));
   }
-});
+};
