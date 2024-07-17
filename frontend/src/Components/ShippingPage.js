@@ -12,7 +12,7 @@ const ShippingPage = () => {
   const navigate = useNavigate();
 
   const handleCheckoutClick = () => {
-    const phoneNumber = "6281278988701";
+    const phoneNumber = "6282133395550";
     const message = "Halo, saya ingin memesan produk ini.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
