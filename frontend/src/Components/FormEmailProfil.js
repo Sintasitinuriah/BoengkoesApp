@@ -1,12 +1,12 @@
 import React from "react";
 import "../formemailprofil.css";
 
-const FormEmailProfil = ({email}) => {
+const FormEmailProfil = ({email, disabled}) => {
   return (
     <div className="container-profil-email">
       <p className="hint-email">Email</p>
       <div className="textfield-email">
-        <input type="email" placeholder="Masukkan email" value={email} readOnly />
+        <input type="email" placeholder="Masukkan email" value={email} disabled={disabled} />
       </div>
     </div>
   );

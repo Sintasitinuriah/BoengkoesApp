@@ -16,14 +16,12 @@ import Footer from "../Components/Footer";
 import "alertifyjs/build/css/alertify.css";
 import alertify from "alertifyjs";
 
-// import CustomConfirm from "../Components/alert/CustomConfirm";
-// import AlertifyConfirm from "../Components/alert/CustomAlert";
-
 const ProfilePage = () => {
   const navigate = useNavigate();
   const { userId } = useParams();
   const [profileData, setProfileData] = useState(null);
   const [error, setError] = useState(null);
+  const [isEditMode, setIsEditMode] = useState(false);
 
   const handleLogout = (event) => {
     event.preventDefault(); // Mencegah perilaku default <a> tag
@@ -61,8 +59,6 @@ const ProfilePage = () => {
         });
         console.log("User data:", response.data); // Debug: Print user data
         setProfileData(response.data);
-        console.log(profileData.data.name)
-        console.log(profileData.data.rule)
       } catch (error) {
         console.error("Error:", error);
         if (error.response) {
@@ -82,9 +78,62 @@ const ProfilePage = () => {
     fetchProfile(); // Call the async function
   }, [userId]);
 
+  useEffect(() => {
+    if (profileData) {
+      if (profileData.data.rule === 1) {
+        navigate(`/profilepageseller/${userId}`);
+      }
+    }
+  }, [profileData, navigate]);
+
   const handleRoleChange = (event) => {
-    setProfileData({ ...profileData, role: parseInt(event.target.value) });
+    setProfileData({
+      ...profileData,
+      data: {
+        ...profileData.data,
+        rule: parseInt(event.target.value, 10)
+      }
+    });
   };
+
+  const handleEditClick = () => {
+    setIsEditMode(true);
+  };
+
+  // const handleSaveClick = async () => {
+  //   // const token = localStorage.getItem('token');
+  //   try {
+  //     await axios.put(`https://boengkosapps-039320043b7f.herokuapp.com/api/user/${userId}`, profileData.data, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       // withCredentials: true
+  //     });
+      
+  //     toastr.success('Profile updated successfully');
+  //     setIsEditMode(false);
+  //   } catch (error) {
+  //     console.error('Error updating profile:', error);
+  //     toastr.error('Failed to update profile');
+  //   }
+  // };
+
+  const handleSaveClick = () => {
+    console.log('Profile data to be sent:', profileData);
+    axios.put(`https://boengkosapps-039320043b7f.herokuapp.com/api/user/${userId}`, profileData.data)
+      .then(response => {
+        console.log('Response data:', response.data);
+        setProfileData(response.data);
+        setIsEditMode(false);
+        toastr.success('Profile updated successfully');
+      })
+      .catch(err => {
+        setError('Error updating profile');
+        console.error('Error updating profile:', err);
+        toastr.error('Failed to update profile');
+      });
+  };
+  
 
   return (
     <div className="profile-page">
@@ -101,22 +150,28 @@ const ProfilePage = () => {
           <div className="container-role">
             <h3 className="label-role">Role</h3>
             {profileData && (
-              <RadioButton role={profileData.data.rule} handleChange={handleRoleChange} />
+              <RadioButton
+                role={profileData.data.rule}
+                handleChange={handleRoleChange}
+                disabled={!isEditMode}
+              />
             )}
           </div>
         </div>
         <div className="container-kanan-profil">
           <h2 className="label-profil">Profil</h2>
           <div className="container-foto-profil">
-            <img className="foto-profil" src={FotoProfil} alt="Foto Profil" />
-          </div>
+            {profileData && (
+            <img className="foto-profil" src={profileData.data.image} alt="Foto Profil" />
+            )}
+            </div>
           <div className="container-nama-alamat">
             <h2 className="label-pemilik-akun">Info Pemilik Akun</h2>
             {profileData && (
               <>
-                <FormNamaLengkap name={profileData.data.name} />
-                <FormTanggalLahir dateOfBirth={profileData.dateOfBirth} />
-                <Alamat address={profileData.address} />
+                <FormNamaLengkap name={profileData.data.name} disabled={!isEditMode} />
+                <FormTanggalLahir dateOfBirth={profileData.data.birthDate} />
+                <Alamat address={profileData.data.address} />
               </>
             )}
           </div>
@@ -124,15 +179,19 @@ const ProfilePage = () => {
             <h2 className="label-hp-email">Info Pemilik Akun</h2>
             {profileData && (
               <>
-                <FormNomorHp phoneNumber={profileData.phoneNumber} />
-                <FormEmailProfil email={profileData.data.email} />
+                <FormNomorHp phoneNumber={profileData.data.phoneNumber} />
+                <FormEmailProfil email={profileData.data.email} disabled={!isEditMode} />
               </>
             )}
             <a href="/Homepage" className="keluar-akun" onClick={handleLogout}>
               Keluar Akun
             </a>
           </div>
-          <ButtonSimpan text={"Simpan"} />
+          {isEditMode ? (
+            <ButtonSimpan text={"Simpan"} onClick={handleSaveClick}>Simpan</ButtonSimpan>
+          ) : (
+            <ButtonSimpan text={"Ubah"} onClick={handleEditClick} />
+          )}
         </div>
       </div>
       <Footer />

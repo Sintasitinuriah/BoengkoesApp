@@ -10,7 +10,6 @@ const storeSchema = new mongoose.Schema({
   },
   phoneNumber: {
     type: String,
-    required: [true, 'Silahkan tambahkan nomor HP'],
     trim: true,
   },
   owner: {
@@ -40,7 +39,6 @@ const storeSchema = new mongoose.Schema({
   },
   addres:{
     type: String,
-    required: [true, 'Silahkan tambahkan alamat toko'],
     trim: true,
     maxlength: 255,
   },
