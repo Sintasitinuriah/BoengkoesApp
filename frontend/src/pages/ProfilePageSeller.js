@@ -229,8 +229,28 @@ const ProfilePageSeller = () => {
 
             <h2 className="label-media-sosial">Media Sosial</h2>
             <MediaSosialSeller
-              sellerInfo={sellerInfo}
-              setSellerInfo={setSellerInfo}
+              name="whatsapp"
+              placeholder="Whatsapp"
+              value={sellerInfo.whatsapp}
+              onChange={setSellerInfo}
+              // sellerInfo={sellerInfo}
+              // setSellerInfo={setSellerInfo}
+            />
+
+            <MediaSosialSeller
+              name="facebook"
+              placeholder="Facebook"
+              value={sellerInfo.facebook}
+              onChange={setSellerInfo}
+              // sellerInfo={sellerInfo}
+              // setSellerInfo={setSellerInfo}
+            />
+
+            <MediaSosialSeller
+              name="instagram"
+              placeholder="Instagram"
+              value={sellerInfo.instagram}
+              onChange={setSellerInfo}
             />
           </div>
 
