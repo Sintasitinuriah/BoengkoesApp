@@ -8,13 +8,13 @@ const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error');
 
 // Import Routes
-const userRoutes = require('./routes/auth');
+const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/product');
 const categoryRoutes = require('./routes/category');
 const storeRoutes = require('./routes/store');
 const cartRoutes = require('./routes/cart');
 const orderRoutes = require('./routes/order');
-const userRoutes = require('./routes/user');
+const usersRoutes = require('./routes/user');
 
 const app = express();
 
@@ -47,13 +47,13 @@ mongoose.connect(uri, {
   .catch(err => console.error('Could not connect to MongoDB', err));
 
 // Use Routes
-app.use('/api', userRoutes);
+app.use('/api', authRoutes);
 app.use('/api', productRoutes);
 app.use('/api', categoryRoutes);
 app.use('/api', storeRoutes);
 app.use('/api', cartRoutes);
 app.use('/api', orderRoutes);
-app.use('/api', userRoutes);
+app.use('/api', usersRoutes);
 
 // Error Middleware
 app.use(errorHandler);
