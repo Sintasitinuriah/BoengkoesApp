@@ -75,7 +75,7 @@ function App() {
         <Route path="/homeseller" element={<HomeSeller />} />
         <Route path="/ShippingPage" element={<Shipping />} />
         <Route path="/formnamaseller" element={<FormNamaSeller />} />
-        <Route path="/profilepageseller" element={<ProfilePageSeller />} />
+        <Route path="/profilepageseller/:userId" element={<ProfilePageSeller />} />
         <Route path="/navigasiseller" element={<NavigasiSeller />} />
         <Route path="/navbarseller" element={<NavbarSeller />} />
         <Route path="/formnamalengkap" element={<FormNamaLengkap />} />

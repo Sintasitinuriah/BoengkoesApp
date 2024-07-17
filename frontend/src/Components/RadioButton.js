@@ -1,5 +1,6 @@
-import React from "react";
-import "../radiobutton.css";
+// RadioButton.js
+import React from 'react';
+import '../radiobutton.css'; // Sesuaikan path ini
 
 const RadioButton = ({ role, handleChange }) => {
   return (
@@ -8,7 +9,7 @@ const RadioButton = ({ role, handleChange }) => {
         <input
           className="radio-pembeli"
           type="radio"
-          name="radio"
+          name="role"
           value="0"
           checked={role === 0}
           onChange={handleChange}
@@ -19,7 +20,7 @@ const RadioButton = ({ role, handleChange }) => {
         <input
           className="radio-penjual"
           type="radio"
-          name="radio"
+          name="role"
           value="1"
           checked={role === 1}
           onChange={handleChange}
