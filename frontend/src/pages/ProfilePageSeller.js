@@ -274,13 +274,11 @@ import MediaSosialSeller from "../Components/MediaSosialSeller";
 
 const ProfilePageSeller = () => {
   const [sellerInfo, setSellerInfo] = useState({
-    nama: "",
-    alamat: "",
-    mediaSosial: "",
-    email: "",
-    province: "",
-    city: "",
-    district: "",
+    name: "",        
+    address: "",       
+    province: "", 
+    city: "",        
+    district: "",    
   });
   const [provinces, setProvinces] = useState([]);
   const [cities, setCities] = useState([]);
@@ -373,22 +371,19 @@ const ProfilePageSeller = () => {
 
   const handleSave = async () => {
     console.log("Button simpan diklik");
-
     try {
       const token = localStorage.getItem("token");
       const userId = localStorage.getItem("userId");
-
+  
       const response = await axios.post(
         "https://boengkosapps-039320043b7f.herokuapp.com/api/store",
         {
           owner: userId,
-          name: sellerInfo.nama,
-          address: sellerInfo.alamat,
-          mediaSosial: sellerInfo.mediaSosial,
-          email: sellerInfo.email,
-          province: selectedProvince,
-          city: selectedCity,
-          district: selectedDistrict,
+          name: sellerInfo.name,
+          address: sellerInfo.address, 
+          province: sellerInfo.province,
+          city: sellerInfo.city,
+          district: sellerInfo.district,
         },
         {
           headers: {
@@ -398,12 +393,13 @@ const ProfilePageSeller = () => {
         }
       );
       console.log("Store saved successfully:", response.data);
-      toastr.success("Toko berhasil disimpan");
+      toastr.success("Store saved successfully");
     } catch (error) {
       console.error("Error saving store:", error);
-      toastr.error("Gagal menyimpan toko");
+      toastr.error("Failed to save store");
     }
   };
+  
 
   return (
     <div className="profile-page-seller">
