@@ -1,31 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../contexts/cartContext';
 
 const Cart = () => {
   const navigate = useNavigate();
+  const { cartItems, setCartItems, updateCart } = useCart();
+  const userId = localStorage.getItem('userId');
 
   const handleButtonClick = () => {
     navigate('/ShippingPage');
   };
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      name: "New Lamanda Chocoalmondine",
-      variant: "Chocoalmondine",
-      price: 85000,
-      quantity: 2,
-      from: "Lamanda Palembang",
-    },
-    {
-      id: 2,
-      name: "New Lamanda Chocoalmondine",
-      variant: "Chocoalmondine",
-      price: 85000,
-      quantity: 2,
-      from: "Cikini Deli",
-    },
-  ]);
 
   const [originProvince, setOriginProvince] = useState("");
   const [originCity, setOriginCity] = useState("");
@@ -75,22 +60,33 @@ const Cart = () => {
     }
   };
 
-  const handleQuantityChange = (id, change) => {
-    setItems(
-      items.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + change } : item
-      )
-    );
+  const handleQuantityChange = async (productId, change) => {
+    const updatedItems = cartItems.map(item =>
+      item.productId === productId ? { ...item, quantity: item.quantity + change } : item
+    ).filter(item => item.quantity > 0);
+    setCartItems(updatedItems);
+
+    try {
+      await updateCart(updatedItems);
+    } catch (error) {
+      console.error("Failed to update cart:", error);
+    }
   };
 
-  const handleRemove = (id) => {
-    setItems(items.filter((item) => item.id !== id));
+  const handleRemove = async (productId) => {
+    const updatedItems = cartItems.filter(item => item.productId !== productId);
+    setCartItems(updatedItems);
+
+    try {
+      await updateCart(updatedItems);
+    } catch (error) {
+      console.error("Failed to update cart:", error);
+    }
   };
 
   const handleCourierChange = (courier) => {
     setSelectedCourier(courier);
   };
-
 
   const handleCheckOngkir = async () => {
     try {
@@ -119,11 +115,9 @@ const Cart = () => {
     }
   };
 
-  const totalItem = items.reduce((acc, item) => acc + item.quantity, 0);
-  const totalPrice = items.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  const totalItem = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
   const grandTotal = totalPrice + shippingCost;
 
   return (
@@ -131,28 +125,28 @@ const Cart = () => {
       <div className="cart">
         <h2>Keranjang</h2>
         <div className="cart-items">
-          {items.map((item) => (
-            <div key={item.id} className="cart-item">
+          {cartItems.map((item) => (
+            <div key={item.productId} className="cart-item">
               <input type="checkbox" />
-              <img src="path-to-image" alt={item.name} />
+              <img src={item.image} alt={item.name} />
               <div className="item-details">
                 <p>{item.from}</p>
                 <p>{item.name}</p>
                 <p>Varian: {item.variant}</p>
-                <p>Rp {item.price.toLocaleString()}</p>
+                <p>Rp {item.price}</p>
               </div>
               <div className="item-actions">
                 <button
-                  onClick={() => handleQuantityChange(item.id, -1)}
+                  onClick={() => handleQuantityChange(item.productId, -1)}
                   disabled={item.quantity === 1}
                 >
                   -
                 </button>
                 <span>{item.quantity}</span>
-                <button onClick={() => handleQuantityChange(item.id, 1)}>
+                <button onClick={() => handleQuantityChange(item.productId, 1)}>
                   +
                 </button>
-                <button onClick={() => handleRemove(item.id)}>🗑️</button>
+                <button onClick={() => handleRemove(item.productId)}>🗑️</button>
               </div>
             </div>
           ))}
@@ -179,7 +173,6 @@ const Cart = () => {
             </select>
           </div>
           <div className="form-group">
-            {/* <label htmlFor="originCity">Kota Asal</label> */}
             <select
               id="originCity"
               value={originCity}
@@ -212,7 +205,6 @@ const Cart = () => {
             </select>
           </div>
           <div className="form-group">
-            {/* <label htmlFor="destinationCity">Kota Tujuan</label> */}
             <select
               id="destinationCity"
               value={destinationCity}

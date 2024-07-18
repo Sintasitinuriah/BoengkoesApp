@@ -5,11 +5,13 @@ import Bag from "../images/shopping-bag.png";
 import Profile from "../images/profile.png";
 import Searchbar from "./Searchbar";
 import Navigasi from "./Navigasi";
+import { useCart } from '../contexts/cartContext';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const NavbarSearching = () => {
   const navigate = useNavigate();
+  const { cartItems } = useCart();
   const [locationName, setLocationName] = useState("Loading...");
   const [error, setError] = useState(null);
 
@@ -74,9 +76,8 @@ const NavbarSearching = () => {
     navigate("/cart");
   };
 
-  // const handleProfileClick = (userId) => {
-  //   navigate(`/profilepage/${userId}`);
-  // };
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
 
   return (
     <div className="container-navbar-searching">
@@ -88,7 +89,10 @@ const NavbarSearching = () => {
       </div>
 
       <div className="container-searchbar">
-        <img src={Bag} alt="bag" onClick={handleCartClick} />
+      <div className="cart-icon-container">
+          <img src={Bag} alt="bag" onClick={handleCartClick} />
+          {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
+        </div>
         <img src={Profile} alt="profile" onClick={handleProfileClick} />
         <Searchbar></Searchbar>
         <Navigasi></Navigasi>

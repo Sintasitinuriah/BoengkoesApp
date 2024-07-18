@@ -1,3 +1,4 @@
+// src/App.js
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -56,70 +57,73 @@ import PrivacyPolicy from "./Components/PrivacyPolicy";
 import Services from "./pages/Services";
 import UpdateAddressPage from "./Components/UpdateAddressPage";
 import { AddressProvider } from "./Components/AddressContext";
+import { CartProvider } from "./contexts/cartContext";
 
 function App() {
   const isAuthenticated = false;
 
   return (
     <Router>
-      <AddressProvider>
-      <Routes>
-        <Route path="/addproduct" element={<AddProduct />} />
-        <Route path="/update-address" element={<UpdateAddressPage  />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/buttontambah" element={<ButtonTambah />} />
-        <Route path="/buttonkembali" element={<ButtonKembali />} />
-        <Route path="/formdeskripsiproduk" element={<FormDeskripsiProduk />} />
-        <Route path="/formkategoriproduk" element={<FormKategoriProduk />} />
-        <Route path="/formstokproduk" element={<FormStokProduk />} />
-        <Route path="/formhargaproduk" element={<FormHargaProduk />} />
-        <Route path="/formnamaproduk" element={<FormNamaProduk />} />
-        <Route path="/AddProduct" element={<AddProduct />} />
-        <Route path="/homeseller" element={<HomeSeller />} />
-        <Route path="/ShippingPage" element={<Shipping />} />
-        <Route path="/formnamaseller" element={<FormNamaSeller />} />
-        <Route path="/profilepageseller/:userId" element={<ProfilePageSeller />} />
-        <Route path="/navigasiseller" element={<NavigasiSeller />} />
-        <Route path="/navbarseller" element={<NavbarSeller />} />
-        <Route path="/formnamalengkap" element={<FormNamaLengkap />} />
-        <Route path="/radiobutton" element={<RadioButton />} />
-        <Route path="/profilepage/:userId" element={<ProfilePage />} />
-        <Route path="/buttonsimpan" element={<ButtonSimpan />} />
-        <Route path="/deskripsi" element={<Deskripsi />} />
-        <Route path="/headertokochat" element={<HeaderTokoChat />} />
-        <Route path="/buttonkunjungitoko" element={<ButtonKunjungiToko />} />
-        <Route path="/buttonchat" element={<ButtonChat />} />
-        <Route path="/buttonbeli" element={<Buttonbeli />} />
-        <Route path="/buttonkeranjang" element={<ButtonKeranjang />} />
-        <Route path="/productdetail/:productId" element={<Productdetail />} />
-        <Route path="/quantity" element={<Quantity />} />
-        <Route path="/variant" element={<Variant />} />
-        <Route path="/storedetail/:storeId" element={<StoreDetail />} />
-        <Route path="/cardproduk" element={<CardProduk />} />
-        <Route path="/category" element={<Category />} />
-        <Route path="/headertoko" element={<HeaderToko />} />
-        <Route path="/navbarsearching" element={<NavbarSearching />} />
-        <Route path="/navbar" element={<Navbar />} />
-        <Route path="/search" element={<Searchbar />} />
-        <Route path="/navigasi" element={<Navigasi />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/helpcenter" element={<HelpCenter />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/cardtoko" element={<CardToko />} />
-        <Route path="/buttonsmall" element={<Buttonsmall />} />
-        <Route path="/beranda" element={<Beranda />} />
-        <Route path="/cart" element={<Cartpage />} />
-        <Route path="/store" element={<Storepage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route
-          path="*"
-          element={<Navigate to={isAuthenticated ? "/" : "/login"} />}
-        />
-      </Routes>
-      </AddressProvider>
+      <CartProvider>
+        <AddressProvider>
+          <Routes>
+            <Route path="/addproduct" element={<AddProduct />} />
+            <Route path="/update-address" element={<UpdateAddressPage />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/buttontambah" element={<ButtonTambah />} />
+            <Route path="/buttonkembali" element={<ButtonKembali />} />
+            <Route path="/formdeskripsiproduk" element={<FormDeskripsiProduk />} />
+            <Route path="/formkategoriproduk" element={<FormKategoriProduk />} />
+            <Route path="/formstokproduk" element={<FormStokProduk />} />
+            <Route path="/formhargaproduk" element={<FormHargaProduk />} />
+            <Route path="/formnamaproduk" element={<FormNamaProduk />} />
+            <Route path="/AddProduct" element={<AddProduct />} />
+            <Route path="/homeseller" element={<HomeSeller />} />
+            <Route path="/ShippingPage" element={<Shipping />} />
+            <Route path="/formnamaseller" element={<FormNamaSeller />} />
+            <Route path="/profilepageseller/:userId" element={<ProfilePageSeller />} />
+            <Route path="/navigasiseller" element={<NavigasiSeller />} />
+            <Route path="/navbarseller" element={<NavbarSeller />} />
+            <Route path="/formnamalengkap" element={<FormNamaLengkap />} />
+            <Route path="/radiobutton" element={<RadioButton />} />
+            <Route path="/profilepage/:userId" element={<ProfilePage />} />
+            <Route path="/buttonsimpan" element={<ButtonSimpan />} />
+            <Route path="/deskripsi" element={<Deskripsi />} />
+            <Route path="/headertokochat" element={<HeaderTokoChat />} />
+            <Route path="/buttonkunjungitoko" element={<ButtonKunjungiToko />} />
+            <Route path="/buttonchat" element={<ButtonChat />} />
+            <Route path="/buttonbeli" element={<Buttonbeli />} />
+            <Route path="/buttonkeranjang" element={<ButtonKeranjang />} />
+            <Route path="/productdetail/:productId" element={<Productdetail />} />
+            <Route path="/quantity" element={<Quantity />} />
+            <Route path="/variant" element={<Variant />} />
+            <Route path="/storedetail/:storeId" element={<StoreDetail />} />
+            <Route path="/cardproduk" element={<CardProduk />} />
+            <Route path="/category" element={<Category />} />
+            <Route path="/headertoko" element={<HeaderToko />} />
+            <Route path="/navbarsearching" element={<NavbarSearching />} />
+            <Route path="/navbar" element={<Navbar />} />
+            <Route path="/search" element={<Searchbar />} />
+            <Route path="/navigasi" element={<Navigasi />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/helpcenter" element={<HelpCenter />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/cardtoko" element={<CardToko />} />
+            <Route path="/buttonsmall" element={<Buttonsmall />} />
+            <Route path="/beranda" element={<Beranda />} />
+            <Route path="/cart" element={<Cartpage />} />
+            <Route path="/store" element={<Storepage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route
+              path="*"
+              element={<Navigate to={isAuthenticated ? "/" : "/login"} />}
+            />
+          </Routes>
+        </AddressProvider>
+      </CartProvider>
     </Router>
   );
 }

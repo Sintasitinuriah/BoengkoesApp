@@ -62,10 +62,10 @@ const Productdetail = () => {
             <p>{product.stock}</p>
           </div>
 
-          <div className="container-jenis">
+          {/* <div className="container-jenis">
             <p>Varian :</p>
             <Variant variants={product.variants} />
-          </div>
+          </div> */}
 
           <div className="container-kuantitas">
             <p>Kuantitas</p>
@@ -73,8 +73,8 @@ const Productdetail = () => {
           </div>
 
           <div className="container-button">
-            <ButtonKeranjang productId={product._id} />
-            <Buttonbeli productId={product._id} />
+            <ButtonKeranjang product={product} />
+            <Buttonbeli product={product} />
           </div>
         </div>
       </div>
@@ -102,3 +102,4 @@ const Productdetail = () => {
 };
 
 export default Productdetail;
+
