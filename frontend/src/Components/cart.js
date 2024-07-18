@@ -5,7 +5,7 @@ import { useCart } from '../contexts/cartContext';
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { cartItems, setCartItems, updateCart } = useCart();
+  const { cartItems, setCartItems } = useCart();
   const userId = localStorage.getItem('userId');
 
   const handleButtonClick = () => {
@@ -67,7 +67,10 @@ const Cart = () => {
     setCartItems(updatedItems);
 
     try {
-      await updateCart(updatedItems);
+      const newQuantity = updatedItems.find(item => item.productId === productId)?.quantity || 0;
+      await axios.post(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/userid/${userId}/${productId}`, {
+        quantity: newQuantity,
+      });
     } catch (error) {
       console.error("Failed to update cart:", error);
     }
@@ -78,7 +81,9 @@ const Cart = () => {
     setCartItems(updatedItems);
 
     try {
-      await updateCart(updatedItems);
+      await axios.post(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/userid/${userId}/${productId}`, {
+        quantity: 0,
+      });
     } catch (error) {
       console.error("Failed to update cart:", error);
     }
@@ -117,7 +122,6 @@ const Cart = () => {
 
   const totalItem = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
   const grandTotal = totalPrice + shippingCost;
 
   return (
@@ -130,9 +134,7 @@ const Cart = () => {
               <input type="checkbox" />
               <img src={item.image} alt={item.name} />
               <div className="item-details">
-                <p>{item.from}</p>
                 <p>{item.name}</p>
-                <p>Varian: {item.variant}</p>
                 <p>Rp {item.price}</p>
               </div>
               <div className="item-actions">
