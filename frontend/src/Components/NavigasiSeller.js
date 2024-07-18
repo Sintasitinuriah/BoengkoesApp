@@ -10,13 +10,13 @@ const NavigasiSeller = () => {
   };
 
   const handleHomeSellerClick = () => {
-    navigate("/beranda");
+    navigate("/services");
   };
 
   return (
     <div className="container-navigasi-seller">
       <div className="navigasi-item-seller">
-        <a href="/beranda" onClick={handleHomeSellerClick}>
+        <a href="/services" onClick={handleHomeSellerClick}>
           Layanan
         </a>
       </div>

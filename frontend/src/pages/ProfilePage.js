@@ -33,7 +33,7 @@ const ProfilePage = () => {
       () => {
         localStorage.removeItem("authToken");
         toastr.success("Logout berhasil");
-        navigate("/Homepage"); // Redirect ke halaman login
+        navigate("/"); // Redirect ke halaman login
       },
       () => {
         toastr.info("Logout dibatalkan");
@@ -212,7 +212,7 @@ const ProfilePage = () => {
                 />
               </>
             )}
-            <a href="/Homepage" className="keluar-akun" onClick={handleLogout}>
+            <a href="/" className="keluar-akun" onClick={handleLogout}>
               Keluar Akun
             </a>
           </div>
