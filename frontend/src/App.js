@@ -113,7 +113,7 @@ function App() {
             <Route path="/cardtoko" element={<CardToko />} />
             <Route path="/buttonsmall" element={<Buttonsmall />} />
             <Route path="/beranda" element={<Beranda />} />
-            <Route path="/cart" element={<Cartpage />} />
+            <Route path="/cart/:userId" element={<Cartpage />} />
             <Route path="/store" element={<Storepage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />

@@ -5,12 +5,8 @@ import { useCart } from '../contexts/cartContext';
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { cartItems, setCartItems } = useCart();
+  const { cartItems, setCartItems, updateCart, removeFromCart } = useCart();
   const userId = localStorage.getItem('userId');
-
-  const handleButtonClick = () => {
-    navigate('/ShippingPage');
-  };
 
   const [originProvince, setOriginProvince] = useState("");
   const [originCity, setOriginCity] = useState("");
@@ -60,6 +56,53 @@ const Cart = () => {
     }
   };
 
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      try {
+        const response = await axios.get(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/${userId}`);
+        setCartItems(response.data.items);
+      } catch (error) {
+        console.error("Error fetching cart items:", error.message);
+        setError("Failed to fetch cart items");
+      }
+    };
+
+    fetchCartItems();
+  }, [setCartItems, userId]);
+
+  // const handleQuantityChange = async (productId, change) => {
+  //   // Debugging: Log current cart items and productId
+  //   console.log('Current cart items:', cartItems);
+  //   console.log('Product ID:', productId);
+
+  //   // Update quantities
+  //   const updatedItems = cartItems.map(item =>
+  //     item.productId === productId ? { ...item, quantity: item.quantity + change } : item
+  //   ).filter(item => item.quantity > 0);
+
+  //   // Debugging: Log updated items
+  //   console.log('Updated items:', updatedItems);
+
+  //   // Update state
+  //   setCartItems(updatedItems);
+
+  //   // Find the updated item
+  //   const updatedItem = updatedItems.find(item => item.productId === productId);
+
+  //   // Debugging: Log updated item
+  //   console.log('Updated item:', updatedItem);
+
+  //   if (updatedItem) {
+  //     try {
+  //       await updateCart(updatedItem._id, updatedItem);
+  //     } catch (error) {
+  //       console.error("Failed to update cart:", error);
+  //     }
+  //   } else {
+  //     console.error('Updated item not found.');
+  //   }
+  // };
+
   const handleQuantityChange = async (productId, change) => {
     const updatedItems = cartItems.map(item =>
       item.productId === productId ? { ...item, quantity: item.quantity + change } : item
@@ -68,7 +111,7 @@ const Cart = () => {
 
     try {
       const newQuantity = updatedItems.find(item => item.productId === productId)?.quantity || 0;
-      await axios.post(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/userid/${userId}/${productId}`, {
+      await axios.post(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/${userId}/${productId}`, {
         quantity: newQuantity,
       });
     } catch (error) {
@@ -76,16 +119,13 @@ const Cart = () => {
     }
   };
 
-  const handleRemove = async (productId) => {
-    const updatedItems = cartItems.filter(item => item.productId !== productId);
-    setCartItems(updatedItems);
 
+  const handleRemove = async (itemId) => {
     try {
-      await axios.post(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/userid/${userId}/${productId}`, {
-        quantity: 0,
-      });
+      await removeFromCart(itemId);
     } catch (error) {
-      console.error("Failed to update cart:", error);
+      console.log(itemId);
+      console.error("Failed to remove from cart:", error);
     }
   };
 
@@ -120,8 +160,9 @@ const Cart = () => {
     }
   };
 
+
   const totalItem = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalPrice = cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
   const grandTotal = totalPrice + shippingCost;
 
   return (
@@ -130,12 +171,12 @@ const Cart = () => {
         <h2>Keranjang</h2>
         <div className="cart-items">
           {cartItems.map((item) => (
-            <div key={item.productId} className="cart-item">
+            <div key={item._id} className="cart-item">
               <input type="checkbox" />
-              <img src={item.image} alt={item.name} />
+              <img src={item.image} alt={item.product.name} />
               <div className="item-details">
-                <p>{item.name}</p>
-                <p>Rp {item.price}</p>
+                <p>{item.product.name}</p>
+                <p>Rp {item.product.price}</p>
               </div>
               <div className="item-actions">
                 <button
@@ -148,7 +189,7 @@ const Cart = () => {
                 <button onClick={() => handleQuantityChange(item.productId, 1)}>
                   +
                 </button>
-                <button onClick={() => handleRemove(item.productId)}>🗑️</button>
+                <button onClick={() => handleRemove(item._id)}>🗑️</button>
               </div>
             </div>
           ))}
@@ -252,15 +293,16 @@ const Cart = () => {
           <p>Ongkos Kirim: Rp {shippingCost.toLocaleString()}</p>
         </div>
       </div>
-      <div className="summary">
-        <h2>Ringkasan Belanja</h2>
-        <p>Item: {totalItem}</p>
-        <p>Total Item: Rp {totalPrice.toLocaleString()}</p>
-        <p>Ongkos Kirim: Rp {shippingCost.toLocaleString()}</p>
-        <p>Total Belanja: Rp {grandTotal.toLocaleString()}</p>
-        <button onClick={handleButtonClick}>Lanjut Pembayaran</button>
+
+        <div className="summary">
+          <h2>Ringkasan Belanja</h2>
+          <p>Total Item: {totalItem}</p>
+          <p>Total Harga Barang: Rp {totalPrice}</p>
+          <p>Biaya Pengiriman: Rp {shippingCost}</p>
+          <h3>Grand Total: Rp {grandTotal}</h3>
+          <button onClick={() => navigate('/ShippingPage')}>Checkout</button>
+        </div>
       </div>
-    </div>
   );
 };
 

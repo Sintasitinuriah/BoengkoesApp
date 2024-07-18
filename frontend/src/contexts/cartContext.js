@@ -3,12 +3,9 @@ import axios from 'axios';
 
 const CartContext = createContext();
 
-export const useCart = () => useContext(CartContext);
-
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const userId = localStorage.getItem('userId');
-
   useEffect(() => {
     const fetchCart = async () => {
       try {
@@ -36,14 +33,15 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const updateCart = async (updatedItems) => {
+  const updateCart = async (itemId, updatedItem) => {
+    const userId = localStorage.getItem('userId');
     try {
-      const response = await axios.post(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart`, {
+      const response = await axios.post(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/${userId}/${itemId}`, {
         user: userId,
-        items: updatedItems.map(item => ({
-          product: item.productId,
-          quantity: item.quantity
-        }))
+        items: [{
+          product: updatedItem.productId,
+          quantity: updatedItem.quantity
+        }]
       });
       setCartItems(response.data.items);
     } catch (error) {
@@ -51,9 +49,34 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+
+  const removeFromCart = async (itemId) => {
+    const userId = localStorage.getItem('userId');
+    const updatedItems = cartItems.filter(item => item._id !== itemId);
+  
+    try {
+      const response = await axios.delete(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/${userId}/${itemId}`, {
+        data: {
+          user: userId,
+          items: updatedItems.map(item => ({
+            product: item.productId,
+            quantity: item.quantity
+          }))
+        }
+      });
+  
+      setCartItems(response.data.items);
+    } catch (error) {
+      console.error("Failed to remove from cart:", error);
+    }
+  };
+  
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, updateCart }}>
+    <CartContext.Provider value={{ cartItems, setCartItems, addToCart, updateCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
 };
+
+export const useCart = () => useContext(CartContext);

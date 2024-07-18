@@ -73,7 +73,8 @@ const NavbarSearching = () => {
   };
 
   const handleCartClick = () => {
-    navigate("/cart");
+    const userId = localStorage.getItem('userId');
+    navigate(`/cart/${userId}`);
   };
 
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
