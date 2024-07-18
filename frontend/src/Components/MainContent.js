@@ -8,8 +8,13 @@ import monetization from "../images/monetization.png";
 import batik from "../images/batik.png";
 import CardToko from "./CardToko";
 import Buttonsmall from "./button-small";
+import { useNavigate } from "react-router-dom"; 
 
 function MainContent() {
+  const navigate = useNavigate();
+  const handleCardClick = () => {
+    navigate('/');
+  };
   return (
     <div className="main-content">
       <div className="content-wrapper">
@@ -85,8 +90,9 @@ function MainContent() {
         <section className="PopularStores">
           <h2>Toko Paling Populer</h2>
           <div className="container-toko-populer">
-            {/* card 1 */}
-            <CardToko></CardToko>
+            <div onClick={handleCardClick} style={{ cursor: "pointer" }}>
+              <CardToko/>
+            </div>
           </div>
         </section>
 
