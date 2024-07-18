@@ -18,21 +18,26 @@
 
 .container-gambar-toko {
   width: 100%;
-  height: 134px;
+  height: 250px;
   padding-bottom: 8px;
+  overflow: hidden;
 }
 
 .container-gambar-toko img {
   max-width: 100%;
+  width: 100%;
   border-radius: 10px 10px 0px 0px;
+  object-fit: cover;
+  height: 100%;
 }
 
 .container-kata {
   background-color: #f6f8fd;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   border-radius: 0px 0px 8px 8px;
+  margin-top: 10px;
 }
 
 .container-nama-toko {
