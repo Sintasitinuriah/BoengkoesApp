@@ -57,6 +57,7 @@ const Berandapage = () => {
 
     fetchProfile();
   }, []);
+
   return (
     <div className="beranda">
       <div className="logotesla">
@@ -68,8 +69,6 @@ const Berandapage = () => {
         </div>
 
         <div className="toko-terdekat">
-          <CardToko />
-          <CardToko />
           <CardToko />
         </div>
 
@@ -99,8 +98,6 @@ const Berandapage = () => {
         </div>
 
         <div className="border-background">
-          <CardToko />
-          <CardToko />
           <CardToko />
         </div>
       </div>
