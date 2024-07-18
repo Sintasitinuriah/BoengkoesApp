@@ -47,6 +47,10 @@ const HeaderToko = ({ storeId }) => {
     }
   };
 
+  const handleFacebookClick = () => {
+    window.open("https://web.facebook.com/lamondepalembang/?locale=id_ID&_rdc=1&_rdr", "_blank");
+  };
+
   const handleWhatsappClick = () => {
     if (store && store.socialMedia && store.socialMedia.whatsapp) {
       window.open(store.socialMedia.whatsapp, "_blank");
@@ -93,7 +97,7 @@ const HeaderToko = ({ storeId }) => {
         <div className="container-sosmed">
           <h3>Sosial Media</h3>
           <div className="container-logo-sosmed">
-            <img src={Facebook} alt="Facebook" />
+            <img src={Facebook} alt="Facebook" onClick={handleFacebookClick}/>
             <img
               src={Instagram}
               alt="Instagram"
