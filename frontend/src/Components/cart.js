@@ -19,6 +19,7 @@ const Cart = () => {
   const [provinces, setProvinces] = useState([]);
   const [originCities, setOriginCities] = useState([]);
   const [destinationCities, setDestinationCities] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
 
   const couriers = ["jne", "pos", "tiki"];
 
@@ -160,10 +161,27 @@ const Cart = () => {
     }
   };
 
+  const handleCheckboxChange = (itemId, checked) => {
+    setSelectedItems(prevSelectedItems => {
+      if (checked) {
+        return [...prevSelectedItems, itemId];
+      } else {
+        return prevSelectedItems.filter(id => id !== itemId);
+      }
+    });
+  };
 
-  const totalItem = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
-  const grandTotal = totalPrice + shippingCost;
+  const totalSelectedItem = cartItems
+    .filter(item => selectedItems.includes(item._id))
+    .reduce((acc, item) => acc + item.quantity, 0);
+
+  const totalSelectedPrice = cartItems
+    .filter(item => selectedItems.includes(item._id))
+    .reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+
+  // const totalItem = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  // const totalPrice = cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+  const grandTotal = totalSelectedPrice + shippingCost;
 
   return (
     <div className="app">
@@ -172,7 +190,11 @@ const Cart = () => {
         <div className="cart-items">
           {cartItems.map((item) => (
             <div key={item._id} className="cart-item">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={selectedItems.includes(item._id)}
+                onChange={(e) => handleCheckboxChange(item._id, e.target.checked)}
+              />
               <img src={item.image} alt={item.product.name} />
               <div className="item-details">
                 <p>{item.product.name}</p>
@@ -296,8 +318,8 @@ const Cart = () => {
 
         <div className="summary">
           <h2>Ringkasan Belanja</h2>
-          <p>Total Item: {totalItem}</p>
-          <p>Total Harga Barang: Rp {totalPrice}</p>
+          <p>Total Item: {totalSelectedItem}</p>
+          <p>Total Harga Barang: Rp {totalSelectedPrice}</p>
           <p>Biaya Pengiriman: Rp {shippingCost}</p>
           <h3>Grand Total: Rp {grandTotal}</h3>
           <button onClick={() => navigate('/ShippingPage')}>Checkout</button>
