@@ -5,9 +5,19 @@ import { useCart } from '../contexts/cartContext';
 
 const Cart = () => {
   const navigate = useNavigate();
+  
   const { cartItems, setCartItems, updateCart, removeFromCart } = useCart();
   const userId = localStorage.getItem('userId');
+  const handleCheckoutClick = () => {
+    const message = `Ringkasan Belanja:%0A` +
+                    `Total Item: ${totalSelectedItem}%0A` +
+                    `Total Harga Barang: Rp ${totalSelectedPrice}%0A` +
+                    `Biaya Pengiriman: Rp ${shippingCost}%0A` +
+                    `Grand Total: Rp ${grandTotal}`;
 
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
   const [originProvince, setOriginProvince] = useState("");
   const [originCity, setOriginCity] = useState("");
   const [destinationProvince, setDestinationProvince] = useState("");
@@ -322,7 +332,9 @@ const Cart = () => {
           <p>Total Harga Barang: Rp {totalSelectedPrice}</p>
           <p>Biaya Pengiriman: Rp {shippingCost}</p>
           <h3>Grand Total: Rp {grandTotal}</h3>
-          <button onClick={() => navigate('/ShippingPage')}>Checkout</button>
+          <button className="checkout-button" onClick={handleCheckoutClick}>
+          Checkout
+        </button>
         </div>
       </div>
   );
