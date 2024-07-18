@@ -88,10 +88,10 @@ function App() {
         <Route path="/buttonchat" element={<ButtonChat />} />
         <Route path="/buttonbeli" element={<Buttonbeli />} />
         <Route path="/buttonkeranjang" element={<ButtonKeranjang />} />
-        <Route path="/productdetail" element={<Productdetail />} />
+        <Route path="/productdetail/:productId" element={<Productdetail />} />
         <Route path="/quantity" element={<Quantity />} />
         <Route path="/variant" element={<Variant />} />
-        <Route path="/storedetail" element={<StoreDetail />} />
+        <Route path="/storedetail/:storeId" element={<StoreDetail />} />
         <Route path="/cardproduk" element={<CardProduk />} />
         <Route path="/category" element={<Category />} />
         <Route path="/headertoko" element={<HeaderToko />} />

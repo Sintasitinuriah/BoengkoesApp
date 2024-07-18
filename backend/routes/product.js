@@ -6,8 +6,11 @@ const {
   getProducts,
   getProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  getProductsByStore
 } = require('../controllers/productController');
+
+router.get('/bystore/:storeId', getProductsByStore);
 
 router
   .route('/')
