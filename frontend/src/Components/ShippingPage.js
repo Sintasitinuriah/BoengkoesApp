@@ -1,4 +1,3 @@
-// ShippingPage.js
 import React, { useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -11,22 +10,23 @@ const ShippingPage = () => {
   );
   const navigate = useNavigate();
 
-  const handleCheckoutClick = () => {
-    const phoneNumber = "6282133395550";
-    const message = "Halo, saya ingin memesan produk ini.";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      message
-    )}`;
-
-    window.location.href = whatsappUrl;
-  };
-
   const product = {
     name: "New Lamonde Chocomaltine",
     variant: "Chocomaltine",
     price: 85000,
     quantity: 1,
     totalPrice: 149000,
+  };
+
+  const handleCheckoutClick = () => {
+    const phoneNumber = "6282133395550";
+    const message = `Halo, saya ingin memesan produk berikut:\n\nNama Produk: ${product.name}\nVarian: ${product.variant}\nJumlah: ${product.quantity}\nHarga Satuan: Rp ${product.price.toLocaleString()}\nTotal Harga: Rp ${product.totalPrice.toLocaleString()}\n\nAlamat Pengiriman:\n${address}`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.location.href = whatsappUrl;
   };
 
   const handleEditAddressClick = () => {
@@ -74,7 +74,7 @@ const ShippingPage = () => {
         <p>Total Belanja: Rp {product.totalPrice.toLocaleString()}</p>
         <p>
           Catatan: Konfirmasi checkout produk dan nominal pengiriman akan
-          diarahkan melalui whatsapp penjual
+          diarahkan melalui WhatsApp penjual
         </p>
         <button className="checkout-button" onClick={handleCheckoutClick}>
           Checkout
