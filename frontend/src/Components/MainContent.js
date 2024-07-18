@@ -87,8 +87,6 @@ function MainContent() {
           <div className="container-toko-populer">
             {/* card 1 */}
             <CardToko></CardToko>
-            <CardToko></CardToko>
-            <CardToko></CardToko>
           </div>
         </section>
 

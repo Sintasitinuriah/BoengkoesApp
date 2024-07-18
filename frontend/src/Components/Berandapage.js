@@ -4,6 +4,7 @@ import Logotesla from "../images/logotesla.jpg";
 import CardToko from "./CardToko";
 
 const Berandapage = () => {
+<<<<<<< HEAD
   const [profile, setProfile] = useState("");
   const [error, setError] = useState(null);
 
@@ -58,6 +59,9 @@ const Berandapage = () => {
     fetchProfile();
   }, []);
 
+=======
+  
+>>>>>>> 9510d821f584623c5444efe3155fdffd65cb075b
   return (
     <div className="beranda">
       <div className="logotesla">

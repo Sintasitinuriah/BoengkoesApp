@@ -45,6 +45,20 @@ exports.getProduct = asyncHandler(async (req, res, next) => {
   }
 });
 
+exports.getProductsByStore = asyncHandler(async (req, res, next) => {
+  try {
+    const { storeId } = req.params;
+
+    const products = await Product.find({ store: storeId }).populate('category store');
+    if (!products.length) {
+      return next(new ErrorResponse('Produk tidak ditemukan untuk toko ini', 404));
+    }
+    res.status(200).json({ success: true, data: products });
+  } catch (error) {
+    next(new ErrorResponse('Gagal mengambil produk', 500));
+  }
+});
+
 // Update a product by ID
 exports.updateProduct = asyncHandler(async (req, res, next) => {
   try {

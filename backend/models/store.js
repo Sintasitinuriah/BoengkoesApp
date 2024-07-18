@@ -24,18 +24,12 @@ const storeSchema = new mongoose.Schema({
 //   },
   district: {
     type: String,
-    required: [true, 'Silahkan tambahkan kecamatan'],
-    trim: true,
   },
   city: {
     type: String,
-    required: [true, 'Silahkan tambahkan kota atau kabupaten'],
-    trim: true,
   },
   province: {
     type: String,
-    required: [true, 'Silahkan tambahkan provinsi'],
-    trim: true,
   },
   addres:{
     type: String,

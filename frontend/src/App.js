@@ -53,15 +53,20 @@ import ButtonKembali from "./Components/ButtonKembali";
 import ButtonTambah from "./Components/ButtonTambah";
 import AboutUs from "./Components/AboutUs";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
+import Services from "./pages/Services";
+import UpdateAddressPage from "./Components/UpdateAddressPage";
+import { AddressProvider } from "./Components/AddressContext";
 
 function App() {
   const isAuthenticated = false;
 
   return (
     <Router>
-      {/* <div className="App"> */}
+      <AddressProvider>
       <Routes>
         <Route path="/addproduct" element={<AddProduct />} />
+        <Route path="/update-address" element={<UpdateAddressPage  />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/buttontambah" element={<ButtonTambah />} />
@@ -88,10 +93,10 @@ function App() {
         <Route path="/buttonchat" element={<ButtonChat />} />
         <Route path="/buttonbeli" element={<Buttonbeli />} />
         <Route path="/buttonkeranjang" element={<ButtonKeranjang />} />
-        <Route path="/productdetail" element={<Productdetail />} />
+        <Route path="/productdetail/:productId" element={<Productdetail />} />
         <Route path="/quantity" element={<Quantity />} />
         <Route path="/variant" element={<Variant />} />
-        <Route path="/storedetail" element={<StoreDetail />} />
+        <Route path="/storedetail/:storeId" element={<StoreDetail />} />
         <Route path="/cardproduk" element={<CardProduk />} />
         <Route path="/category" element={<Category />} />
         <Route path="/headertoko" element={<HeaderToko />} />
@@ -114,7 +119,7 @@ function App() {
           element={<Navigate to={isAuthenticated ? "/" : "/login"} />}
         />
       </Routes>
-      {/* </div> */}
+      </AddressProvider>
     </Router>
   );
 }

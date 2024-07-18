@@ -40,7 +40,7 @@ const Register = () => {
         localStorage.setItem('token', data.token); // Pastikan token disimpan
         localStorage.setItem('userId', data.data._id);
   
-        navigate('/beranda');
+        navigate('/login');
       } else {
         toastr.error('Signup gagal');
       }

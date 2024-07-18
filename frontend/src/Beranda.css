@@ -120,13 +120,13 @@
   text-align: center;
 }
 
-.toko-terdekat {
+/* .toko-terdekat {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-}
+} */
 
 .cari-produk-lokasi {
   text-align: center;
@@ -158,4 +158,28 @@
   border-radius: 20px;
   width: 300px;
   max-width: 80%;
+}
+
+.container-card-toko {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card-toko {
+  flex: 1 1 calc(33.333% - 20px); /* Tiga kolom dengan jarak 20px antar kolom */
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  .card-toko {
+    flex: 1 1 calc(50% - 20px); /* Dua kolom pada layar lebih kecil dari 1200px */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-toko {
+    flex: 1 1 100%; /* Satu kolom pada layar lebih kecil dari 768px */
+  }
 }
