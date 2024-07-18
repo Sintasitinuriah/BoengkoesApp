@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../card-produk.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-const CardProduk = () => {
+const CardProduk = ({ storeId }) => {
   const navigate = useNavigate();
-  const { storeId } = useParams(); // Ambil storeId dari parameter URL
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
 
@@ -28,9 +27,9 @@ const CardProduk = () => {
     navigate(`/productdetail/${productId}`);
   };
 
-  // if (error) {
-  //   return <p>{error}</p>;
-  // }
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <div className="container-card-produk">

@@ -18,6 +18,15 @@
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
 }
 
+.address-container {
+  display: flex;
+  gap: 5px; 
+}
+
+.address-container p {
+  margin: 0;
+}
+
 .container-kiri {
   display: flex;
   width: 100%;
