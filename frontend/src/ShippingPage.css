@@ -7,6 +7,10 @@
     width: 70%;
     padding: 20px;
   }
+
+  .shipping-main h2 {
+    margin-bottom: 20px;
+  }
   
   .address-section, .order-section, .summary-section {
     background-color: white;
