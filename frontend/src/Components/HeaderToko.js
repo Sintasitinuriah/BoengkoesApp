@@ -11,6 +11,10 @@ const HeaderToko = () => {
     window.open("https://www.instagram.com/palembanglamonde/?hl=en", "_blank");
   };
 
+  const handleFacebookClick = () => {
+    window.open("https://web.facebook.com/lamondepalembang/?locale=id_ID&_rdc=1&_rdr", "_blank");
+  };
+
   const handleWhatsappClick = () => {
     window.open(
       "https://api.whatsapp.com/send?phone=6282133395550&text=%20Mau%20Order%20Lamonde%20Dong%20Min",
@@ -55,7 +59,7 @@ const HeaderToko = () => {
         <div className="container-sosmed">
           <h3>Sosial Media</h3>
           <div className="container-logo-sosmed">
-            <img src={Facebook} alt="Facebook" />
+            <img src={Facebook} alt="Facebook" onClick={handleFacebookClick}/>
             <img
               src={Instagram}
               alt="Instagram"

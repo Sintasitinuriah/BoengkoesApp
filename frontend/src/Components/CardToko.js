@@ -31,7 +31,6 @@ const CardToko = () => {
     console.log(store);
   };
 
-
   if (error) {
     return <p>{error}</p>;
   }
