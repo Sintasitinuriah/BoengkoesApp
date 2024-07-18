@@ -38,19 +38,18 @@
 }
 
 .container-title p {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   color: #505050;
   text-align: left;
-
-  margin: 0px;
+  margin: 2px;
 }
 
 .container-title h2 {
-  font-size: 44px;
+  font-size: 40px;
   color: #505050;
-
-  margin: 0px;
+  margin: 2px;
+  margin-left: 20px;
 }
 
 .container-button-layanan {
