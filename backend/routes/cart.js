@@ -1,13 +1,11 @@
-// routes/cart.js
 const express = require('express');
-const { addItemToCart, getUserCart, updateCartItem, removeItemFromCart } = require('../controllers/cartController');
-
-
 const router = express.Router();
+const cartController = require('../controllers/cartController');
 
-router.post('/cart', addItemToCart);
-router.get('/cart', getUserCart);
-router.put('/cart', updateCartItem);
-router.delete('/cart', removeItemFromCart);
+// Route untuk menambah item ke keranjang
+router.post('/cart', cartController.addToCart);
+router.get('/cart/:userId', cartController.getCart);
+router.delete('/cart/:userId/:itemId', cartController.removeFromCart);
+router.put('/cart/update/:userId/:itemId', cartController.updateCartItem);
 
 module.exports = router;

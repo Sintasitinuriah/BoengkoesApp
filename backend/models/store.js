@@ -33,8 +33,7 @@ const storeSchema = new mongoose.Schema({
   },
   addres:{
     type: String,
-    trim: true,
-    maxlength: 255,
+    default: null,
   },
   facebook:{
     type: String,
@@ -44,6 +43,10 @@ const storeSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  image:{
+    type: String,
+    default: "https://idnpacific.com/wp-content/uploads/2022/05/layar-putih-retak.png",
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Store', storeSchema);

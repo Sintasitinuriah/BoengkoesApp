@@ -19,8 +19,9 @@ const productSchema = new mongoose.Schema({
         trim: true,
         maxlength: 32
     },
-    image: {
+    image:{
         type: String,
+        default: "https://idnpacific.com/wp-content/uploads/2022/05/layar-putih-retak.png"
     },
     category: {
         type: ObjectId,

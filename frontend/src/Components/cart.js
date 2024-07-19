@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import jsPDF from 'jspdf';
 import { useCart } from '../contexts/cartContext';
 
 const Cart = () => {
@@ -8,16 +9,16 @@ const Cart = () => {
   
   const { cartItems, setCartItems, updateCart, removeFromCart } = useCart();
   const userId = localStorage.getItem('userId');
-  const handleCheckoutClick = () => {
-    const message = `Ringkasan Belanja:%0A` +
-                    `Total Item: ${totalSelectedItem}%0A` +
-                    `Total Harga Barang: Rp ${totalSelectedPrice}%0A` +
-                    `Biaya Pengiriman: Rp ${shippingCost}%0A` +
-                    `Grand Total: Rp ${grandTotal}`;
+  // const handleCheckoutClick = () => {
+  //   const message = `Ringkasan Belanja:%0A` +
+  //                   `Total Item: ${totalSelectedItem}%0A` +
+  //                   `Total Harga Barang: Rp ${totalSelectedPrice}%0A` +
+  //                   `Biaya Pengiriman: Rp ${shippingCost}%0A` +
+  //                   `Grand Total: Rp ${grandTotal}`;
 
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
+  //   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+  //   window.open(whatsappUrl, '_blank');
+  // };
   const [originProvince, setOriginProvince] = useState("");
   const [originCity, setOriginCity] = useState("");
   const [destinationProvince, setDestinationProvince] = useState("");
@@ -32,6 +33,72 @@ const Cart = () => {
   const [selectedItems, setSelectedItems] = useState([]);
 
   const couriers = ["jne", "pos", "tiki"];
+
+  const handleCheckoutClick = async () => {
+    // Create PDF
+    const doc = new jsPDF();
+  
+    // Set document properties
+    doc.setProperties({
+      title: 'Ringkasan Belanja',
+      subject: 'Detail pembelian',
+      // author: 'Your Company Name',
+      keywords: 'belanja, ringkasan, pembelian',
+      // creator: 'Your Company Name'
+    });
+  
+    // Add title and metadata
+    doc.setFontSize(18);
+    doc.text('Ringkasan Belanja', 10, 10);
+  
+    doc.setFontSize(12);
+    doc.text(`Total Item:`, 10, 30);
+    doc.text(`${totalSelectedItem}`, 60, 30);
+  
+    doc.text(`Total Harga Barang:`, 10, 40);
+    doc.text(`Rp ${totalSelectedPrice}`, 60, 40);
+  
+    doc.text(`Biaya Pengiriman:`, 10, 50);
+    doc.text(`Rp ${shippingCost}`, 60, 50);
+  
+    doc.text(`Grand Total:`, 10, 60);
+    doc.text(`Rp ${grandTotal}`, 60, 60);
+  
+    // Optional: Add line breaks for better spacing
+    doc.setLineWidth(0.5);
+    doc.line(10, 15, 200, 15); // Horizontal line below title
+    doc.line(10, 55, 200, 55);
+    doc.line(10, 65, 200, 65); // Horizontal line below total
+  
+    // Convert the PDF to a Blob
+    const pdfBlob = doc.output('blob');
+    const formData = new FormData();
+    formData.append('file', pdfBlob, 'ringkasan_belanja.pdf');
+  
+    try {
+      // Upload the PDF to your backend API
+      const response = await axios.post('http://localhost:5000/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+  
+      const fileUrl = response.data.fileUrl; // Get the URL of the uploaded file
+  
+      const message = `Ringkasan Belanja:%0A` +
+                      `Total Item: ${totalSelectedItem}%0A` +
+                      `Total Harga Barang: Rp ${totalSelectedPrice}%0A` +
+                      `Biaya Pengiriman: Rp ${shippingCost}%0A` +
+                      `Grand Total: Rp ${grandTotal}%0A%0A` +
+                      `Lihat detail: ${fileUrl}`;
+  
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    } catch (error) {
+      console.error('Failed to upload file:', error);
+    }
+  };
+  
 
   useEffect(() => {
     const fetchProvinces = async () => {

@@ -1,89 +1,77 @@
-// controllers/cartController.js
 const Cart = require('../models/cart');
-const Product = require('../models/product');
-const asyncHandler = require('../middleware/asyncHandler');
-const ErrorResponse = require('../utils/errorResponse');
 
-// Add item to cart
-exports.addItemToCart = asyncHandler(async (req, res, next) => {
-    const { productId, quantity } = req.body;
+// Controller untuk menambah item ke keranjang
+exports.addToCart = async (req, res) => {
+    const { user, items } = req.body;
 
-    const product = await Product.findById(productId);
-    if (!product) {
-        return next(new ErrorResponse('Product not found', 404));
+    try {
+        const cart = await Cart.findOneAndUpdate(
+            { user: user },
+            { $addToSet: { items: { $each: items } } }, // Menggunakan $addToSet untuk menghindari duplikasi item
+            { new: true, upsert: true }
+        );
+
+        res.status(201).json(cart);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
+};
 
-    let cart = await Cart.findOne({ user: req.user._id });
+// Controller untuk mendapatkan keranjang pengguna
+exports.getCart = async (req, res) => {
+    const userId = req.params.userId;
 
-    if (!cart) {
-        cart = new Cart({ user: req.user._id, items: [] });
-    }
+    try {
+        const cart = await Cart.findOne({ user: userId }).populate('items.product', 'name price');
 
-    const itemIndex = cart.items.findIndex(item => item.product.toString() === productId);
-
-    if (itemIndex > -1) {
-        // If item already exists, update the quantity
-        cart.items[itemIndex].quantity += quantity;
-    } else {
-        // If item does not exist, add it to the cart
-        cart.items.push({ product: productId, quantity });
-    }
-
-    await cart.save();
-    res.status(201).json({ success: true, data: cart });
-});
-
-// Get user cart
-exports.getUserCart = asyncHandler(async (req, res, next) => {
-    const cart = await Cart.findOne({ user: req.user._id }).populate('items.product');
-    if (!cart) {
-        return next(new ErrorResponse('Cart not found', 404));
-    }
-    res.status(200).json({ success: true, data: cart });
-});
-
-// Update item quantity in cart
-exports.updateCartItem = asyncHandler(async (req, res, next) => {
-    const { productId, quantity } = req.body;
-
-    const cart = await Cart.findOne({ user: req.user._id });
-    if (!cart) {
-        return next(new ErrorResponse('Cart not found', 404));
-    }
-
-    const itemIndex = cart.items.findIndex(item => item.product.toString() === productId);
-
-    if (itemIndex > -1) {
-        if (quantity > 0) {
-            cart.items[itemIndex].quantity = quantity;
-        } else {
-            cart.items.splice(itemIndex, 1);
+        if (!cart) {
+            return res.status(404).json({ message: 'Keranjang tidak ditemukan' });
         }
-    } else {
-        return next(new ErrorResponse('Product not found in cart', 404));
+
+        res.json(cart);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
+};
 
-    await cart.save();
-    res.status(200).json({ success: true, data: cart });
-});
+// Controller untuk menghapus item dari keranjang
+exports.removeFromCart = async (req, res) => {
+    const { userId, itemId } = req.params;
 
-// Remove item from cart
-exports.removeItemFromCart = asyncHandler(async (req, res, next) => {
-    const { productId } = req.body;
+    try {
+        const cart = await Cart.findOneAndUpdate(
+            { user: userId },
+            { $pull: { items: { _id: itemId } } },
+            { new: true }
+        );
 
-    const cart = await Cart.findOne({ user: req.user._id });
-    if (!cart) {
-        return next(new ErrorResponse('Cart not found', 404));
+        if (!cart) {
+            return res.status(404).json({ message: 'Keranjang tidak ditemukan' });
+        }
+
+        res.json(cart);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
+};
 
-    const itemIndex = cart.items.findIndex(item => item.product.toString() === productId);
+exports.updateCartItem = async (req, res) => {
+    const { userId, itemId } = req.params;
+    const { quantity } = req.body;
 
-    if (itemIndex > -1) {
-        cart.items.splice(itemIndex, 1);
-    } else {
-        return next(new ErrorResponse('Product not found in cart', 404));
+    try {
+        const cart = await Cart.findOneAndUpdate(
+            { user: userId, 'items._id': itemId },
+            { $set: { 'items.$.quantity': quantity } },
+            { new: true }
+        );
+
+        if (!cart) {
+            return res.status(404).json({ message: 'Item di keranjang tidak ditemukan' });
+        }
+
+        res.json(cart);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
-
-    await cart.save();
-    res.status(200).json({ success: true, data: cart });
-});
+};

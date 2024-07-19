@@ -4,7 +4,7 @@ const ErrorResponse = require('../utils/errorResponse');
 // Create a new store
 exports.createStore = async (req, res, next) => {
   try {
-    const { name, phoneNumber, owner, district, city, province, address } = req.body;
+    const { name, phoneNumber, owner, district, city, province, address, image } = req.body;
     const store = await Store.create({
       name,
       phoneNumber,
@@ -12,7 +12,8 @@ exports.createStore = async (req, res, next) => {
       district,
       city,
       province,
-      address
+      address,
+      image,
     });
     res.status(201).json({ success: true, data: store });
   } catch (error) {
