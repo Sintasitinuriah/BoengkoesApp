@@ -33,22 +33,47 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const updateCart = async (itemId, updatedItem) => {
+  // const updateCart = async (itemId, updatedItem) => {
+  //   const userId = localStorage.getItem('userId');
+  //   try {
+  //     const response = await axios.post(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/${userId}/${itemId}`, {
+  //       user: userId,
+  //       items: [{
+  //         product: updatedItem.productId,
+  //         quantity: updatedItem.quantity
+  //       }]
+  //     });
+  //     setCartItems(response.data.items);
+  //   } catch (error) {
+  //     console.error("Failed to update cart:", error);
+  //   }
+  // };
+
+  const updateCart = async (itemId, newQuantity) => {
     const userId = localStorage.getItem('userId');
+    const updatedItems = cartItems.map(item =>
+      item._id === itemId ? { ...item, quantity: newQuantity } : item
+    );
+  
+    console.log("Updated items before API call:", updatedItems);
+  
     try {
-      const response = await axios.post(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/${userId}/${itemId}`, {
+      const response = await axios.put(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/${userId}/${itemId}`, {
         user: userId,
-        items: [{
-          product: updatedItem.productId,
-          quantity: updatedItem.quantity
-        }]
+        items: updatedItems.map(item => ({
+          product: item.product._id,  // Pastikan hanya mengirim ID produk
+          quantity: item.quantity
+        }))
       });
+  
+      console.log("API response items:", response.data.items);
       setCartItems(response.data.items);
     } catch (error) {
       console.error("Failed to update cart:", error);
     }
   };
-
+  
+  
 
   const removeFromCart = async (itemId) => {
     const userId = localStorage.getItem('userId');
@@ -66,6 +91,7 @@ export const CartProvider = ({ children }) => {
       });
   
       setCartItems(response.data.items);
+      window.Location();
     } catch (error) {
       console.error("Failed to remove from cart:", error);
     }

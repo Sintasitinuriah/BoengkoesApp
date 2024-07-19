@@ -29,7 +29,7 @@ const Cart = () => {
         const response = await axios.get('http://localhost:3000/api/province', {
           headers: {
             'Access-Control-Allow-Origin': '*',
-            'key': 'ab06c563e2c72379f0ec46ea5b01d36d', // Replace with your actual API key
+            'key': '235a3cedc9480f90419e51fa4a6d7697', // Replace with your actual API key
           },
         });
         setProvinces(response.data.rajaongkir.results);
@@ -47,7 +47,7 @@ const Cart = () => {
       const response = await axios.get(`http://localhost:3000/api/city?province=${provinceId}`, {
         headers: {
           'Access-Control-Allow-Origin': '*',
-          'key': 'ab06c563e2c72379f0ec46ea5b01d36d', // Replace with your actual API key
+          'key': '235a3cedc9480f90419e51fa4a6d7697', // Replace with your actual API key
         },
       });
       setterFunc(response.data.rajaongkir.results);
@@ -104,22 +104,24 @@ const Cart = () => {
   //   }
   // };
 
-  const handleQuantityChange = async (productId, change) => {
+  const handleQuantityChange = async (itemId, change) => {
     const updatedItems = cartItems.map(item =>
-      item.productId === productId ? { ...item, quantity: item.quantity + change } : item
+      item._id === itemId ? { ...item, quantity: item.quantity + change } : item
     ).filter(item => item.quantity > 0);
+    
     setCartItems(updatedItems);
-
+  
     try {
-      const newQuantity = updatedItems.find(item => item.productId === productId)?.quantity || 0;
-      await axios.post(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/${userId}/${productId}`, {
+      const newQuantity = updatedItems.find(item => item._id === itemId)?.quantity || 0;
+      await axios.put(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/${userId}/${itemId}`, {
         quantity: newQuantity,
       });
     } catch (error) {
       console.error("Failed to update cart:", error);
     }
   };
-
+  
+  
 
   const handleRemove = async (itemId) => {
     try {
@@ -148,7 +150,7 @@ const Cart = () => {
           headers: {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'key': 'ab06c563e2c72379f0ec46ea5b01d36d', // Replace with your actual API key
+            'key': '235a3cedc9480f90419e51fa4a6d7697', // Replace with your actual API key
           },
         }
       );
@@ -201,14 +203,13 @@ const Cart = () => {
                 <p>Rp {item.product.price}</p>
               </div>
               <div className="item-actions">
-                <button
-                  onClick={() => handleQuantityChange(item.productId, -1)}
-                  disabled={item.quantity === 1}
-                >
+              {/* <button onClick={() => handleQuantityChange(item._id, item.quantity + 1)}>+</button><span>{item.quantity}</span>
+              <button onClick={() => handleQuantityChange(item._id, item.quantity - 1)} disabled={item.quantity === 1}>-</button> */}
+                <button onClick={() => handleQuantityChange(item._id, -1)} disabled={item.quantity === 1}>
                   -
                 </button>
                 <span>{item.quantity}</span>
-                <button onClick={() => handleQuantityChange(item.productId, 1)}>
+                <button onClick={() => handleQuantityChange(item._id, 1)}>
                   +
                 </button>
                 <button onClick={() => handleRemove(item._id)}>🗑️</button>
