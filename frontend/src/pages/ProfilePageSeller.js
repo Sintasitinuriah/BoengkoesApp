@@ -335,6 +335,8 @@ const ProfilePageSeller = () => {
     if (profileData) {
       if (profileData.data.rule === 0) {
         navigate(`/profilepage/${userId}`);
+      } else{
+        alertify.alert("Pemberitahuan", "Anda tidak bisa pindah role. Silahkan lakukan perubahan data terlebih dahulu.");
       }
     }
   }, [profileData, navigate]);

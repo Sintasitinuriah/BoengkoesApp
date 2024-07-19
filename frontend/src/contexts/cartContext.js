@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await axios.get(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/${userId}`);
+        const response = await axios.get(`http://localhost:5000/api/cart/${userId}`);
         setCartItems(response.data.items);
       } catch (error) {
         console.error("Failed to fetch cart items:", error);

@@ -1,36 +1,4 @@
 // import React from "react";
-// import "../navigasiseller.css";
-// import { useNavigate } from "react-router-dom";
-
-// const NavigasiSeller = () => {
-//   const navigate = useNavigate();
-
-//   const handleTokoSayaClick = () => {
-//     navigate("/homeseller");
-//   };
-
-//   const handleHomeSellerClick = () => {
-//     navigate("/services");
-//   };
-
-//   return (
-//     <div className="container-navigasi-seller">
-//       <div className="navigasi-item-seller">
-//         <a href="/services" onClick={handleHomeSellerClick}>
-//           Layanan
-//         </a>
-//       </div>
-//       <div className="navigasi-item-seller">
-//         <a href="/homeseller" onClick={handleTokoSayaClick}>
-//           Toko Saya
-//         </a>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default NavigasiSeller;
-
 import React, { useEffect, useState } from "react";
 import "../navigasiseller.css";
 import { useNavigate } from "react-router-dom";
@@ -65,7 +33,7 @@ const NavigasiSeller = () => {
     if (storeExists) {
       navigate(`/storesaya/${userId}`);
     } else {
-      alertify.alert("Pemberitahuan", "Anda belum membuat toko. Silahkan lakukan pendaftaran terlebih dahulu.");
+      alertify.alert("Pemberitahuan", "Anda belum membuat toko. Silahkan lakukan buat terlebih dahulu.");
       navigate(`/profilepageseller/${userId}`);
     }
   };

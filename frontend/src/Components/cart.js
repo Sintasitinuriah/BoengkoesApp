@@ -106,7 +106,7 @@ const Cart = () => {
         const response = await axios.get('http://localhost:3000/api/province', {
           headers: {
             'Access-Control-Allow-Origin': '*',
-            'key': '235a3cedc9480f90419e51fa4a6d7697', // Replace with your actual API key
+            'key': 'c63cc54787424f891ca2b5e0517d8bc5', // Replace with your actual API key
           },
         });
         setProvinces(response.data.rajaongkir.results);
@@ -124,7 +124,7 @@ const Cart = () => {
       const response = await axios.get(`http://localhost:3000/api/city?province=${provinceId}`, {
         headers: {
           'Access-Control-Allow-Origin': '*',
-          'key': '235a3cedc9480f90419e51fa4a6d7697', // Replace with your actual API key
+          'key': 'c63cc54787424f891ca2b5e0517d8bc5', // Replace with your actual API key
         },
       });
       setterFunc(response.data.rajaongkir.results);
@@ -148,57 +148,23 @@ const Cart = () => {
     fetchCartItems();
   }, [setCartItems, userId]);
 
-  // const handleQuantityChange = async (productId, change) => {
-  //   // Debugging: Log current cart items and productId
-  //   console.log('Current cart items:', cartItems);
-  //   console.log('Product ID:', productId);
-
-  //   // Update quantities
-  //   const updatedItems = cartItems.map(item =>
-  //     item.productId === productId ? { ...item, quantity: item.quantity + change } : item
-  //   ).filter(item => item.quantity > 0);
-
-  //   // Debugging: Log updated items
-  //   console.log('Updated items:', updatedItems);
-
-  //   // Update state
-  //   setCartItems(updatedItems);
-
-  //   // Find the updated item
-  //   const updatedItem = updatedItems.find(item => item.productId === productId);
-
-  //   // Debugging: Log updated item
-  //   console.log('Updated item:', updatedItem);
-
-  //   if (updatedItem) {
-  //     try {
-  //       await updateCart(updatedItem._id, updatedItem);
-  //     } catch (error) {
-  //       console.error("Failed to update cart:", error);
-  //     }
-  //   } else {
-  //     console.error('Updated item not found.');
-  //   }
-  // };
-
   const handleQuantityChange = async (itemId, change) => {
     const updatedItems = cartItems.map(item =>
       item._id === itemId ? { ...item, quantity: item.quantity + change } : item
     ).filter(item => item.quantity > 0);
     
     setCartItems(updatedItems);
+    console.log(updatedItems);
   
     try {
       const newQuantity = updatedItems.find(item => item._id === itemId)?.quantity || 0;
-      await axios.put(`https://boengkosapps-039320043b7f.herokuapp.com/api/cart/update/${userId}/${itemId}`, {
+      await axios.put(`http://localhost:api/cart/update/${userId}/${itemId}`, {
         quantity: newQuantity,
       });
     } catch (error) {
       console.error("Failed to update cart:", error);
     }
   };
-  
-  
 
   const handleRemove = async (itemId) => {
     try {
@@ -227,7 +193,7 @@ const Cart = () => {
           headers: {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'key': '235a3cedc9480f90419e51fa4a6d7697', // Replace with your actual API key
+            'key': 'c63cc54787424f891ca2b5e0517d8bc5', // Replace with your actual API key
           },
         }
       );
@@ -274,7 +240,7 @@ const Cart = () => {
                 checked={selectedItems.includes(item._id)}
                 onChange={(e) => handleCheckboxChange(item._id, e.target.checked)}
               />
-              <img src={item.image} alt={item.product.name} />
+              <img src={item.product.image}  alt={item.product.name} />
               <div className="item-details">
                 <p>{item.product.name}</p>
                 <p>Rp {item.product.price}</p>

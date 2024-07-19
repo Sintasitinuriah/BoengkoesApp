@@ -1,7 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.3a3c6f24.css",
-    "main.js": "/static/js/main.4e98d09d.js",
+    "main.css": "/static/css/main.2493444c.css",
+    "main.js": "/static/js/main.90f4dee8.js",
+    "static/js/239.87e98fa6.chunk.js": "/static/js/239.87e98fa6.chunk.js",
+    "static/js/213.702ed1f9.chunk.js": "/static/js/213.702ed1f9.chunk.js",
+    "static/js/732.53cdd393.chunk.js": "/static/js/732.53cdd393.chunk.js",
     "static/media/tas-moi.png": "/static/media/tas-moi.27418c35f58db9851332.png",
     "static/media/lamonde-palembang.png": "/static/media/lamonde-palembang.4fd2940d1cf4e517862a.png",
     "static/media/frame.jpg": "/static/media/frame.8a58dd150508a8f1f1fc.jpg",
@@ -10,9 +13,7 @@
     "static/media/logotesla.jpg": "/static/media/logotesla.f857739db7c955f50048.jpg",
     "static/media/bakso.png": "/static/media/bakso.610623852c6f10db257c.png",
     "static/media/BorderBackground.jpg": "/static/media/BorderBackground.900fbee427a8be565fc7.jpg",
-    "static/media/product-lamonde-chocomaltine.png": "/static/media/product-lamonde-chocomaltine.289c537432eaad04ca81.png",
     "static/media/rendang.png": "/static/media/rendang.f44af45231376e0580d5.png",
-    "static/media/lamonde-chocomaltine.png": "/static/media/lamonde-chocomaltine.35955dde783b4ff82e90.png",
     "static/media/pp-lamonde.png": "/static/media/pp-lamonde.dc6f784fe8e20f6a47d7.png",
     "static/media/kayu.jpg": "/static/media/kayu.819c5f329542515d2cc1.jpg",
     "static/media/krinsa.png": "/static/media/krinsa.ba320f003f43e3392aa1.png",
@@ -20,11 +21,14 @@
     "static/media/pura.png": "/static/media/pura.2b787d8897ea161d50d3.png",
     "static/media/monetization.png": "/static/media/monetization.c6d2647a6cdb56ee6fd2.png",
     "index.html": "/index.html",
-    "main.3a3c6f24.css.map": "/static/css/main.3a3c6f24.css.map",
-    "main.4e98d09d.js.map": "/static/js/main.4e98d09d.js.map"
+    "main.2493444c.css.map": "/static/css/main.2493444c.css.map",
+    "main.90f4dee8.js.map": "/static/js/main.90f4dee8.js.map",
+    "239.87e98fa6.chunk.js.map": "/static/js/239.87e98fa6.chunk.js.map",
+    "213.702ed1f9.chunk.js.map": "/static/js/213.702ed1f9.chunk.js.map",
+    "732.53cdd393.chunk.js.map": "/static/js/732.53cdd393.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a3c6f24.css",
-    "static/js/main.4e98d09d.js"
+    "static/css/main.2493444c.css",
+    "static/js/main.90f4dee8.js"
   ]
 }
