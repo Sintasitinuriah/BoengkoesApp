@@ -8,6 +8,31 @@
 
   padding: 10px 24px;
 }
+.cart-icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-icon-container img {
+  width: 50px; /* Atur ukuran sesuai kebutuhan */
+  height: auto;
+}
+
+.cart-count {
+  position: absolute;
+  top: -1px; /* Sesuaikan posisi vertikal */
+  right: -2px; /* Sesuaikan posisi horizontal */
+  background-color: #f4c21b;
+  color: black;
+  border-radius: 50%;
+  padding: 5px 10px; /* Atur ukuran padding sesuai kebutuhan */
+  font-size: 12px; /* Sesuaikan ukuran font */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .logo img {
   height: 40px;

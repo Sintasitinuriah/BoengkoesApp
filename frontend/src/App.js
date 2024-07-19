@@ -58,6 +58,7 @@ import Services from "./pages/Services";
 import UpdateAddressPage from "./Components/UpdateAddressPage";
 import { AddressProvider } from "./Components/AddressContext";
 import { CartProvider } from "./contexts/cartContext";
+import StoreSaya from "./pages/tokoSaya";
 
 function App() {
   const isAuthenticated = false;
@@ -67,6 +68,7 @@ function App() {
       <CartProvider>
         <AddressProvider>
           <Routes>
+            <Route path="/storesaya/:userId" element={<StoreSaya />} />
             <Route path="/addproduct" element={<AddProduct />} />
             <Route path="/update-address" element={<UpdateAddressPage />} />
             <Route path="/services" element={<Services />} />
@@ -80,7 +82,7 @@ function App() {
             <Route path="/formhargaproduk" element={<FormHargaProduk />} />
             <Route path="/formnamaproduk" element={<FormNamaProduk />} />
             <Route path="/AddProduct" element={<AddProduct />} />
-            <Route path="/homeseller" element={<HomeSeller />} />
+            <Route path="/homeseller/:userid" element={<HomeSeller />} />
             <Route path="/ShippingPage" element={<Shipping />} />
             <Route path="/formnamaseller" element={<FormNamaSeller />} />
             <Route path="/profilepageseller/:userId" element={<ProfilePageSeller />} />

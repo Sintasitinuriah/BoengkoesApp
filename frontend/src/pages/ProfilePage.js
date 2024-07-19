@@ -216,11 +216,13 @@ const ProfilePage = () => {
               Keluar Akun
             </a>
           </div>
-          {isEditMode ? (
+          <ButtonSimpan text={"Simpan"} onClick={handleSaveClick}>Simpan</ButtonSimpan>
+          {/* {isEditMode ? (
             <ButtonSimpan text={"Simpan"} onClick={handleSaveClick}>Simpan</ButtonSimpan>
           ) : (
             <ButtonSimpan text={"Ubah"} onClick={handleEditClick} />
-          )}
+          )} */}
+
         </div>
       </div>
       <Footer />

@@ -1,0 +1,37 @@
+/* storedetail.css */
+
+/* Basic styles for the page */
+.store-detail-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .store-not-found {
+    padding: 100px 25% 25% 100px;
+  }
+  
+  .store-not-found h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .store-not-found p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* Ensure footer is always at the bottom */
+  footer {
+    margin-bottom: auto;
+  }
+  

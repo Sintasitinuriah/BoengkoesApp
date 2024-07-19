@@ -6,7 +6,7 @@ const ButtonKeranjang = ({ product }) => {
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    console.log("Product before adding to cart:", product); // Tambahkan log ini untuk memverifikasi objek produk
+    console.log("Product before adding to cart:", product); 
     const quantity = 1;
     addToCart(product, quantity);
     alert(`${product.name} berhasil ditambahkan ke keranjang.`);

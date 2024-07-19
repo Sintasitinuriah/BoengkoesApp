@@ -90,7 +90,7 @@ const NavbarSearching = () => {
       </div>
 
       <div className="container-searchbar">
-      <div className="cart-icon-container">
+        <div className="cart-icon-container">
           <img src={Bag} alt="bag" onClick={handleCartClick} />
           {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
         </div>

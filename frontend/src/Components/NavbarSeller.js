@@ -10,17 +10,17 @@ import { useNavigate } from "react-router-dom";
 
 const NavbarSeller = () => {
   const navigate = useNavigate();
-  const handleProfileClick = () => {
-    const userId = localStorage.getItem("userId"); // Mengambil userId dari localStorage
+  const userId = localStorage.getItem("userId");
+  const handleProfileClick = () => { // Mengambil userId dari localStorage
     if (userId) {
-      navigate(`/profilepage/${userId}`);
+      navigate(`/profilepageseller/${userId}`);
     } else {
       // Penanganan jika userId tidak ditemukan
       console.error("User ID not found");
     }
   };
   const handleCartClick = () => {
-    navigate("/cart");
+    navigate(`/cart/${userId}`);
   };
   return (
     <div className="container-navbar-seller">
@@ -29,7 +29,7 @@ const NavbarSeller = () => {
       </div>
 
       <div className="container-searchbar-seller">
-        <img src={Bag} alt="bag" onClick={handleCartClick} />
+        {/* <img src={Bag} alt="bag" onClick={handleCartClick} /> */}
         <img src={Profile} alt="profile" onClick={handleProfileClick} />
         <Searchbar></Searchbar>
         <NavigasiSeller></NavigasiSeller>

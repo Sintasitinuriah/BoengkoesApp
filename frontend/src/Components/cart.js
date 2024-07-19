@@ -77,7 +77,7 @@ const Cart = () => {
   
     try {
       // Upload the PDF to your backend API
-      const response = await axios.post('https://boengkosapps-039320043b7f.herokuapp.com/upload', formData, {
+      const response = await axios.post('http://localhost:5000/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

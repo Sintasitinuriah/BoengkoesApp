@@ -9,9 +9,11 @@ const HomeSeller = () => {
   return (
     <div className="home-seller-page">
       <NavbarSeller></NavbarSeller>
+      <div className="title"> 
+        <h2 className="label-produk-saya">Produk Saya</h2>
+      </div>
       <div className="container-besar-home-seller">
         <div className="container-kiri-home-seller">
-          <h2 className="label-produk-saya">Produk Saya</h2>
           <ProductSeller></ProductSeller>
         </div>
 

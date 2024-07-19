@@ -257,7 +257,7 @@
 // export default ProfilePageSeller;
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from 'react-router-dom';
 import toastr from "toastr";
 import "../profilepageseller.css";
 import "alertifyjs/build/css/alertify.css";
@@ -286,7 +286,72 @@ const ProfilePageSeller = () => {
   const [selectedProvince, setSelectedProvince] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState("");
+  const { userId } = useParams();
+  const [profileData, setProfileData] = useState(null);
+  const [error, setError] = useState(null);
+  const [isEditMode, setIsEditMode] = useState(false);
   const navigate = useNavigate();
+
+  //inisiasi Data Penjual
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const token = localStorage.getItem('token');
+      console.log("Token retrieved:", token); // Debug: Print token
+
+      if (!token) {
+        setError("Token not found");
+        return;
+      }
+
+      try {
+        const response = await axios.get(`https://boengkosapps-039320043b7f.herokuapp.com/api/user/${userId}`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        });
+        console.log("User data:", response.data); // Debug: Print user data
+        setProfileData(response.data);
+      } catch (error) {
+        console.error("Error:", error);
+        if (error.response) {
+          if (error.response.status === 401) {
+            setError('Unauthorized: Invalid token or session expired');
+          } else {
+            setError(`Error: ${error.response.status} - ${error.response.data.message || error.message}`);
+          }
+        } else if (error.request) {
+          setError('Error: No response received from server');
+        } else {
+          setError(`Error: ${error.message}`);
+        }
+      }
+    };
+
+    fetchProfile(); // Call the async function
+  }, [userId]);
+
+  useEffect(() => {
+    if (profileData) {
+      if (profileData.data.rule === 0) {
+        navigate(`/profilepage/${userId}`);
+      }
+    }
+  }, [profileData, navigate]);
+
+  const handleRoleChange = (event) => {
+    setProfileData({
+      ...profileData,
+      data: {
+        ...profileData.data,
+        rule: parseInt(event.target.value, 10)
+      }
+    });
+  };
+
+  const handleEditClick = () => {
+    setIsEditMode(true);
+  };
 
   const handleLogout = (event) => {
     event.preventDefault(); // Mencegah perilaku default <a> tag
@@ -415,7 +480,13 @@ const ProfilePageSeller = () => {
 
           <div className="container-role-seller">
             <h3 className="label-role">Role</h3>
-            <RadioButton />
+            {profileData && (
+              <RadioButton
+                role={profileData.data.rule}
+                handleChange={handleRoleChange}
+                disabled={!isEditMode}
+              />
+            )}
           </div>
         </div>
 

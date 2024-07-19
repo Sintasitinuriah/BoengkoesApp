@@ -1,15 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import NavbarSearching from "../Components/NavbarSearching";
 import HeaderToko from "../Components/HeaderToko";
 import Category from "../Components/Category";
 import CardProduk from "../Components/CardProduk";
 import Footer from "../Components/Footer";
-import "../storedetail.css";
+import "../tokosaya.css";
 
-const StoreDetail = () => {
+const StoreSaya = () => {
   const { storeId } = useParams();
+
+  if (!storeId) {
+    return (
+      <div className="store-detail-page">
+        <NavbarSearching />
+        <div className="store-not-found">
+            <h1>Toko belum tersedia</h1>
+            <p>Maaf, toko yang Anda cari belum dibuat atau tidak tersedia.</p>
+          </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="store-detail-page">
@@ -37,4 +49,4 @@ const StoreDetail = () => {
   );
 };
 
-export default StoreDetail;
+export default StoreSaya;
